@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "outDir": "dist",
+    "strict": true
+  },
+  "exclude": ["node_modules", "./*.ts", "./*.mts", "__tests__"]
+}
