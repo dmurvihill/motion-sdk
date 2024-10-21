@@ -9,17 +9,17 @@ on:
       - main
 
 jobs:
-  CI:
-    runs-on: ubuntu-latest
 
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: 'package.json'
-          check-latest: true
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
-      - run: npm ci
+      - uses: ./.github/actions/set-up-ci
       - run: npm test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/set-up-ci
       - run: npm run build
