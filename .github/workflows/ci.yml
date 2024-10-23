@@ -10,6 +10,13 @@ on:
 
 jobs:
 
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/set-up-ci
+      - run: npm run lint -- --max-warnings 0
+
   test:
     runs-on: ubuntu-latest
     steps:
