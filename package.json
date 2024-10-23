@@ -5,18 +5,25 @@
   "description": "TypeScript SDK for usemotion.com API",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
-    "test": "node --experimental-vm-modules node_modules/.bin/jest"
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "lint": "eslint"
   },
   "author": "Dolan Murvihill",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-env": "^7.25.9",
+    "@eslint/js": "^9.13.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.13",
+    "eslint": "^9.13.0",
+    "eslint-plugin-jest": "^28.8.3",
+    "globals": "^15.11.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.10.0"
   },
   "engines": {
     "npm": "^10.8.0",
