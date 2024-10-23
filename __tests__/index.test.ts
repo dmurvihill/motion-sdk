@@ -1,4 +1,4 @@
-import { hello } from "../src";
+import { hello } from "../src/index.ts";
 
 describe('Index', () => {
   it('should return hello', () => {

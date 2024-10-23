@@ -3,8 +3,9 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "dist",
-    "strict": true
+    "noEmit": true,
+    "strict": true,
+    "declaration": true,
   },
-  "exclude": ["node_modules", "./*.ts", "./*.mts", "__tests__"]
+  "exclude": ["node_modules", "dist"]
 }
