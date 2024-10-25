@@ -1,0 +1,11 @@
+HTTP/2 200
+date: Fri, 25 Oct 2024 08:28:44 GMT
+content-type: application/json; charset=utf-8
+vary: Accept-Encoding
+etag: W/"5d-oCDfgJLAC5PobHqSooGaN+jy/w4"
+strict-transport-security: max-age=15724800; includeSubDomains
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8d80d5b7fccb7669-SEA
+
+{"id":"<redacted user ID>","name":"<redacted username>","email":"<redacted email>"}
