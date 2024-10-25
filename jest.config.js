@@ -14,6 +14,7 @@ export default {
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
+  setupFiles: ["./jest.setup.ts"],
   collectCoverage: true,
   coverageThreshold: {
     global: {
