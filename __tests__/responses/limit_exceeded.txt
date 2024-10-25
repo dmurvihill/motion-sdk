@@ -1,0 +1,12 @@
+HTTP/2 429 
+date: Fri, 25 Oct 2024 08:28:47 GMT
+content-type: application/json; charset=utf-8
+content-length: 74
+retry-after: 60
+etag: W/"4a-wOXqW18o/b+0eS0wIOTxCjRPTRw"
+strict-transport-security: max-age=15724800; includeSubDomains
+cf-cache-status: DYNAMIC
+server: cloudflare
+cf-ray: 8d80d5c94be2ba2e-SEA
+
+{"message":"Rate limit exceeded. Consult docs for rate limit information"}
