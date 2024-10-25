@@ -14,7 +14,7 @@ const maxSupportedPeriod_s = 60 * 60 * 24; // about a day
 const maxSupportedLimit = 1000;
 const maxSupportedQueueLength = 1000;
 
-describe("QueuedRateLimiter", () => {
+describe("limitWith", () => {
   const supportedParamRanges: RateLimiterParamConstraints = {
     period_s: { min: 2, max: maxSupportedPeriod_s, noDefaultInfinity: true },
     maxQueueLength: { min: 1 },
