@@ -8,5 +8,5 @@
     "declaration": true,
     "allowImportingTsExtensions": true
   },
-  "exclude": ["node_modules", "dist", "coverage"]
+  "exclude": ["dist", "coverage"]
 }
