@@ -11,8 +11,10 @@ import {
   FetchError,
   QueueOverflowError,
   UnsafeFetchError,
-  UnsafeFetchIndividualError,
+  UnsafeFetchIndividualError
 } from "./error.js";
+
+const motionMockApi = "https://stoplight.io/mocks/motion/motion-rest-api/33447";
 
 export class Motion {
   readonly userId: string;
@@ -33,7 +35,7 @@ export class Motion {
     this.requestLimiterKey = `user_${this.userId}:requests`;
     this.overrunLimiterKey = `user_${this.userId}:overruns`;
     this.requestQueue = new RateLimiterQueue(this.requestLimiter, {
-      maxQueueSize: opts.maxQueueSize ?? defaultQueueSize,
+      maxQueueSize: opts.maxQueueSize ?? defaultQueueSize
     });
   }
 
@@ -48,8 +50,15 @@ export class Motion {
    */
   async unsafe_fetch(
     input: string | URL | globalThis.Request,
-    init?: RequestInit,
+    init?: RequestInit
   ): Promise<Response | UnsafeFetchError> {
+    if (typeof input === "string") {
+      input = `${motionMockApi}/${input}`;
+    }
+    if (init === undefined) {
+      init = {};
+    }
+    init.headers = this.setHeaders(init.headers);
     let response: Response | FetchError;
     try {
       response = await fetch(input, init);
@@ -65,7 +74,7 @@ export class Motion {
 
   async fetch(
     input: string | URL | globalThis.Request,
-    init?: RequestInit,
+    init?: RequestInit
   ): Promise<Response | MotionFetchError> {
     try {
       await this.requestQueue.removeTokens(1, this.requestLimiterKey);
@@ -79,7 +88,7 @@ export class Motion {
         return new QueueOverflowError(
           this.requestQueue,
           e,
-          this.requestLimiterKey,
+          this.requestLimiterKey
         );
       } else {
         return new LimiterError(this.requestLimiter, e, this.requestLimiterKey);
@@ -87,16 +96,16 @@ export class Motion {
     }
     return this.closedReason !== null
       ? Promise.resolve({
-          errorType: closedErrorType,
-          closedReason: this.closedReason.reason,
-          message: `This client is closed. Reason: ${this.closedReason.reason}`,
-          cause: this.closedReason.cause,
-        })
+        errorType: closedErrorType,
+        closedReason: this.closedReason.reason,
+        message: `This client is closed. Reason: ${this.closedReason.reason}`,
+        cause: this.closedReason.cause
+      })
       : this.unsafe_fetch(input, init);
   }
 
   private async handleLimitExceeded(
-    response: Response,
+    response: Response
   ): Promise<UnsafeFetchError> {
     const errors: UnsafeFetchIndividualError[] = [];
     const e = new LimitExceededError(response);
@@ -106,7 +115,7 @@ export class Motion {
       await this.overrunLimiter.penalty(this.overrunLimiterKey, 1);
     } catch (e) {
       errors.push(
-        new LimiterError(this.overrunLimiter, e, this.overrunLimiterKey),
+        new LimiterError(this.overrunLimiter, e, this.overrunLimiterKey)
       );
     }
     return bundleErrors(errors);
@@ -115,8 +124,30 @@ export class Motion {
   private close(cause: LimitExceededError) {
     this.closedReason = {
       reason: limitExceededErrorType,
-      cause,
+      cause
     };
+  }
+
+  private setHeaders(headers?: HeadersInit): HeadersInit {
+    const headersToSet = {
+      "X-API-Key": this.apiKey,
+      Accept: "application/json"
+    };
+    if (headers === undefined) {
+      headers = {};
+    }
+    if ("set" in headers) {
+      Object.entries(headersToSet).forEach(([k, v]) => {
+        (headers as Headers).set(k, v);
+      });
+    } else if ("length" in headers) {
+      Object.entries(headersToSet).forEach(([k, v]) =>
+        (headers as [string, string][]).push([k, v])
+      );
+    } else {
+      Object.assign(headers, headersToSet);
+    }
+    return headers;
   }
 }
 
@@ -140,25 +171,25 @@ export const motionRateLimits = {
   // Exceeding 12 requests in a minute results in a 1 hr. lockout
   requests: {
     points: 12,
-    duration: 60,
+    duration: 60
   },
 
   // Exceeding 12/min three times in a day results in a permanent lockout.
   // Don't make Harry sad!
   overruns: {
     points: 3,
-    duration: 60 * 60 * 24,
-  },
+    duration: 60 * 60 * 24
+  }
 };
 
 export const recommendedRateLimits = {
   requests: {
     points: motionRateLimits.requests.points - 1,
-    duration: motionRateLimits.requests.duration,
+    duration: motionRateLimits.requests.duration
   },
 
   overruns: {
     points: 1,
-    duration: motionRateLimits.overruns.duration,
-  },
+    duration: motionRateLimits.overruns.duration
+  }
 };
