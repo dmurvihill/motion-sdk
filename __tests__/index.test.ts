@@ -15,9 +15,26 @@ const limitExceededError = {
   message: "Rate limit exceeded. Consult docs for rate limit information",
 };
 
-const mockPath = "https://example.com/some_path";
+const baseUrl = "https://stoplight.io/mocks/motion/motion-rest-api/33447";
+const mockPath = "/some_path";
 
 describe("Motion", () => {
+  describe("Get My User", () => {
+    it("should return the user", async () => {
+      const motion = inMemoryTestClient();
+      const response = expectResponse(await motion.fetch("users/me"));
+      expect(await response.json()).toEqual(
+        expect.objectContaining({
+          email: expect.stringMatching(/.*/), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+          id: expect.stringMatching(/.*/), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+          name: expect.stringMatching(/.*/), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
+        }),
+      );
+    });
+  });
+});
+
+describe("Motion rate limit enforcement", () => {
   beforeAll(() => {
     fetchMock.mockGlobal();
   });
@@ -34,7 +51,7 @@ describe("Motion", () => {
   describe("fetch", () => {
     it("should pass through to Motion", async () => {
       const motion = inMemoryTestClient();
-      fetchMock.get(mockPath, 204);
+      fetchMock.get(`${baseUrl}/${mockPath}`, 204);
       const response = expectResponse(await motion.fetch(mockPath));
       expect(response.status).toEqual(204);
     });
@@ -94,7 +111,7 @@ describe("Motion", () => {
         overrunLimiter: new RateLimiterMemory(recommendedRateLimits.overruns),
         maxQueueSize: 1,
       });
-      fetchMock.get(mockPath, 204);
+      fetchMock.get(`${baseUrl}/${mockPath}`, 204);
       await Promise.all([
         motion.fetch(mockPath),
         motion.fetch(mockPath),
@@ -108,7 +125,7 @@ describe("Motion", () => {
   describe("unsafe_fetch", () => {
     it("should call Motion and return the response", async () => {
       const motion = inMemoryTestClient();
-      fetchMock.get(mockPath, 204);
+      fetchMock.get(`${baseUrl}/${mockPath}`, 204);
       const response = expectResponse(await motion.unsafe_fetch(mockPath));
       expect(response.status).toEqual(204);
     });
@@ -122,14 +139,14 @@ describe("Motion", () => {
 
     it("should return a limit exceeded error on getting limit_exceeded from Motion", async () => {
       const motion = inMemoryTestClient();
-      fetchMock.get(mockPath, limitExceeded());
+      fetchMock.get(`${baseUrl}/${mockPath}`, limitExceeded());
       const response = await motion.unsafe_fetch(mockPath);
       expectMotionError(response, limitExceededErrorType);
     });
 
     it("should close the client on getting limit_exceeded from Motion", async () => {
       const motion = inMemoryTestClient();
-      fetchMock.get(mockPath, limitExceeded());
+      fetchMock.get(`${baseUrl}/${mockPath}`, limitExceeded());
       await motion.unsafe_fetch(mockPath);
       fetchMock.clearHistory();
       const result = await motion.fetch(mockPath);
@@ -139,7 +156,7 @@ describe("Motion", () => {
 
     it("should force-consume an overrun token on getting limit_exceeded from motion", async () => {
       const motion = inMemoryTestClient();
-      fetchMock.get(mockPath, limitExceeded());
+      fetchMock.get(`${baseUrl}/${mockPath}`, limitExceeded());
       const before =
         (await motion.overrunLimiter.get(motion.overrunLimiterKey))
           ?.consumedPoints ?? 0;
@@ -161,7 +178,7 @@ describe("Motion", () => {
         overrunLimiter,
       });
       const e = new Error();
-      fetchMock.get(mockPath, limitExceeded());
+      fetchMock.get(`${baseUrl}/${mockPath}`, limitExceeded());
       const penalty = jest
         .spyOn(RateLimiterMemory.prototype, "penalty")
         .mockRejectedValue(e);
@@ -186,7 +203,7 @@ describe("Motion", () => {
         requestLimiter: new RateLimiterMemory(recommendedRateLimits.requests),
         overrunLimiter: limiter,
       });
-      fetchMock.get(mockPath, limitExceeded());
+      fetchMock.get(`${baseUrl}/${mockPath}`, limitExceeded());
       const penalty = jest
         .spyOn(limiter, "penalty")
         .mockRejectedValue(new Error("Some error"));
@@ -212,31 +229,31 @@ describe("Motion", () => {
       };
     }
   });
-
-  function expectResponse(r: Response | MotionError): Response {
-    expect(r).not.toMatchObject({
-      /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
-      errorType: expect.anything(),
-    });
-    if ("errorType" in r) {
-      throw new Error("Shouldn't have got here");
-    } else {
-      return r;
-    }
-  }
-
-  function expectMotionError(o: object, errorType: string) {
-    if (isMotionError(o)) {
-      if (isMultiError(o)) {
-        expect(o.errors).toContainEqual(expect.objectContaining({ errorType }));
-      } else {
-        expect(o.errorType).toEqual(errorType);
-      }
-    } else {
-      expect("errorType" in o).toBe(true);
-    }
-  }
 });
+
+function expectResponse(r: Response | MotionError): Response {
+  expect(r).not.toMatchObject({
+    /* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */
+    errorType: expect.anything(),
+  });
+  if ("errorType" in r) {
+    throw new Error("Shouldn't have got here");
+  } else {
+    return r;
+  }
+}
+
+function expectMotionError(o: object, errorType: string) {
+  if (isMotionError(o)) {
+    if (isMultiError(o)) {
+      expect(o.errors).toContainEqual(expect.objectContaining({ errorType }));
+    } else {
+      expect(o.errorType).toEqual(errorType);
+    }
+  } else {
+    expect("errorType" in o).toBe(true);
+  }
+}
 
 function inMemoryTestClient() {
   return new Motion({
