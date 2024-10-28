@@ -2,12 +2,20 @@ terraform {
   required_providers {
     rediscloud = {
       source = "RedisLabs/rediscloud"
-      version = "1.9.0"
+      version = "~> 1.9.0"
+    }
+
+    random = {
+      source = "hashicorp/random"
+      version = "~> 3.6.3"
     }
   }
 }
 
 provider "rediscloud" {
+}
+
+provider "random" {
 }
 
 data "rediscloud_essentials_plan" "redis" {
@@ -28,8 +36,5 @@ resource "rediscloud_essentials_database" "redis" {
   data_persistence = "none"
   replication = false
   enable_tls = true
-
-  lifecycle {
-    ignore_changes = [ password ]
-  }
+  enable_default_user = false
 }
