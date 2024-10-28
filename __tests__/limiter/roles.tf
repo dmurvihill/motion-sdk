@@ -1,6 +1,10 @@
+locals {
+  base_url = "https//api.usemotion.com/v1"
+  mock_base_url = "https//stoplight.io/mocks/motion/motion-rest-api/33447"
+}
 resource "rediscloud_acl_rule" "test_runner" {
   name = "test-runner"
-  rule = "+@read +@write ~motion-sdk-tests:*"
+  rule = "+@read +@write +@transaction +eval +evalsha ~limiter:${local.base_url}:* ~limiter:${local.mock_base_url}:* ~limiter:limiter-tests:*"
 }
 
 locals {

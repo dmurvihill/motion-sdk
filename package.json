@@ -7,6 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/.bin/jest",
+    "test:live": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
     "lint": "eslint"
   },
