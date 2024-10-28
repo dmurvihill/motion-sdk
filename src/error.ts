@@ -29,11 +29,15 @@ export class FetchError extends Error implements MotionError {
   }
 }
 
-export interface ClosedError extends MotionError {
-  errorType: typeof closedErrorType;
-  closedReason: typeof limitExceededErrorType;
-  message: string;
-  cause?: LimitExceededError;
+export class ClosedError extends Error implements MotionError {
+  readonly errorType: typeof closedErrorType = closedErrorType;
+
+  constructor(
+    readonly reason: string,
+    readonly cause?: LimitExceededError,
+  ) {
+    super(`Client is already closed. Closure reason: ${reason}`);
+  }
 }
 
 export class LimitExceededError extends Error implements MotionError {
@@ -80,8 +84,8 @@ export class QueueOverflowError extends Error implements MotionError {
 }
 
 export interface ClosedReason {
-  reason: typeof limitExceededErrorType;
-  cause: LimitExceededError;
+  reason: string;
+  cause?: LimitExceededError;
 }
 
 const limitExceededMessage =
@@ -94,20 +98,33 @@ export function bundleErrors<T extends MotionError>(
   return errors.length > 1 ? new MultiError(errors) : errors[0];
 }
 
-export function isMotionError(o: object): o is MotionError {
-  return "errorType" in o;
+export function isMotionError(o: unknown): o is MotionError {
+  return isObject(o) && "errorType" in o;
 }
 
-export function isFetchError(o: object): o is FetchError {
+export function isFetchError(o: unknown): o is FetchError {
   return isMotionError(o) && o.errorType === fetchErrorType;
 }
 
-export function isMultiError(o: object): o is MultiError<MotionError> {
+export function isMultiError(o: unknown): o is MultiError<MotionError> {
   return isMotionError(o) && o.errorType === multiErrorType;
 }
 
-export function isRateLimiterQueueError(o: object): o is RateLimiterQueueError {
-  return "message" in o && typeof o.message === "string";
+const queueOverflowRegex = /number of requests reached it'?s maximum/;
+
+export function isLimiterErrAboutAQueueOverflow(
+  o: unknown,
+): o is RateLimiterQueueError {
+  return (
+    isObject(o) &&
+    "message" in o &&
+    typeof o.message === "string" &&
+    queueOverflowRegex.test(o.message.toLowerCase())
+  );
+}
+
+function isObject(o: unknown): o is object {
+  return o !== null && typeof o === "object";
 }
 
 function messageFromCause(cause: unknown) {

@@ -18,16 +18,20 @@ jobs:
       - run: npm run lint -- --max-warnings 0
 
   test:
+    env:
+      REDIS_HOST: ${{ secrets.REDIS_HOST }}
+      REDIS_PORT: ${{ secrets.REDIS_PORT }}
+      REDIS_USER: ${{ secrets.REDIS_USER }}
+      REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+      MOTION_USER_ID: ${{ secrets.MOTION_USER_ID }}
+      MOTION_API_KEY: ${{ secrets.MOTION_API_KEY }}
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
       - run: npm test
-        env:
-          REDIS_HOST: ${{ secrets.REDIS_HOST }}
-          REDIS_PORT: ${{ secrets.REDIS_PORT }}
-          REDIS_USER: ${{ secrets.REDIS_USER }}
-          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+      - run: npm run test:live
 
   build:
     runs-on: ubuntu-latest

@@ -8,7 +8,8 @@ import {
   RateLimiterRedis,
 } from "rate-limiter-flexible";
 import { Redis } from "ioredis";
-import { redisConfigFromEnvironment } from "./ioredis.test.js";
+
+import { redisConfigFromEnvironment } from "./util/fixtures.js";
 
 const maxSupportedPeriod_s = 60 * 60 * 24; // about a day
 const maxSupportedLimit = 1000;
@@ -113,42 +114,50 @@ describe("limitWith", () => {
 });
 
 describe("Overrun limiter", () => {
-  const overrunLimiterTestKey = "overrun_limiter_test";
+  const keyPrefix = `limiter:limiter-tests:overrun-limiter`;
   let redis: Redis;
 
   beforeAll(() => {
-    redis = new Redis(
-      redisConfigFromEnvironment("motion-sdk-tests:overrun-limiter"),
-    );
+    redis = new Redis(redisConfigFromEnvironment());
   });
 
   afterAll(async () => {
     if (redis.status !== "close" && redis.status !== "end") {
-      await redis.del(overrunLimiterTestKey);
+      await redis.del(`${keyPrefix}:*`);
       redis.disconnect();
     }
   });
 
   it("should enforce with Redis", async () => {
-    const duration_s = 1;
+    const testKey = "should-enforce-with-redis";
+    const duration_s = 2;
     const limiter = new RateLimiterRedis({
       storeClient: redis,
       points: 2,
       duration: duration_s,
+      keyPrefix,
     });
-    await expect(
-      limiter.consume(overrunLimiterTestKey, 1),
-    ).resolves.toBeDefined();
-    await expect(
-      limiter.consume(overrunLimiterTestKey, 1),
-    ).resolves.toBeDefined();
-    await expect(
-      limiter.consume(overrunLimiterTestKey, 1),
-    ).rejects.toBeDefined();
+    await expect(limiter.consume(testKey, 1)).resolves.toBeDefined();
+    await expect(limiter.consume(testKey, 1)).resolves.toBeDefined();
+    await expect(limiter.consume(testKey, 1)).rejects.toBeDefined();
     await delay(duration_s * 1000 + 100);
-    await expect(
-      limiter.consume(overrunLimiterTestKey, 1),
-    ).resolves.toBeDefined();
+    await expect(limiter.consume(testKey, 1)).resolves.toBeDefined();
+  });
+
+  it('should work with "get"', async () => {
+    const limiter = new RateLimiterRedis({
+      storeClient: redis,
+      points: 2,
+      duration: 2,
+      keyPrefix,
+    });
+    const testKey = "should-work-with-get";
+    await limiter.consume(testKey, 1);
+    expect(await limiter.get(testKey)).toEqual(
+      expect.objectContaining({
+        consumedPoints: 1,
+      }),
+    );
   });
 });
 
