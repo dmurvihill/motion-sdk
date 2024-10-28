@@ -1,11 +1,14 @@
-import { Redis, RedisOptions } from "ioredis";
+import { Redis } from "ioredis";
 import { it } from "@fast-check/jest";
+import { redisConfigFromEnvironment } from "./util/fixtures.js";
 
 describe("ioredis", () => {
   let redis: Redis;
 
   beforeAll(() => {
-    redis = new Redis(redisConfigFromEnvironment("motion-sdk-tests:ioredis:"));
+    redis = new Redis(
+      redisConfigFromEnvironment("limiter:limiter-tests:ioredis"),
+    );
   });
 
   afterAll(() => {
@@ -27,20 +30,3 @@ describe("ioredis", () => {
     await expect(redis.del("no-such-key")).resolves.toBeDefined();
   });
 });
-
-export function redisConfigFromEnvironment(keyPrefix?: string): RedisOptions {
-  const username = process.env.REDIS_USER ?? "no-username";
-  keyPrefix = keyPrefix ?? `motion-sdk-tests:redis-user:${username}`;
-  return {
-    host: process.env.REDIS_HOST,
-    port:
-      process.env.REDIS_PORT !== undefined
-        ? parseInt(process.env.REDIS_PORT, 10)
-        : undefined,
-    username,
-    password: process.env.REDIS_PASSWORD,
-    connectTimeout: 2000, // ms
-    enableReadyCheck: false,
-    keyPrefix,
-  };
-}

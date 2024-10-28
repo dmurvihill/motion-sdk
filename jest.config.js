@@ -1,6 +1,6 @@
 // @ts-check
 
-/** @type {import('jest').Config} */
+/** @type {import("jest").Config} */
 export default {
   transform: {
     "^.+\\.ts?$": [
@@ -15,7 +15,13 @@ export default {
     "^(\\.{1,2}/.*)\\.js$": "$1",
   },
   setupFiles: ["dotenv/config", "./jest.setup.ts"],
+  testPathIgnorePatterns: [
+    "__tests__/util/",
+    "__tests__/limiter/",
+    "__tests__/responses/",
+  ],
   collectCoverage: true,
+  collectCoverageFrom: ["src/**"],
   coverageThreshold: {
     global: {
       branches: 100,
