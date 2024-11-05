@@ -10,6 +10,7 @@ import {
 import { Redis } from "ioredis";
 
 import { redisConfigFromEnvironment } from "./util/fixtures.js";
+import { delay } from "./util/timers.js";
 
 const maxSupportedPeriod_s = 60 * 60 * 24; // about a day
 const maxSupportedLimit = 1000;
@@ -83,7 +84,7 @@ describe("limitWith", () => {
     },
   );
 
-  it("should work with real timers", async () => {
+  it("should work with real timers.ts", async () => {
     const promises = [];
     const f = jest.fn<() => Promise<void>>().mockResolvedValue(undefined);
     const params = {
@@ -160,10 +161,6 @@ describe("Overrun limiter", () => {
     );
   });
 });
-
-function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 
 interface RateLimiterParams {
   readonly limit: number;
