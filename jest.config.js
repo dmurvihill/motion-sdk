@@ -19,6 +19,7 @@ export default {
     "__tests__/util/",
     "__tests__/limiter/",
     "__tests__/responses/",
+    "__tests__/motion-rate-limits.test.ts",
   ],
   collectCoverage: true,
   collectCoverageFrom: ["src/**"],
