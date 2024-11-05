@@ -1,7 +1,9 @@
-import { Motion, recommendedRateLimits } from "../src/index.js";
-import { RateLimiterRedis } from "rate-limiter-flexible";
-import { closedErrorType, motionMockBaseUrl } from "../src/constant.js";
-import { redisConfigFromEnvironment } from "./util/fixtures.js";
+import { Motion } from "../src/index.js";
+import { closedErrorType } from "../src/constant.js";
+import {
+  motionClientFromEnvironment,
+  redisConfigFromEnvironment,
+} from "./util/fixtures.js";
 import { Redis } from "ioredis";
 import { expectMotionError, expectResponse } from "./util/assertions.js";
 
@@ -10,7 +12,7 @@ describe("Motion", () => {
   const redis = new Redis(redisConfigFromEnvironment());
 
   beforeAll(async () => {
-    motion = await motionClientFromEnvironment();
+    motion = await motionClientFromEnvironment(redis);
   });
 
   afterAll(async () => {
@@ -64,7 +66,7 @@ describe("Motion", () => {
     let motionForCloseTests: Motion;
 
     beforeEach(async () => {
-      motionForCloseTests = await motionClientFromEnvironment();
+      motionForCloseTests = await motionClientFromEnvironment(redis);
     });
 
     afterEach(() => {
@@ -99,52 +101,4 @@ describe("Motion", () => {
       return motionForCloseTests.close(`testing "${testName}"`);
     }
   });
-
-  /* Don't share this one in the util folder; too dangerous */
-  async function motionClientFromEnvironment(): Promise<Motion> {
-    const baseUrl = process.env.MOTION_TEST_TARGET ?? motionMockBaseUrl;
-    const keyPrefix = `limiter:${baseUrl.replace(/:/g, "")}`;
-    const requestLimiter = new RateLimiterRedis({
-      storeClient: redis,
-      keyPrefix,
-      ...recommendedRateLimits.requests,
-    });
-    const overrunLimiter = new RateLimiterRedis({
-      storeClient: redis,
-      keyPrefix,
-      ...recommendedRateLimits.overruns,
-    });
-    const apiKey = process.env.MOTION_API_KEY ?? "";
-    const userId = process.env.MOTION_USER_ID ?? "";
-    const motion = new Motion({
-      baseUrl,
-      apiKey,
-      userId,
-      requestLimiter,
-      overrunLimiter,
-    });
-    if (apiKey === "") {
-      motion.close(
-        "API key not set; set the MOTION_API_KEY environment variable",
-      );
-    } else if (userId === "") {
-      motion.close(
-        "User ID not set; set the MOTION_USER_ID environment variable",
-      );
-    } else {
-      const limiterCheck = overrunLimiter
-        .get(motion.overrunLimiterKey)
-        .catch((e: unknown) => {
-          motion.close("Unable to get overrun limiter status at start of test");
-          console.error(e);
-          throw e;
-        });
-      const overrunsToday = (await limiterCheck)?.consumedPoints ?? 0;
-      if (overrunsToday > 0) {
-        motion.close("Already had an overrun today; refusing to start");
-      }
-    }
-
-    return motion;
-  }
 });
