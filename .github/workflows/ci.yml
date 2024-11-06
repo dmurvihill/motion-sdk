@@ -18,6 +18,12 @@ jobs:
       - run: npm run lint -- --max-warnings 0
 
   test:
+    concurrency: "targets-the-motion-api"
+    strategy:
+      max-parallel: 1
+      matrix:
+        node-version: [20, 22, 23]
+
     env:
       REDIS_HOST: ${{ secrets.REDIS_HOST }}
       REDIS_PORT: ${{ secrets.REDIS_PORT }}
@@ -30,8 +36,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
+        with:
+          node-version: ${{ matrix.node-version }}
       - run: npm test
       - run: npm run test:live
+      - run: sleep 60
 
   build:
     runs-on: ubuntu-latest
