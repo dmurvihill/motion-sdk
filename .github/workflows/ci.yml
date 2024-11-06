@@ -22,7 +22,7 @@ jobs:
     strategy:
       max-parallel: 1
       matrix:
-        node-version: [20, 22, 23]
+        node-version: [18.18.0, 20, 22, 23]
 
     env:
       REDIS_HOST: ${{ secrets.REDIS_HOST }}
@@ -38,8 +38,19 @@ jobs:
       - uses: ./.github/actions/set-up-ci
         with:
           node-version: ${{ matrix.node-version }}
+
+      # Node 20+
       - run: npm test
+        if: ${{ matrix.node-version != '18.18.0' }}
       - run: npm run test:live
+        if: ${{ matrix.node-version != '18.18.0' }}
+
+        # Node 18
+      - run: npm run test:node18
+        if: ${{ matrix.node-version == '18.18.0' }}
+      - run: npm run test:live:node18
+        if: ${{ matrix.node-version == '18.18.0' }}
+
       - run: sleep 60
 
   build:

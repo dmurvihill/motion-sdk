@@ -8,6 +8,8 @@
     "build": "tsc -p tsconfig.build.json",
     "test": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/.bin/jest",
     "test:live": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/.bin/jest",
+    "test:node18": "node --experimental-vm-modules node_modules/.bin/jest",
+    "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
     "lint": "eslint"
   },
@@ -37,7 +39,7 @@
     "rate-limiter-flexible": "^5.0.4"
   },
   "engines": {
-    "npm": "^10.7.0",
-    "node": "^20 || ^22 || ^23"
+    "npm": "^8.6.0 || ^9 || ^10",
+    "node": "^18.18 || ^20 || ^22 || ^23"
   }
 }
