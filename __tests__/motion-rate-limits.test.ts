@@ -89,7 +89,9 @@ describe("Hardcoded rate limits", () => {
       await expect(client.unsafe_fetch(testUrl)).resolves.toMatchObject({
         ok: true,
       });
-      // await expect(client.unsafe_fetch(testUrl)).resolves.toBeInstanceOf(LimitExceededError);
+      await expect(client.unsafe_fetch(testUrl)).resolves.toBeInstanceOf(
+        LimitExceededError,
+      );
       if (client instanceof Motion && client.baseUrl === motionBaseUrl) {
         await redis.set(lastSuccessfulTestKey, new Date().toISOString());
       }

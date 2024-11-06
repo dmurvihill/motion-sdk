@@ -1,9 +1,6 @@
 name: Check Rate Limits
 
 on:
-  push:
-    branches:
-      - test-the-rate-limits
   schedule:
     # Mondays 10:00 UTC / 02:00 PST / 03:00 PDT
     - cron: "23 10 * * 1"
