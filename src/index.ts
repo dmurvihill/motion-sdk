@@ -1,4 +1,8 @@
-import { RateLimiterAbstract, RateLimiterQueue } from "rate-limiter-flexible";
+import {
+  RateLimiterAbstract,
+  RateLimiterMemory,
+  RateLimiterQueue,
+} from "rate-limiter-flexible";
 import {
   bundleErrors,
   ClosedReason,
@@ -12,14 +16,17 @@ import {
   UnsafeFetchError,
   UnsafeFetchIndividualError,
   ClosedError,
+  InvalidOptionError,
+  MotionError,
+  isMotionError,
 } from "./error.js";
 import { motionBaseUrl } from "./constant.js";
 
 const removeNullPathSegments = /([^:]\/)\/+/g;
 
 export class Motion {
-  readonly userId: string;
-  private readonly apiKey: string;
+  readonly userId: string | null;
+  private readonly apiKey: string | null;
   readonly baseUrl: string;
   readonly requestQueue: RateLimiterQueue;
   readonly requestLimiter: RateLimiterAbstract;
@@ -28,17 +35,36 @@ export class Motion {
   readonly overrunLimiterKey: string;
   private closedReason: ClosedReason | null;
 
-  constructor(opts: MotionOptions) {
+  constructor(opts?: MotionOptions) {
     this.closedReason = null;
-    this.baseUrl = opts.baseUrl ?? motionBaseUrl;
-    this.userId = opts.userId;
-    this.apiKey = opts.apiKey;
-    this.requestLimiter = opts.requestLimiter;
-    this.overrunLimiter = opts.overrunLimiter;
-    this.requestLimiterKey = `user_${this.userId}:requests`;
-    this.overrunLimiterKey = `user_${this.userId}:overruns`;
+    this.userId = opts?.userId ?? process.env.MOTION_USER_ID ?? null;
+    this.apiKey = opts?.apiKey ?? process.env.MOTION_API_KEY ?? null;
+    if (this.userId === null) {
+      const e = new InvalidOptionError(
+        "userId",
+        opts?.userId,
+        `No user ID set; expected 'userId' option in constructor, or MOTION_USER_ID environment variable`,
+      );
+      this.close(e.message, e);
+    } else if (this.apiKey === null) {
+      const e = new InvalidOptionError(
+        "apiKey",
+        opts?.apiKey,
+        `No API key set; expected 'apiKey' option in constructor, or MOTION_API_KEY environment variable`,
+      );
+      this.close(e.message, e);
+    }
+    this.requestLimiterKey = `user_${this.userId ?? "null"}:requests`;
+    this.overrunLimiterKey = `user_${this.userId ?? "null"}:overruns`;
+    this.baseUrl = opts?.baseUrl ?? motionBaseUrl;
+    this.requestLimiter =
+      opts?.requestLimiter ??
+      new RateLimiterMemory(recommendedRateLimits.requests);
+    this.overrunLimiter =
+      opts?.overrunLimiter ??
+      new RateLimiterMemory(recommendedRateLimits.overruns);
     this.requestQueue = new RateLimiterQueue(this.requestLimiter, {
-      maxQueueSize: opts.maxQueueSize ?? defaultQueueSize,
+      maxQueueSize: opts?.maxQueueSize ?? defaultQueueSize,
     });
   }
 
@@ -71,7 +97,7 @@ export class Motion {
     return this.closedReason === null;
   }
 
-  close(reason: string, cause?: LimitExceededError): undefined | ClosedError {
+  close(reason: string, cause?: MotionError): undefined | ClosedError {
     if (this.closedReason !== null) {
       return new ClosedError(this.closedReason.reason, this.closedReason.cause);
     } else {
@@ -104,7 +130,11 @@ export class Motion {
     if (init === undefined) {
       init = {};
     }
-    init.headers = this.setHeaders(init.headers);
+    const newHeaders = this.setHeaders(init.headers);
+    if (isMotionError(newHeaders)) {
+      return newHeaders;
+    }
+    init.headers = newHeaders;
     let response: Response | FetchError;
     try {
       response = await fetch(input, init);
@@ -135,7 +165,12 @@ export class Motion {
     return bundleErrors(errors);
   }
 
-  private setHeaders(headers?: HeadersInit): HeadersInit {
+  private setHeaders(
+    headers?: HeadersInit,
+  ): HeadersInit | InvalidOptionError<null> {
+    if (this.apiKey === null) {
+      return new InvalidOptionError("apiKey", this.apiKey, "No API key set");
+    }
     const headersToSet = {
       "X-API-Key": this.apiKey,
       Accept: "application/json",

@@ -20,6 +20,26 @@ describe("Motion", () => {
     await redis.quit();
   });
 
+  it("should close if there is no user ID", () => {
+    const oldKey = process.env.MOTION_USER_ID;
+    delete process.env.MOTION_USER_ID;
+    try {
+      expect(new Motion().isOpen()).toBe(false);
+    } finally {
+      process.env.MOTION_USER_ID = oldKey;
+    }
+  });
+
+  it("should close if there is no API key", () => {
+    const oldKey = process.env.MOTION_API_KEY;
+    delete process.env.MOTION_API_KEY;
+    try {
+      expect(new Motion().isOpen()).toBe(false);
+    } finally {
+      process.env.MOTION_API_KEY = oldKey;
+    }
+  });
+
   describe("fetch", () => {
     const successfulGetMyUserResponse = expect.objectContaining({
       email: expect.stringMatching(/.*/), // eslint-disable-line @typescript-eslint/no-unsafe-assignment
