@@ -1,8 +1,10 @@
 import fetchMock, { RouteResponse } from "fetch-mock";
 import { RateLimiterMemory } from "rate-limiter-flexible";
-import { Motion, recommendedRateLimits } from "../src/index.js";
 import { jest } from "@jest/globals";
 import { it, fc } from "@fast-check/jest";
+import { expectMotionError, expectResponse } from "./util/assertions.js";
+import { inMemoryTestClient } from "./util/fixtures.js";
+import Motion from "../src/motion.js";
 import {
   closedErrorType,
   fetchErrorType,
@@ -12,9 +14,8 @@ import {
   motionBaseUrl,
   motionMockBaseUrl,
   queueOverflowErrorType,
+  recommendedRateLimits,
 } from "../src/constant.js";
-import { expectMotionError, expectResponse } from "./util/assertions.js";
-import { inMemoryTestClient } from "./util/fixtures.js";
 
 const baseUrl = motionMockBaseUrl;
 const mockPath = "/some_path";

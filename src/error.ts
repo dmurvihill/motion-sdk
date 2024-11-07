@@ -1,15 +1,16 @@
 import {
   closedErrorType,
+  fetchErrorType,
+  invalidOptionErrorType,
   limiterErrorType,
   limitExceededErrorType,
   multiErrorType,
-  fetchErrorType,
   queueOverflowErrorType,
-  invalidOptionErrorType,
 } from "./constant.js";
 import { RateLimiterAbstract, RateLimiterQueue } from "rate-limiter-flexible";
 import * as assert from "assert";
 import { RateLimiterQueueError } from "rate-limiter-flexible/lib/component/index.js";
+import { isObject } from "./lib.js";
 
 export interface MotionError {
   errorType: string;
@@ -96,11 +97,6 @@ export class QueueOverflowError extends Error implements MotionError {
   }
 }
 
-export interface ClosedReason {
-  reason: string;
-  cause?: MotionError;
-}
-
 const limitExceededMessage =
   "We exceeded Motion's rate limit. Continuing to exceed the rate limit will cause them to disable your API access. This client will close. See also: https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information";
 
@@ -121,23 +117,6 @@ export function isFetchError(o: unknown): o is FetchError {
 
 export function isMultiError(o: unknown): o is MultiError<MotionError> {
   return isMotionError(o) && o.errorType === multiErrorType;
-}
-
-const queueOverflowRegex = /number of requests reached it'?s maximum/;
-
-export function isLimiterErrAboutAQueueOverflow(
-  o: unknown,
-): o is RateLimiterQueueError {
-  return (
-    isObject(o) &&
-    "message" in o &&
-    typeof o.message === "string" &&
-    queueOverflowRegex.test(o.message.toLowerCase())
-  );
-}
-
-function isObject(o: unknown): o is object {
-  return o !== null && typeof o === "object";
 }
 
 function messageFromCause(cause: unknown) {

@@ -1,11 +1,11 @@
-import { Motion } from "../src/index.js";
-import { closedErrorType } from "../src/constant.js";
 import {
   motionClientFromEnvironment,
   redisConfigFromEnvironment,
 } from "./util/fixtures.js";
 import { Redis } from "ioredis";
 import { expectMotionError, expectResponse } from "./util/assertions.js";
+import Motion from "../src/motion.js";
+import { closedErrorType } from "../src/constant.js";
 
 describe("Motion", () => {
   let motion: Motion;
