@@ -5,6 +5,7 @@ import {
   multiErrorType,
   fetchErrorType,
   queueOverflowErrorType,
+  invalidOptionErrorType,
 } from "./constant.js";
 import { RateLimiterAbstract, RateLimiterQueue } from "rate-limiter-flexible";
 import * as assert from "assert";
@@ -13,6 +14,18 @@ import { RateLimiterQueueError } from "rate-limiter-flexible/lib/component/index
 export interface MotionError {
   errorType: string;
   message: string;
+}
+
+export class InvalidOptionError<T> extends Error implements MotionError {
+  errorType: typeof invalidOptionErrorType = invalidOptionErrorType;
+
+  constructor(
+    readonly argumentName: string,
+    argumentValue: T,
+    readonly message: string,
+  ) {
+    super(message);
+  }
 }
 
 export class FetchError extends Error implements MotionError {
@@ -34,7 +47,7 @@ export class ClosedError extends Error implements MotionError {
 
   constructor(
     readonly reason: string,
-    readonly cause?: LimitExceededError,
+    readonly cause?: MotionError,
   ) {
     super(`Client is already closed. Closure reason: ${reason}`);
   }
@@ -85,7 +98,7 @@ export class QueueOverflowError extends Error implements MotionError {
 
 export interface ClosedReason {
   reason: string;
-  cause?: LimitExceededError;
+  cause?: MotionError;
 }
 
 const limitExceededMessage =
@@ -143,6 +156,7 @@ function messageFromCause(cause: unknown) {
 }
 
 export type UnsafeFetchIndividualError =
+  | InvalidOptionError<null>
   | LimitExceededError
   | LimiterError
   | FetchError;
