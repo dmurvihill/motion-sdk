@@ -1,11 +1,10 @@
 import { Redis, RedisOptions } from "ioredis";
-import {
-  Motion,
-  MotionOptions,
-  recommendedRateLimits,
-} from "../../src/index.js";
 import { RateLimiterMemory, RateLimiterRedis } from "rate-limiter-flexible";
-import { motionMockBaseUrl } from "../../src/constant.js";
+import Motion, { type MotionOptions } from "../../src/motion.js";
+import {
+  motionMockBaseUrl,
+  recommendedRateLimits,
+} from "../../src/constant.js";
 
 export function redisConfigFromEnvironment(keyPrefix?: string): RedisOptions {
   const username = process.env.REDIS_USER ?? "no-username";

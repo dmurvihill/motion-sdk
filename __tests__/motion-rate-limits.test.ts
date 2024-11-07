@@ -7,7 +7,7 @@
  * and not more than once per day.
  * */
 
-import { Motion, motionRateLimits } from "../src/index.js";
+import { motionRateLimits } from "../src/constant.js";
 import { RateLimiterAbstract, RateLimiterMemory } from "rate-limiter-flexible";
 import { LimitExceededError } from "../src/error.js";
 import { delay } from "./util/timers.js";
@@ -17,6 +17,7 @@ import {
   redisConfigFromEnvironment,
 } from "./util/fixtures.js";
 import { motionBaseUrl } from "../src/constant.js";
+import Motion from "../src/motion.js";
 
 const rateLimits = motionRateLimits;
 const lastSuccessfulTestKey =
