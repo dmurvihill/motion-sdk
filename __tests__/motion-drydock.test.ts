@@ -6,6 +6,7 @@ import { it, fc } from "@fast-check/jest";
 import {
   closedErrorType,
   fetchErrorType,
+  invalidOptionErrorType,
   limiterErrorType,
   limitExceededErrorType,
   motionBaseUrl,
@@ -33,6 +34,13 @@ describe("Motion", () => {
 
   afterAll(() => {
     fetchMock.unmockGlobal();
+  });
+
+  it("should give a basic client with no arguments", async () => {
+    fetchMock.get(`${motionBaseUrl}${mockPath}`, 204);
+    const motion = new Motion();
+    const response = expectResponse(await motion.fetch(mockPath));
+    expect(response.status).toEqual(204);
   });
 
   describe("fetch", () => {
@@ -142,6 +150,20 @@ describe("Motion", () => {
       fetchMock.get(`${baseUrl}${mockPath}`, 204);
       const response = expectResponse(await motion.unsafe_fetch(mockPath));
       expect(response.status).toEqual(204);
+    });
+
+    it("should return an error if there is no API key", async () => {
+      const oldApiKey = process.env.MOTION_API_KEY;
+      delete process.env.MOTION_API_KEY;
+      try {
+        const motion = new Motion();
+        expectMotionError(
+          await motion.unsafe_fetch(mockPath),
+          invalidOptionErrorType,
+        );
+      } finally {
+        process.env.MOTION_API_KEY = oldApiKey;
+      }
     });
 
     it("should return FetchError if the fetch fails", async () => {
