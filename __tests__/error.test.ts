@@ -1,8 +1,8 @@
 import { it, fc } from "@fast-check/jest";
-import { bundleErrors, LimiterError, MotionError } from "../src/error.js";
+import { bundleErrors, LimiterError, type MotionError } from "../src/error.js";
+import { multiErrorType } from "../src/constant.js";
 import { RateLimiterMemory } from "rate-limiter-flexible";
 import { Arbitrary } from "fast-check";
-import { multiErrorType } from "../src/constant.js";
 
 const limiterErrorParams = fc.record({
   message: fc.oneof(fc.string(), fc.constant(undefined)),
