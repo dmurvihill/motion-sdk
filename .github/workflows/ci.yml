@@ -8,6 +8,8 @@ on:
     branches:
       - main
 
+concurrency: "workflow-that-targets-the-motion-api"
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -18,7 +20,7 @@ jobs:
       - run: npm run lint -- --max-warnings 0
 
   test:
-    concurrency: "targets-the-motion-api"
+    concurrency: "job-that-targets-the-motion-api"
     strategy:
       max-parallel: 1
       matrix:
