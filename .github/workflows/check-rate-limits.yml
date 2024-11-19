@@ -15,7 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
-      - run: npm run test:node-18 -- __tests__/motion-rate-limits.test.ts --collectCoverage=false --testPathIgnorePatterns=""
+        with:
+          node-version: 22
+      - run: npm run test -- __tests__/motion-rate-limits.test.ts --collectCoverage=false --testPathIgnorePatterns=""
         env:
           REDIS_HOST: ${{ secrets.REDIS_HOST }}
           REDIS_PORT: ${{ secrets.REDIS_PORT }}
