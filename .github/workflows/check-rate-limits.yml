@@ -5,9 +5,12 @@ on:
     # Mondays 10:00 UTC / 02:00 PST / 03:00 PDT
     - cron: "23 10 * * 1"
 
+concurrency: "workflow-that-targets-the-motion-api"
+
 jobs:
   verify-rate-limits:
     name: "Verify Rate Limits"
+    concurrency: "job-that-targets-the-motion-api"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
