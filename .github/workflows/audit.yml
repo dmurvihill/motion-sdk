@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
-      - run: npm run audit --audit-level=low
+      - run: npm audit --audit-level=low
