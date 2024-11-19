@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "TypeScript SDK for usemotion.com API",
   "main": "dist/index.js",
+  "types": "dist/motion-sdk.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "node --experimental-vm-modules --disable-warning=ExperimentalWarning node_modules/.bin/jest",
@@ -11,7 +12,8 @@
     "test:node18": "node --experimental-vm-modules node_modules/.bin/jest",
     "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
-    "lint": "eslint"
+    "lint": "eslint",
+    "extract-api": "api-extractor run --local"
   },
   "author": "Dolan Murvihill",
   "license": "Apache-2.0",
@@ -19,6 +21,7 @@
     "@babel/preset-env": "^7.25.9",
     "@eslint/js": "^9.13.0",
     "@fast-check/jest": "^2.0.2",
+    "@microsoft/api-extractor": "^7.47.11",
     "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.14",
     "dotenv": "^16.4.5",
