@@ -13,7 +13,8 @@
     "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
     "lint": "eslint",
-    "extract-api": "api-extractor run --local"
+    "extract-api": "api-extractor run --local",
+    "pre-commit": "npm run format && npm run build && npm run lint && npm run extract-api && npm run test && npm run test:live"
   },
   "author": "Dolan Murvihill",
   "license": "Apache-2.0",
