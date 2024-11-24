@@ -32,10 +32,6 @@ export default tseslint.config(
     plugins: {
       jest: jest,
     },
-    // eslint-plugin-jest has no types yet.
-    // Re-enable no-unsafe-argument when they are released.
-    // https://github.com/jest-community/eslint-plugin-jest/issues/1469
-    /* eslint @typescript-eslint/no-unsafe-argument: "off" */
     ...jest.configs["flat/recommended"],
   },
   eslint.configs.recommended,
