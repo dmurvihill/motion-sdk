@@ -1,3 +1,4 @@
 dist/
 coverage/
+docs/
 etc/motion-sdk.api.md
