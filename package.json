@@ -13,8 +13,8 @@
     "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
     "lint": "eslint",
-    "extract-api": "api-extractor run --local",
-    "pre-commit": "npm run format && npm run build && npm run lint && npm run extract-api && npm run test && npm run test:live"
+    "docs": "npm run build && api-extractor run --local && api-documenter markdown -i docs/input -o docs/markdown",
+    "pre-commit": "npm run format && npm run build && npm run lint && npm run docs && npm run test && npm run test:live"
   },
   "author": "Dolan Murvihill",
   "license": "SSPL-1.0",
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.25.9",
     "@eslint/js": "^9.13.0",
     "@fast-check/jest": "^2.0.2",
+    "@microsoft/api-documenter": "^7.26.0",
     "@microsoft/api-extractor": "^7.47.11",
     "@types/eslint__js": "^8.42.3",
     "@types/jest": "^29.5.14",
