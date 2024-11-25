@@ -44,6 +44,16 @@ describe("Motion", () => {
     expect(response.status).toEqual(204);
   });
 
+  it("should give a client with only a user ID and API key", async () => {
+    fetchMock.get(`${motionBaseUrl}${mockPath}`, 204);
+    const motion = new Motion({
+      userId: 'test-user-id',
+      apiKey: 'test-api-key',
+    });
+    const response = expectResponse(await motion.fetch(mockPath));
+    expect(response.status).toEqual(204);
+  });
+
   describe("fetch", () => {
     it("should pass through to the system fetch", async () => {
       const motion = inMemoryTestClient();
