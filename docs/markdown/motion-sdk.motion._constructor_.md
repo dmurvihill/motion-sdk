@@ -62,7 +62,7 @@ You may adjust the maximum number of queued requests; the default is [defaultQue
 
 Basic usage:
 
-```
+```typescript
 const motion = new Motion({
   userId: 'my-user-id',
   apiKey: 'my-api-key',
@@ -73,7 +73,38 @@ const motion = new Motion({
 
 Or, you can set the environment variables `MOTION_USER_ID` and `MOTION_API_KEY`<!-- -->. Then:
 
-```
+```typescript
 const motion = new Motion();
 ```
+
+## Example 3
+
+To set custom rate limiters:
+
+```typescript
+// 1 request per 5 seconds
+const requestLimiter = new RateLimiterMemory({
+  points: 1,
+  duration: 5, // seconds
+});
+
+// 2 overruns per day
+const overrunLimiter = new RateLimiterMemory({
+  points: 2,
+  duration: 60 * 60 * 24,
+});
+
+const motion = new Motion({
+  requestLimiter,
+  overrunLimiter,
+  maxQueueSize: 0, // Disable queue
+});
+
+await motion.fetch("/users/me");
+```
+The requestLimiter and overrunLimiter must be instances of the [RateLimiterAbstract](https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterAbstract.js) class from [rate-limiter-flexible](https://www.npmjs.com/package/rate-limiter-flexible)<!-- -->.
+
+As of this writing, `rate-limiter-flexible` provides rate limiters backed by Redis, Prisma, DynamoDB, process Memory, Cluster or PM2, Memcached, MongoDB, MySQL, and PostgreSQL. Refer to their documentation for more detailed help.
+
+The default limiter is [RateLimiterMemory](https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterMemory.js) with the limits from [recommendedRateLimits](./motion-sdk.recommendedratelimits.md)<!-- -->. The maximum queue size is given by [defaultQueueSize](./motion-sdk.defaultqueuesize.md)<!-- -->.
 
