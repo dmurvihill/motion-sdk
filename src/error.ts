@@ -98,7 +98,7 @@ export class QueueOverflowError extends Error implements MotionError {
 }
 
 const limitExceededMessage =
-  "We exceeded Motion's rate limit. Continuing to exceed the rate limit will cause them to disable your API access. This client will close. See also: https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information";
+  "We exceeded Motion's rate limit. Continuing to exceed the rate limit will cause them to disable your API access. See also: https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information";
 
 export function bundleErrors<T extends MotionError>(
   errors: T[],
@@ -113,6 +113,10 @@ export function isMotionError(o: unknown): o is MotionError {
 
 export function isFetchError(o: unknown): o is FetchError {
   return isMotionError(o) && o.errorType === fetchErrorType;
+}
+
+export function isLimitExceededError(o: unknown): o is LimitExceededError {
+  return isMotionError(o) && o.errorType === limitExceededErrorType;
 }
 
 export function isMultiError(o: unknown): o is MultiError<MotionError> {

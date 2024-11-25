@@ -143,6 +143,80 @@ describe("Motion", () => {
         expectMotionError(r3, queueOverflowErrorType);
       });
     });
+
+    it("should close the client on getting limit_exceeded from Motion", async () => {
+      const motion = inMemoryTestClient();
+      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
+      await motion.fetch(mockPath);
+      fetchMock.clearHistory();
+      const result = await motion.fetch(mockPath);
+      expectMotionError(result, closedErrorType);
+      expect(fetchMock.callHistory.called()).toBe(false);
+    });
+
+    it("should force-consume an overrun token on getting limit_exceeded from motion", async () => {
+      const motion = inMemoryTestClient();
+      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
+      const before =
+        (await motion.overrunLimiter.get(motion.overrunLimiterKey))
+          ?.consumedPoints ?? 0;
+      await motion.fetch(mockPath);
+      const after = (await motion.overrunLimiter.get(motion.overrunLimiterKey))
+        ?.consumedPoints;
+      expect(after).toEqual(before + 1);
+    });
+
+    it("Should return LimiterError if we fail to set the overrun limiter", async () => {
+      const overrunLimiter = new RateLimiterMemory({
+        points: 2,
+        duration: 2,
+      });
+      const motion = new Motion({
+        baseUrl,
+        userId: "testUserId",
+        apiKey: "testApiKey",
+        requestLimiter: new RateLimiterMemory(recommendedRateLimits.requests),
+        overrunLimiter,
+      });
+      const e = new Error();
+      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
+      const penalty = jest
+        .spyOn(RateLimiterMemory.prototype, "penalty")
+        .mockRejectedValue(e);
+      try {
+        expectMotionError(await motion.fetch(mockPath), limiterErrorType);
+      } finally {
+        penalty.mockRestore();
+      }
+    });
+
+    it("Should still close the client even if we fail to set the overrun limiter (_especially_ then)", async () => {
+      const limiter = new RateLimiterMemory({
+        points: 2,
+        duration: 2,
+      });
+      const motion = new Motion({
+        baseUrl,
+        userId: "testUserId",
+        apiKey: "testApiKey",
+        requestLimiter: new RateLimiterMemory(recommendedRateLimits.requests),
+        overrunLimiter: limiter,
+      });
+      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
+      const penalty = jest
+        .spyOn(limiter, "penalty")
+        .mockRejectedValue(new Error("Some error"));
+      try {
+        await motion.fetch(mockPath).catch(() => {
+          // ignore error
+        });
+        fetchMock.clearHistory();
+        await motion.fetch(mockPath);
+        expect(fetchMock.callHistory.called()).toBe(false);
+      } finally {
+        penalty.mockRestore();
+      }
+    });
   });
 
   describe("unsafe_fetch", () => {
@@ -182,92 +256,15 @@ describe("Motion", () => {
       const response = await motion.unsafe_fetch(mockPath);
       expectMotionError(response, limitExceededErrorType);
     });
-
-    it("should close the client on getting limit_exceeded from Motion", async () => {
-      const motion = inMemoryTestClient();
-      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
-      await motion.unsafe_fetch(mockPath);
-      fetchMock.clearHistory();
-      const result = await motion.fetch(mockPath);
-      expect(result).toMatchObject({ errorType: closedErrorType });
-      expect(fetchMock.callHistory.called()).toBe(false);
-    });
-
-    it("should force-consume an overrun token on getting limit_exceeded from motion", async () => {
-      const motion = inMemoryTestClient();
-      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
-      const before =
-        (await motion.overrunLimiter.get(motion.overrunLimiterKey))
-          ?.consumedPoints ?? 0;
-      await motion.unsafe_fetch(mockPath);
-      const after = (await motion.overrunLimiter.get(motion.overrunLimiterKey))
-        ?.consumedPoints;
-      expect(after).toEqual(before + 1);
-    });
-
-    it("Should return LimiterError if we fail to set the overrun limiter", async () => {
-      const overrunLimiter = new RateLimiterMemory({
-        points: 2,
-        duration: 2,
-      });
-      const motion = new Motion({
-        baseUrl,
-        userId: "testUserId",
-        apiKey: "testApiKey",
-        requestLimiter: new RateLimiterMemory(recommendedRateLimits.requests),
-        overrunLimiter,
-      });
-      const e = new Error();
-      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
-      const penalty = jest
-        .spyOn(RateLimiterMemory.prototype, "penalty")
-        .mockRejectedValue(e);
-      try {
-        expectMotionError(
-          await motion.unsafe_fetch(mockPath),
-          limiterErrorType,
-        );
-      } finally {
-        penalty.mockRestore();
-      }
-    });
-
-    it("Should still close the client even if we fail to set the overrun limiter (_especially_ then)", async () => {
-      const limiter = new RateLimiterMemory({
-        points: 2,
-        duration: 2,
-      });
-      const motion = new Motion({
-        baseUrl,
-        userId: "testUserId",
-        apiKey: "testApiKey",
-        requestLimiter: new RateLimiterMemory(recommendedRateLimits.requests),
-        overrunLimiter: limiter,
-      });
-      fetchMock.get(`${baseUrl}${mockPath}`, limitExceeded());
-      const penalty = jest
-        .spyOn(limiter, "penalty")
-        .mockRejectedValue(new Error("Some error"));
-      try {
-        await motion.unsafe_fetch(mockPath).catch(() => {
-          // ignore error
-        });
-        fetchMock.clearHistory();
-        await motion.fetch(mockPath);
-        expect(fetchMock.callHistory.called()).toBe(false);
-      } finally {
-        penalty.mockRestore();
-      }
-    });
-
-    function limitExceeded(): RouteResponse {
-      return {
-        status: 429,
-        body: JSON.stringify(limitExceededError),
-        headers: {
-          "content-type": "application/json",
-        },
-      };
-    }
   });
+
+  function limitExceeded(): RouteResponse {
+    return {
+      status: 429,
+      body: JSON.stringify(limitExceededError),
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+  }
 });
