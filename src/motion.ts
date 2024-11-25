@@ -31,6 +31,25 @@ import { isObject } from "./lib.js";
 const removeNullPathSegments = /([^:]\/)\/+/g;
 const queueOverflowRegex = /number of requests reached it'?s maximum/;
 
+/** Motion API client
+ *
+ * @remarks
+ *
+ * Simple wrapper around the usemotion.com API. Just provide a user ID
+ * and API key, and then start making requests.
+ *
+ * Warning: Motion {@link https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information | enforces}
+ * its rate limit strictly. Excessive overruns of the rate limit can
+ * result in losing your API privileges and having to get them back
+ * through customer support.
+ *
+ * This client will not exceed the rate limit so long as only one
+ * instance makes requests to the Motion API for any one user and no
+ * calls are made directly to any of the `unsafe_` methods. If you
+ * require more advanced usage, you can pass a custom rate limiter.
+ *
+ * @public
+ */
 export class Motion {
   readonly userId: string | null;
   private readonly apiKey: string | null;
@@ -124,17 +143,30 @@ export class Motion {
     }
   }
 
-  /** Low-level interface to Motion API
+  /** Low-level interface to the Motion API
    *
-   * This function does not respect rate limiting or anything else about
-   * the client state. It can be called and will happily reach out to
-   * the Motion API even if close() has been called.
+   * @remarks
+   * This function makes a call to the Motion API. The request and
+   * return values are the same as the platform
+   * {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch()},
+   * except some logic is added for authentication and session management.
+   * If a string is passed as the request URL, the API's base URL will
+   * be prepended.
    *
-   * Normally, this function should only be called from fetch(). Use at your
-   * own peril.
+   * `unsafe_fetch` does not respect rate limiting or anything else about
+   * the client's state. It can be called and will happily make requests
+   * to the Motion API even if the limit is already exceeded and even if
+   * close() has been called. It will _not_ update the internal rate
+   * limiter.
    *
-   * @param input
-   * @param init
+   * Normally this function should be called only from
+   * {@link Motion.fetch} but is exposed to accommodate performance
+   * optimizations by advanced users. Use at your own peril.
+   *
+   * @param input - URL or Request object
+   * @param init - Request parameters
+   *
+   * @returns {@link https://developer.mozilla.org/en-US/docs/Web/API/Response | Response} or an {@link UnsafeFetchError}
    */
   async unsafe_fetch(
     input: string | URL | globalThis.Request,

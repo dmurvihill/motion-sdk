@@ -78,6 +78,9 @@ export const invalidOptionErrorType: "INVALID_OPTION";
 export function isFetchError(o: unknown): o is FetchError;
 
 // @public (undocumented)
+export function isLimitExceededError(o: unknown): o is LimitExceededError;
+
+// @public (undocumented)
 export function isMotionError(o: unknown): o is MotionError;
 
 // @public (undocumented)
@@ -111,7 +114,7 @@ export class LimitExceededError extends Error implements MotionError {
 // @public (undocumented)
 export const limitExceededErrorType: "MOTION_API_RATE_LIMIT_EXCEEDED";
 
-// @public (undocumented)
+// @public
 class Motion {
     constructor(opts?: MotionOptions);
     // (undocumented)
@@ -165,9 +168,9 @@ export interface MotionOptions {
     // (undocumented)
     maxQueueSize?: number;
     // (undocumented)
-    overrunLimiter: RateLimiterAbstract;
+    overrunLimiter?: RateLimiterAbstract;
     // (undocumented)
-    requestLimiter: RateLimiterAbstract;
+    requestLimiter?: RateLimiterAbstract;
     // (undocumented)
     userId: string;
 }
