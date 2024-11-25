@@ -10,6 +10,7 @@ import {
   FetchError,
   InvalidOptionError,
   isFetchError,
+  isLimitExceededError,
   isMotionError,
   LimiterError,
   LimitExceededError,
@@ -96,7 +97,12 @@ export class Motion {
         return new LimiterError(this.requestLimiter, e, this.requestLimiterKey);
       }
     }
-    return this.unsafe_fetch(input, init);
+    const response = await this.unsafe_fetch(input, init);
+    if (isLimitExceededError(response)) {
+      return this.handleLimitExceeded(response);
+    } else {
+      return response;
+    }
   }
 
   isOpen(): boolean {
@@ -148,17 +154,16 @@ export class Motion {
       response = new FetchError(e, { input, init });
     }
     if (!isFetchError(response) && response.status === 429) {
-      return this.handleLimitExceeded(response);
+      return new LimitExceededError(response);
     } else {
       return response;
     }
   }
 
   private async handleLimitExceeded(
-    response: Response,
+    e: LimitExceededError,
   ): Promise<UnsafeFetchError> {
     const errors: UnsafeFetchIndividualError[] = [];
-    const e = new LimitExceededError(response);
     this.close(e.errorType, e);
     errors.push(e);
     try {
