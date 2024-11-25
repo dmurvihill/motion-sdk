@@ -271,6 +271,8 @@ Description
 
 </td><td>
 
+Safe entry point to the HTTP layer
+
 
 </td></tr>
 <tr><td>

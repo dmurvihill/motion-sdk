@@ -58,7 +58,7 @@ export class FetchError extends Error implements MotionError {
 export const fetchErrorType: "FETCH_ERROR";
 
 // @public (undocumented)
-export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | QueueOverflowError;
+export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | LimiterError | QueueOverflowError;
 
 // @public (undocumented)
 export class InvalidOptionError<T> extends Error implements MotionError {
@@ -123,7 +123,6 @@ class Motion {
     close(reason: string, cause?: MotionError): undefined | ClosedError;
     // (undocumented)
     get closedReason(): ClosedReason | null;
-    // (undocumented)
     fetch(input: string | URL | globalThis.Request, init?: RequestInit): Promise<Response | MotionFetchError>;
     // (undocumented)
     isOpen(): boolean;
@@ -223,7 +222,7 @@ export const recommendedRateLimits: MotionRateLimits;
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 
 // @public (undocumented)
-export type UnsafeFetchIndividualError = InvalidOptionError<null> | LimitExceededError | LimiterError | FetchError;
+export type UnsafeFetchIndividualError = InvalidOptionError<null> | LimitExceededError | FetchError;
 
 // (No @packageDocumentation comment for this package)
 

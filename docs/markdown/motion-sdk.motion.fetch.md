@@ -4,6 +4,8 @@
 
 ## Motion.fetch() method
 
+Safe entry point to the HTTP layer
+
 **Signature:**
 
 ```typescript
@@ -40,6 +42,8 @@ string \| URL \| globalThis.Request
 
 </td><td>
 
+URL or Request object
+
 
 </td></tr>
 <tr><td>
@@ -54,7 +58,7 @@ RequestInit
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Request parameters
 
 
 </td></tr>
@@ -62,4 +66,27 @@ _(Optional)_
 **Returns:**
 
 Promise&lt;Response \| [MotionFetchError](./motion-sdk.motionfetcherror.md)<!-- -->&gt;
+
+[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) or a [MotionFetchError](./motion-sdk.motionfetcherror.md)
+
+## Remarks
+
+This function makes an HTTP request to the Motion API. The request and return values are the same as the platform [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)<!-- -->, except some logic is added for authentication and session management. If a string is passed as the request URL, the API's base URL will be prepended.
+
+This method enforces a client-side rate limit so as not to exceed Motion's API rate limits. If there have been too many recent requests, the request will be queued up to the client's maximum queue size. An error will be returned if the queue is overflowing or if there is an issue with the rate limit.
+
+In the event the request limiter is misconfigured and Motion returns a 429 Limit Exceeded response, `fetch` assumes the client has entered an unsafe state. The client will close immediately and make no further requests. The overrun will be recorded with the overrun limiter.
+
+## Example
+
+A basic example:
+
+```typescript
+const response = await motion.fetch("/users/me");
+if (!isMotionError(response) && response.ok) {
+  const json = await response.json();
+  console.log(JSON.stringify(json));
+  // {"id":"elp69uRwOplFSiM3llAGhixqmPTP","name":"Bill Lumbergh","email":"blumbergh@initech.com"}
+}
+```
 

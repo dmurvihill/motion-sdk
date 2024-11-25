@@ -3,10 +3,11 @@ import {
   redisConfigFromEnvironment,
 } from "./util/fixtures.js";
 import { Redis } from "ioredis";
+import { jest } from "@jest/globals";
 import { expectMotionError, expectResponse } from "./util/assertions.js";
 import Motion from "../src/motion.js";
 import { closedErrorType } from "../src/constant.js";
-import { MotionError } from "../src/index.js";
+import { MotionError, isMotionError } from "../src/index.js";
 
 describe("Motion", () => {
   let motion: Motion;
@@ -80,6 +81,24 @@ describe("Motion", () => {
     it("should deduplicate slashes in the path", async () => {
       const response = expectResponse(await motion.fetch("//users/me"));
       expect(await response.json()).toEqual(successfulGetMyUserResponse);
+    });
+
+    it("should work with its documented usage example", async () => {
+      const log = jest.spyOn(console, "log").mockImplementation(() => void 0);
+      try {
+        // Example starts here
+
+        const response = await motion.fetch("/users/me");
+        if (!isMotionError(response) && response.ok) {
+          const json = (await response.json()) as unknown;
+          console.log(JSON.stringify(json));
+          // {"id":"elp69uRwOplFSiM3llAGhixqmPTP","name":"Bill Lumbergh","email":"blumbergh@initech.com"}
+        }
+
+        // Example ends here
+      } finally {
+        log.mockRestore();
+      }
     });
   });
 
