@@ -268,6 +268,26 @@ describe("Motion", () => {
     });
   });
 
+  describe("close", () => {
+    it("should cancel queued requests", async () => {
+      const motion = inMemoryTestClient({
+        requestLimiter: new RateLimiterMemory({ points: 1, duration: 2 }),
+      });
+      fetchMock.get(`${baseUrl}${mockPath}`, 204);
+      jest.useFakeTimers();
+      try {
+        await motion.fetch(mockPath);
+        const waiting = motion.fetch(mockPath);
+        motion.close("Test: should cancel queued requests");
+        await jest.advanceTimersByTimeAsync(6000);
+        const r = await waiting;
+        expectMotionError(r, closedErrorType);
+      } finally {
+        jest.useRealTimers();
+      }
+    });
+  });
+
   function limitExceeded(): RouteResponse {
     return {
       status: 429,
