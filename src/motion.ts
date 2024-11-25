@@ -8,6 +8,7 @@ import {
   bundleErrors,
   ClosedError,
   FetchError,
+  FetchIndividualError,
   InvalidOptionError,
   isFetchError,
   isLimitExceededError,
@@ -18,7 +19,6 @@ import {
   MotionFetchError,
   QueueOverflowError,
   UnsafeFetchError,
-  UnsafeFetchIndividualError,
 } from "./error.js";
 import {
   defaultQueueSize,
@@ -162,8 +162,8 @@ export class Motion {
 
   private async handleLimitExceeded(
     e: LimitExceededError,
-  ): Promise<UnsafeFetchError> {
-    const errors: UnsafeFetchIndividualError[] = [];
+  ): Promise<MotionFetchError> {
+    const errors: FetchIndividualError[] = [];
     this.close(e.errorType, e);
     errors.push(e);
     try {
