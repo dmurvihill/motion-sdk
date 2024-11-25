@@ -141,7 +141,6 @@ function messageFromCause(cause: unknown) {
 export type UnsafeFetchIndividualError =
   | InvalidOptionError<null>
   | LimitExceededError
-  | LimiterError
   | FetchError;
 export type UnsafeFetchError =
   | UnsafeFetchIndividualError
@@ -149,6 +148,7 @@ export type UnsafeFetchError =
 export type FetchIndividualError =
   | UnsafeFetchIndividualError
   | ClosedError
+  | LimiterError
   | QueueOverflowError;
 export type MotionFetchError =
   | FetchIndividualError
