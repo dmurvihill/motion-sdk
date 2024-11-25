@@ -84,18 +84,15 @@ export class Motion {
         new ClosedError(this.closedReason.reason, this.closedReason.cause),
       );
     }
-    try {
-      await this.requestQueue.removeTokens(1, this.requestLimiterKey);
-    } catch (e) {
-      if (isLimiterErrAboutAQueueOverflow(e)) {
-        return new QueueOverflowError(
-          this.requestQueue,
-          e,
-          this.requestLimiterKey,
-        );
-      } else {
-        return new LimiterError(this.requestLimiter, e, this.requestLimiterKey);
-      }
+    const limiterError = await this.waitForTurn();
+    if (typeof limiterError !== "number") {
+      return limiterError;
+    }
+    const newClosedReason = this.closedReason as ClosedReason | null;
+    if (newClosedReason !== null) {
+      return Promise.resolve(
+        new ClosedError(newClosedReason.reason, newClosedReason.cause),
+      );
     }
     const response = await this.unsafe_fetch(input, init);
     if (isLimitExceededError(response)) {
@@ -201,6 +198,24 @@ export class Motion {
       Object.assign(headers, headersToSet);
     }
     return headers;
+  }
+
+  private async waitForTurn(): Promise<
+    number | QueueOverflowError | LimiterError
+  > {
+    try {
+      return await this.requestQueue.removeTokens(1, this.requestLimiterKey);
+    } catch (e) {
+      if (isLimiterErrAboutAQueueOverflow(e)) {
+        return new QueueOverflowError(
+          this.requestQueue,
+          e,
+          this.requestLimiterKey,
+        );
+      } else {
+        return new LimiterError(this.requestLimiter, e, this.requestLimiterKey);
+      }
+    }
   }
 }
 
