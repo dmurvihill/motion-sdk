@@ -11,7 +11,10 @@ export function expectResponse(r: Response | MotionError): Response {
   }
 }
 
-export function expectMotionError(o: unknown, errorType: string) {
+export function expectMotionError<T extends string>(
+  o: unknown,
+  errorType: T,
+): o is MotionError & { errorType: T } {
   if (o !== null && typeof o === "object") {
     if (isMotionError(o)) {
       if (isMultiError(o)) {
@@ -19,9 +22,13 @@ export function expectMotionError(o: unknown, errorType: string) {
       } else {
         expect(o).toEqual(expect.objectContaining({ errorType }));
       }
+    } else {
+      // eslint-disable-next-line @typescript-eslint/no-base-to-string
+      throw new Error(`Expected a MotionError, got ${o.toString()}`);
     }
   } else {
     expect(o).toBeDefined();
     expect(typeof o).toEqual("object");
   }
+  return true;
 }
