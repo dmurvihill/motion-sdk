@@ -35,7 +35,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[apiKey](./motion-sdk.motionoptions.apikey.md)
+[apiKey?](./motion-sdk.motionoptions.apikey.md)
 
 
 </td><td>
@@ -47,6 +47,8 @@ string
 
 
 </td><td>
+
+_(Optional)_
 
 
 </td></tr>
@@ -128,7 +130,7 @@ _(Optional)_
 </td></tr>
 <tr><td>
 
-[userId](./motion-sdk.motionoptions.userid.md)
+[userId?](./motion-sdk.motionoptions.userid.md)
 
 
 </td><td>
@@ -140,6 +142,8 @@ string
 
 
 </td><td>
+
+_(Optional)_
 
 
 </td></tr>

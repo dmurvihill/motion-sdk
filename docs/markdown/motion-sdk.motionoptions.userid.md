@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-userId: string;
+userId?: string;
 ```

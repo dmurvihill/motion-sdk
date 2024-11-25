@@ -61,6 +61,45 @@ export class Motion {
   readonly overrunLimiterKey: string;
   private _closedReason: ClosedReason | null;
 
+  /** Create a Motion API client
+   *
+   * @remarks
+   * Initializes a Motion API client with the provided user ID and API key.
+   * Consult the {@link https://help.usemotion.com/integrations/integrations-101/api-docs | Motion API docs} for how to get an API key.
+   *
+   * If there may be multiple `Motion` clients sharing the same user,
+   * you must pass a custom request rate limiter and a custom overrun
+   * rate limiter that share the same backing store as the other
+   * `Motion` clients.
+   *
+   * You may adjust the maximum number of queued requests; the
+   * default is {@link defaultQueueSize}.
+   *
+   * `motion-sdk` does not throw. If the constructor is called with
+   * invalid arguments or if another error occurs, the client will be
+   * closed immediately. The error will be set in
+   * {@link Motion.closedReason | closedReason}.
+   *
+   * @example
+   * Basic usage:
+   * ```typescript
+   * const motion = new Motion({
+   *   userId: 'my-user-id',
+   *   apiKey: 'my-api-key',
+   * });
+   * ```
+   *
+   * @example
+   * Or, you can set the environment variables `MOTION_USER_ID` and
+   * `MOTION_API_KEY`. Then:
+   * ```typescript
+   * const motion = new Motion();
+   * ```
+   *
+   * @param opts - Object with client parameters
+   *
+   * @public
+   */
   constructor(opts?: MotionOptions) {
     this._closedReason = null;
     this.userId = opts?.userId ?? process.env.MOTION_USER_ID ?? null;

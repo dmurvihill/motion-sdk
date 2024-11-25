@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-Constructs a new instance of the `Motion` class
+Create a Motion API client
 
 
 </td></tr>
@@ -90,6 +90,25 @@ Description
 </td><td>
 
 string
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[closedReason](./motion-sdk.motion.closedreason.md)
+
+
+</td><td>
+
+`readonly`
+
+
+</td><td>
+
+[ClosedReason](./motion-sdk.closedreason.md) \| null
 
 
 </td><td>
