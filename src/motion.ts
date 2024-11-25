@@ -133,6 +133,43 @@ export class Motion {
     });
   }
 
+  /** Safe entry point to the HTTP layer
+   *
+   * @remarks
+   * This function makes an HTTP request to the Motion API. The request
+   * and return values are the same as the platform
+   * {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch()},
+   * except some logic is added for authentication and session management.
+   * If a string is passed as the request URL, the API's base URL will
+   * be prepended.
+   *
+   * This method enforces a client-side rate limit so as not to exceed
+   * Motion's API rate limits. If there have been too many recent
+   * requests, the request will be queued up to the client's maximum
+   * queue size. An error will be returned if the queue is overflowing
+   * or if there is an issue with the rate limit.
+   *
+   * In the event the request limiter is misconfigured and Motion returns
+   * a 429 Limit Exceeded response, `fetch` assumes the client has
+   * entered an unsafe state. The client will close immediately and make
+   * no further requests. The overrun will be recorded with the overrun
+   * limiter.
+   *
+   * @example
+   * A basic example:
+   * ```typescript
+   * const response = await motion.fetch("/users/me");
+   * if (!isMotionError(response) && response.ok) {
+   *   const json = await response.json();
+   *   console.log(JSON.stringify(json));
+   *   // {"id":"elp69uRwOplFSiM3llAGhixqmPTP","name":"Bill Lumbergh","email":"blumbergh@initech.com"}
+   * }
+   * ```
+   *
+   * @param input - URL or Request object
+   * @param init - Request parameters
+   * @returns {@link https://developer.mozilla.org/en-US/docs/Web/API/Response | Response} or a {@link MotionFetchError}
+   */
   async fetch(
     input: string | URL | globalThis.Request,
     init?: RequestInit,
