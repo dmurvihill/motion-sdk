@@ -54,6 +54,29 @@ describe("Motion", () => {
     expect(response.status).toEqual(204);
   });
 
+  /** NOTE. This is an example in the docs, be sure to keep it in sync */
+  it("should customize rate limiters", async () => {
+    // 1 request per 5 seconds
+    const requestLimiter = new RateLimiterMemory({
+      points: 1,
+      duration: 5, // seconds
+    });
+
+    // 2 overruns per day
+    const overrunLimiter = new RateLimiterMemory({
+      points: 2,
+      duration: 60 * 60 * 24,
+    });
+
+    const motion = new Motion({
+      requestLimiter,
+      overrunLimiter,
+      maxQueueSize: 0, // Disable queue
+    });
+
+    await motion.fetch("/users/me");
+  });
+
   describe("fetch", () => {
     it("should pass through to the system fetch", async () => {
       const motion = inMemoryTestClient();

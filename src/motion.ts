@@ -96,6 +96,45 @@ export class Motion {
    * const motion = new Motion();
    * ```
    *
+   * @example
+   * To set custom rate limiters:
+   *
+   * ```typescript
+   * // 1 request per 5 seconds
+   * const requestLimiter = new RateLimiterMemory({
+   *   points: 1,
+   *   duration: 5, // seconds
+   * });
+
+   * // 2 overruns per day
+   * const overrunLimiter = new RateLimiterMemory({
+   *   points: 2,
+   *   duration: 60 * 60 * 24,
+   * });
+
+   * const motion = new Motion({
+   *   requestLimiter,
+   *   overrunLimiter,
+   *   maxQueueSize: 0, // Disable queue
+   * });
+
+   * await motion.fetch("/users/me");
+   * ```
+   *
+   * The requestLimiter and overrunLimiter must be instances of the
+   * {@link https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterAbstract.js | RateLimiterAbstract}
+   * class from {@link https://www.npmjs.com/package/rate-limiter-flexible | rate-limiter-flexible}.
+   *
+   * As of this writing, `rate-limiter-flexible` provides rate limiters
+   * backed by Redis, Prisma, DynamoDB, process Memory, Cluster or PM2,
+   * Memcached, MongoDB, MySQL, and PostgreSQL. Refer to their
+   * documentation for more detailed help.
+   *
+   * The default limiter is
+   * {@link https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterMemory.js | RateLimiterMemory}
+   * with the limits from {@link recommendedRateLimits}. The maximum
+   * queue size is given by {@link defaultQueueSize}.
+   *
    * @param opts - Object with client parameters
    *
    * @public
