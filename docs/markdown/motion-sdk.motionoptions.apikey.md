@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-apiKey: string;
+apiKey?: string;
 ```

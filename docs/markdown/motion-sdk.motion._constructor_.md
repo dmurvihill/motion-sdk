@@ -4,7 +4,7 @@
 
 ## Motion.(constructor)
 
-Constructs a new instance of the `Motion` class
+Create a Motion API client
 
 **Signature:**
 
@@ -42,8 +42,38 @@ opts
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Object with client parameters
 
 
 </td></tr>
 </tbody></table>
+
+## Remarks
+
+Initializes a Motion API client with the provided user ID and API key. Consult the [Motion API docs](https://help.usemotion.com/integrations/integrations-101/api-docs) for how to get an API key.
+
+If there may be multiple `Motion` clients sharing the same user, you must pass a custom request rate limiter and a custom overrun rate limiter that share the same backing store as the other `Motion` clients.
+
+You may adjust the maximum number of queued requests; the default is [defaultQueueSize](./motion-sdk.defaultqueuesize.md)<!-- -->.
+
+`motion-sdk` does not throw. If the constructor is called with invalid arguments or if another error occurs, the client will be closed immediately. The error will be set in [closedReason](./motion-sdk.motion.closedreason.md)<!-- -->.
+
+## Example 1
+
+Basic usage:
+
+```
+const motion = new Motion({
+  userId: 'my-user-id',
+  apiKey: 'my-api-key',
+});
+```
+
+## Example 2
+
+Or, you can set the environment variables `MOTION_USER_ID` and `MOTION_API_KEY`<!-- -->. Then:
+
+```
+const motion = new Motion();
+```
+

@@ -122,6 +122,8 @@ class Motion {
     // (undocumented)
     close(reason: string, cause?: MotionError): undefined | ClosedError;
     // (undocumented)
+    get closedReason(): ClosedReason | null;
+    // (undocumented)
     fetch(input: string | URL | globalThis.Request, init?: RequestInit): Promise<Response | MotionFetchError>;
     // (undocumented)
     isOpen(): boolean;
@@ -162,7 +164,7 @@ export const motionMockBaseUrl: "https://stoplight.io/mocks/motion/motion-rest-a
 // @public (undocumented)
 export interface MotionOptions {
     // (undocumented)
-    apiKey: string;
+    apiKey?: string;
     // (undocumented)
     baseUrl?: string;
     // (undocumented)
@@ -172,7 +174,7 @@ export interface MotionOptions {
     // (undocumented)
     requestLimiter?: RateLimiterAbstract;
     // (undocumented)
-    userId: string;
+    userId?: string;
 }
 
 // @public (undocumented)
