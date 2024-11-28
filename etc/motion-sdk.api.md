@@ -26,11 +26,9 @@ export class ClosedError extends Error implements MotionError {
 // @public (undocumented)
 export const closedErrorType: "MOTION_CLIENT_CLOSED";
 
-// @public (undocumented)
+// @public
 export interface ClosedReason {
-    // (undocumented)
     cause?: MotionError;
-    // (undocumented)
     reason: string;
 }
 
