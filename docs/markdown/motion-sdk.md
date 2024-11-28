@@ -173,6 +173,8 @@ Description
 
 </td><td>
 
+End-of-life information on a Motion client
+
 
 </td></tr>
 <tr><td>

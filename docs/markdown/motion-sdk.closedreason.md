@@ -4,6 +4,8 @@
 
 ## ClosedReason interface
 
+End-of-life information on a Motion client
+
 **Signature:**
 
 ```typescript
@@ -48,7 +50,7 @@ Description
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Error that caused the client to closed, if any
 
 
 </td></tr>
@@ -66,6 +68,8 @@ string
 
 
 </td><td>
+
+Brief, developer-readable explanation for the closure
 
 
 </td></tr>
