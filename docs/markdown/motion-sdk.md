@@ -204,6 +204,14 @@ Arguments to the [Motion](./motion-sdk.motion.md) constructor
 
 </td><td>
 
+Rate limit information about the Motion API
+
+Motion has two rate limits:
+
+- If you exceed 12 requests in a minute, Motion will return 429 Limit Exceeded and disable your API access for an hour. `motion-sdk` calls that an 'overrun'. - If you have three overruns in a day, Motion will disable your API access until you contact support and ask them to restore it.
+
+`motion-sdk` is an \_unofficial\_ client and its authors are not affiliated with Motion. Always consult the [official API reference](https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information) for up-to-date rate limit information.
+
 
 </td></tr>
 </tbody></table>
