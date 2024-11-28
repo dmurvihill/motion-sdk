@@ -4,6 +4,8 @@
 
 ## MotionOptions interface
 
+Arguments to the [Motion](./motion-sdk.motion.md) constructor
+
 **Signature:**
 
 ```typescript
