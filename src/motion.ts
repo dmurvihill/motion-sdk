@@ -221,8 +221,8 @@ export class Motion {
 
 export interface MotionOptions {
   baseUrl?: string;
-  userId: string;
-  apiKey: string;
+  userId?: string;
+  apiKey?: string;
   requestLimiter?: RateLimiterAbstract;
   overrunLimiter?: RateLimiterAbstract;
   maxQueueSize?: number;
