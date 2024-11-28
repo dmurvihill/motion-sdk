@@ -389,8 +389,16 @@ export interface MotionRateLimits {
   overruns: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
 }
 
+/** End-of-life information on a Motion client
+ *
+ * @public
+ */
 export interface ClosedReason {
+
+  /** Brief, developer-readable explanation for the closure */
   reason: string;
+
+  /** Error that caused the client to closed, if any */
   cause?: MotionError;
 }
 

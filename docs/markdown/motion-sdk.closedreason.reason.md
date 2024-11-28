@@ -4,6 +4,8 @@
 
 ## ClosedReason.reason property
 
+Brief, developer-readable explanation for the closure
+
 **Signature:**
 
 ```typescript
