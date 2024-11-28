@@ -160,7 +160,7 @@ export type MotionFetchError = FetchIndividualError | MultiError<FetchIndividual
 // @public (undocumented)
 export const motionMockBaseUrl: "https://stoplight.io/mocks/motion/motion-rest-api/33447";
 
-// @public (undocumented)
+// @public
 export interface MotionOptions {
     // (undocumented)
     apiKey?: string;
