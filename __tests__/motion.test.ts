@@ -6,6 +6,7 @@ import { Redis } from "ioredis";
 import { expectMotionError, expectResponse } from "./util/assertions.js";
 import Motion from "../src/motion.js";
 import { closedErrorType } from "../src/constant.js";
+import { MotionError } from "../src/index.js";
 
 describe("Motion", () => {
   let motion: Motion;
@@ -98,6 +99,16 @@ describe("Motion", () => {
     it("should set isOpen", () => {
       close();
       expect(motionForCloseTests.isOpen()).toBe(false);
+    });
+
+    it("should expose closure reason", () => {
+      const reason = "test reason";
+      const cause: MotionError = {
+        errorType: "test_error",
+        message: "Test Error",
+      };
+      motion.close("test reason", cause);
+      expect(motion.closedReason).toStrictEqual({ reason, cause });
     });
 
     it("should return ClosedError on any subsequent fetch", async () => {

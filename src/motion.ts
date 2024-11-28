@@ -40,10 +40,10 @@ export class Motion {
   readonly overrunLimiter: RateLimiterAbstract;
   readonly requestLimiterKey: string;
   readonly overrunLimiterKey: string;
-  private closedReason: ClosedReason | null;
+  private _closedReason: ClosedReason | null;
 
   constructor(opts?: MotionOptions) {
-    this.closedReason = null;
+    this._closedReason = null;
     this.userId = opts?.userId ?? process.env.MOTION_USER_ID ?? null;
     this.apiKey = opts?.apiKey ?? process.env.MOTION_API_KEY ?? null;
     if (this.userId === null) {
@@ -79,16 +79,16 @@ export class Motion {
     input: string | URL | globalThis.Request,
     init?: RequestInit,
   ): Promise<Response | MotionFetchError> {
-    if (this.closedReason !== null) {
+    if (this._closedReason !== null) {
       return Promise.resolve(
-        new ClosedError(this.closedReason.reason, this.closedReason.cause),
+        new ClosedError(this._closedReason.reason, this._closedReason.cause),
       );
     }
     const limiterError = await this.waitForTurn();
     if (typeof limiterError !== "number") {
       return limiterError;
     }
-    const newClosedReason = this.closedReason as ClosedReason | null;
+    const newClosedReason = this._closedReason as ClosedReason | null;
     if (newClosedReason !== null) {
       return Promise.resolve(
         new ClosedError(newClosedReason.reason, newClosedReason.cause),
@@ -103,14 +103,21 @@ export class Motion {
   }
 
   isOpen(): boolean {
-    return this.closedReason === null;
+    return this._closedReason === null;
+  }
+
+  get closedReason(): ClosedReason | null {
+    return this._closedReason;
   }
 
   close(reason: string, cause?: MotionError): undefined | ClosedError {
-    if (this.closedReason !== null) {
-      return new ClosedError(this.closedReason.reason, this.closedReason.cause);
+    if (this._closedReason !== null) {
+      return new ClosedError(
+        this._closedReason.reason,
+        this._closedReason.cause,
+      );
     } else {
-      this.closedReason = {
+      this._closedReason = {
         reason,
         cause,
       };
