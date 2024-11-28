@@ -191,6 +191,8 @@ Description
 
 </td><td>
 
+Arguments to the [Motion](./motion-sdk.motion.md) constructor
+
 
 </td></tr>
 <tr><td>

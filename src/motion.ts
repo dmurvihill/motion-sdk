@@ -373,6 +373,8 @@ export class Motion {
   }
 }
 
+/** Arguments to the {@link Motion} constructor
+ * @public */
 export interface MotionOptions {
   baseUrl?: string;
   userId?: string;
