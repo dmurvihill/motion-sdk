@@ -174,7 +174,7 @@ export interface MotionOptions {
     userId?: string;
 }
 
-// @public (undocumented)
+// @public
 export interface MotionRateLimits {
     // (undocumented)
     overruns: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
