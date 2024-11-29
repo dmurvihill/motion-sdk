@@ -9,7 +9,9 @@ Constructs a new instance of the `ClosedError` class
 **Signature:**
 
 ```typescript
-constructor(reason: string, cause?: MotionError | undefined);
+constructor(
+    reason: string, 
+    cause?: MotionError | undefined);
 ```
 
 ## Parameters

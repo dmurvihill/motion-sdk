@@ -9,7 +9,8 @@ Constructs a new instance of the `MultiError` class
 **Signature:**
 
 ```typescript
-constructor(errors: T[]);
+constructor(
+    errors: T[]);
 ```
 
 ## Parameters

@@ -4,6 +4,8 @@
 
 ## MultiError class
 
+Multiple errors occurred
+
 **Signature:**
 
 ```typescript
@@ -86,6 +88,8 @@ T\[\]
 
 
 </td><td>
+
+The underlying errors
 
 
 </td></tr>

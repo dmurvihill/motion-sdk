@@ -4,6 +4,8 @@
 
 ## MultiError.errors property
 
+The underlying errors
+
 **Signature:**
 
 ```typescript

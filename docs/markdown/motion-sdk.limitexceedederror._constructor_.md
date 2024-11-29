@@ -9,7 +9,8 @@ Constructs a new instance of the `LimitExceededError` class
 **Signature:**
 
 ```typescript
-constructor(response: Response);
+constructor(
+    response: Response);
 ```
 
 ## Parameters

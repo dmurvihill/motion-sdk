@@ -4,6 +4,8 @@
 
 ## isMotionError() function
 
+Type assertion for [MotionError](./motion-sdk.motionerror.md)
+
 **Signature:**
 
 ```typescript
