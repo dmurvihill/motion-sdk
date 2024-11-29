@@ -4,6 +4,8 @@
 
 ## closedErrorType variable
 
+The client is already closed
+
 **Signature:**
 
 ```typescript

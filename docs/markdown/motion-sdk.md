@@ -231,10 +231,23 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[argumentErrorType](./motion-sdk.argumenterrortype.md)
+
+
+</td><td>
+
+An illegal argument was passed to a function or method
+
+
+</td></tr>
+<tr><td>
+
 [closedErrorType](./motion-sdk.closederrortype.md)
 
 
 </td><td>
+
+The client is already closed
 
 
 </td></tr>
@@ -245,6 +258,10 @@ Description
 
 </td><td>
 
+Number of requests that can be queued to comply with the rate limit
+
+Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
+
 
 </td></tr>
 <tr><td>
@@ -254,14 +271,7 @@ Description
 
 </td><td>
 
-
-</td></tr>
-<tr><td>
-
-[invalidOptionErrorType](./motion-sdk.invalidoptionerrortype.md)
-
-
-</td><td>
+There was an error in making the request
 
 
 </td></tr>
@@ -272,6 +282,8 @@ Description
 
 </td><td>
 
+An error prevented checking or updating the rate limit
+
 
 </td></tr>
 <tr><td>
@@ -280,6 +292,8 @@ Description
 
 
 </td><td>
+
+Motion returned 429 Limit Exceeded; we have overrun the rate limit
 
 
 </td></tr>
@@ -290,6 +304,8 @@ Description
 
 </td><td>
 
+Location of the live API
+
 
 </td></tr>
 <tr><td>
@@ -298,6 +314,8 @@ Description
 
 
 </td><td>
+
+Location of the mock API
 
 
 </td></tr>
@@ -310,7 +328,7 @@ Description
 
 Official rate limits used by Motion
 
-NOTE: For additional safety, consider using recommendedRateLimits instead.
+NOTE: For additional safety, consider using [recommendedRateLimits](./motion-sdk.recommendedratelimits.md) instead.
 
 
 </td></tr>
@@ -321,6 +339,8 @@ NOTE: For additional safety, consider using recommendedRateLimits instead.
 
 </td><td>
 
+Multiple errors occurred
+
 
 </td></tr>
 <tr><td>
@@ -330,6 +350,8 @@ NOTE: For additional safety, consider using recommendedRateLimits instead.
 
 </td><td>
 
+Too many waiting requests already
+
 
 </td></tr>
 <tr><td>
@@ -338,6 +360,8 @@ NOTE: For additional safety, consider using recommendedRateLimits instead.
 
 
 </td><td>
+
+Internal rate limits with a small headroom against the official limits
 
 
 </td></tr>

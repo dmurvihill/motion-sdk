@@ -4,6 +4,8 @@
 
 ## recommendedRateLimits variable
 
+Internal rate limits with a small headroom against the official limits
+
 **Signature:**
 
 ```typescript

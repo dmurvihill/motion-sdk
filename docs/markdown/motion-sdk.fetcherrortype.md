@@ -4,6 +4,8 @@
 
 ## fetchErrorType variable
 
+There was an error in making the request
+
 **Signature:**
 
 ```typescript

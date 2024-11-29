@@ -4,6 +4,8 @@
 
 ## limiterErrorType variable
 
+An error prevented checking or updating the rate limit
+
 **Signature:**
 
 ```typescript
