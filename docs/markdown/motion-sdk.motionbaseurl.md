@@ -4,6 +4,8 @@
 
 ## motionBaseUrl variable
 
+Location of the live API
+
 **Signature:**
 
 ```typescript

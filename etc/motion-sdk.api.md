@@ -9,6 +9,9 @@ import { RateLimiterAbstract } from 'rate-limiter-flexible';
 import { RateLimiterQueue } from 'rate-limiter-flexible';
 import { RateLimiterQueueError } from 'rate-limiter-flexible/lib/component/index.js';
 
+// @public
+export const argumentErrorType: "ARGUMENT_ERROR";
+
 // @public (undocumented)
 export function bundleErrors<T extends MotionError>(errors: T[]): T | MultiError<T>;
 
@@ -23,7 +26,7 @@ export class ClosedError extends Error implements MotionError {
     readonly reason: string;
 }
 
-// @public (undocumented)
+// @public
 export const closedErrorType: "MOTION_CLIENT_CLOSED";
 
 // @public
@@ -32,7 +35,7 @@ export interface ClosedReason {
     reason: string;
 }
 
-// @public (undocumented)
+// @public
 export const defaultQueueSize = 20;
 
 // @public (undocumented)
@@ -52,7 +55,7 @@ export class FetchError extends Error implements MotionError {
     };
 }
 
-// @public (undocumented)
+// @public
 export const fetchErrorType: "FETCH_ERROR";
 
 // @public (undocumented)
@@ -64,13 +67,10 @@ export class InvalidOptionError<T> extends Error implements MotionError {
     // (undocumented)
     readonly argumentName: string;
     // (undocumented)
-    errorType: typeof invalidOptionErrorType;
+    errorType: typeof argumentErrorType;
     // (undocumented)
     readonly message: string;
 }
-
-// @public (undocumented)
-export const invalidOptionErrorType: "INVALID_OPTION";
 
 // @public (undocumented)
 export function isFetchError(o: unknown): o is FetchError;
@@ -97,7 +97,7 @@ export class LimiterError extends Error implements MotionError {
     readonly limiter: RateLimiterAbstract;
 }
 
-// @public (undocumented)
+// @public
 export const limiterErrorType: "MOTION_LIMITER_ERROR";
 
 // @public (undocumented)
@@ -109,7 +109,7 @@ export class LimitExceededError extends Error implements MotionError {
     readonly response: Response;
 }
 
-// @public (undocumented)
+// @public
 export const limitExceededErrorType: "MOTION_API_RATE_LIMIT_EXCEEDED";
 
 // @public
@@ -141,7 +141,7 @@ class Motion {
 export { Motion }
 export default Motion;
 
-// @public (undocumented)
+// @public
 export const motionBaseUrl: "https://api.usemotion.com/v1";
 
 // @public (undocumented)
@@ -155,7 +155,7 @@ export interface MotionError {
 // @public (undocumented)
 export type MotionFetchError = FetchIndividualError | MultiError<FetchIndividualError>;
 
-// @public (undocumented)
+// @public
 export const motionMockBaseUrl: "https://stoplight.io/mocks/motion/motion-rest-api/33447";
 
 // @public
@@ -194,7 +194,7 @@ export class MultiError<T extends MotionError> extends Error implements MotionEr
     readonly errorType: typeof multiErrorType;
 }
 
-// @public (undocumented)
+// @public
 export const multiErrorType: "MOTION_MULTI_ERROR";
 
 // @public (undocumented)
@@ -210,10 +210,10 @@ export class QueueOverflowError extends Error implements MotionError {
     readonly queue: RateLimiterQueue;
 }
 
-// @public (undocumented)
+// @public
 export const queueOverflowErrorType: "MOTION_LIMITER_QUEUE_EXCEEDED";
 
-// @public (undocumented)
+// @public
 export const recommendedRateLimits: MotionRateLimits;
 
 // @public (undocumented)

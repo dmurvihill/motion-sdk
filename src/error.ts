@@ -1,7 +1,7 @@
 import {
   closedErrorType,
   fetchErrorType,
-  invalidOptionErrorType,
+  argumentErrorType,
   limiterErrorType,
   limitExceededErrorType,
   multiErrorType,
@@ -18,7 +18,7 @@ export interface MotionError {
 }
 
 export class InvalidOptionError<T> extends Error implements MotionError {
-  errorType: typeof invalidOptionErrorType = invalidOptionErrorType;
+  errorType: typeof argumentErrorType = argumentErrorType;
 
   constructor(
     readonly argumentName: string,

@@ -4,6 +4,8 @@
 
 ## limitExceededErrorType variable
 
+Motion returned 429 Limit Exceeded; we have overrun the rate limit
+
 **Signature:**
 
 ```typescript

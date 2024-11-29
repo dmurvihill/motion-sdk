@@ -8,7 +8,7 @@ import Motion from "../src/motion.js";
 import {
   closedErrorType,
   fetchErrorType,
-  invalidOptionErrorType,
+  argumentErrorType,
   limiterErrorType,
   limitExceededErrorType,
   motionBaseUrl,
@@ -267,7 +267,7 @@ describe("Motion", () => {
         const motion = new Motion();
         expectMotionError(
           await motion.unsafe_fetch(mockPath),
-          invalidOptionErrorType,
+          argumentErrorType,
         );
       } finally {
         process.env.MOTION_API_KEY = oldApiKey;

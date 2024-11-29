@@ -99,7 +99,7 @@ string
 
 </td><td>
 
-typeof [invalidOptionErrorType](./motion-sdk.invalidoptionerrortype.md)
+typeof [argumentErrorType](./motion-sdk.argumenterrortype.md)
 
 
 </td><td>

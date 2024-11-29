@@ -4,6 +4,8 @@
 
 ## queueOverflowErrorType variable
 
+Too many waiting requests already
+
 **Signature:**
 
 ```typescript

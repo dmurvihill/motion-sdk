@@ -4,6 +4,10 @@
 
 ## defaultQueueSize variable
 
+Number of requests that can be queued to comply with the rate limit
+
+Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
+
 **Signature:**
 
 ```typescript
