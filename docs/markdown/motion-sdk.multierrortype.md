@@ -4,6 +4,8 @@
 
 ## multiErrorType variable
 
+Multiple errors occurred
+
 **Signature:**
 
 ```typescript

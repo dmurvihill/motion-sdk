@@ -7,5 +7,5 @@
 **Signature:**
 
 ```typescript
-errorType: typeof invalidOptionErrorType;
+errorType: typeof argumentErrorType;
 ```

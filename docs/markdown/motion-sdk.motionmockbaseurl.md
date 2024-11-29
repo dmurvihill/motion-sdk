@@ -4,6 +4,8 @@
 
 ## motionMockBaseUrl variable
 
+Location of the mock API
+
 **Signature:**
 
 ```typescript
