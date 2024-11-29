@@ -216,7 +216,7 @@ function messageFromCause(cause: unknown) {
 
 /** Possible single errors returned by {@link Motion.unsafe_fetch}
  *
- * @internal
+ * @public
  */
 export type UnsafeFetchIndividualError =
   | ArgumentError<null>
@@ -233,7 +233,7 @@ export type UnsafeFetchError =
 
 /** Possible single errors returned by {@link Motion.fetch}
  *
- * @internal
+ * @public
  */
 export type FetchIndividualError =
   | UnsafeFetchIndividualError

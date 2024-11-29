@@ -397,6 +397,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[FetchIndividualError](./motion-sdk.fetchindividualerror.md)
+
+
+</td><td>
+
+Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+
+
+</td></tr>
+<tr><td>
+
 [MotionFetchError](./motion-sdk.motionfetcherror.md)
 
 
@@ -414,6 +425,17 @@ Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
 </td><td>
 
 Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+
+
+</td></tr>
+<tr><td>
+
+[UnsafeFetchIndividualError](./motion-sdk.unsafefetchindividualerror.md)
+
+
+</td><td>
+
+Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
 
 
 </td></tr>
