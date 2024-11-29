@@ -419,15 +419,36 @@
     "extractorMessageReporting": {
       "default": {
         "logLevel": "warning"
-        // "addToApiReportFile": false
-      }
+      },
 
-      // "ae-extra-release-tag": {
-      //   "logLevel": "warning",
-      //   "addToApiReportFile": true
-      // },
-      //
-      // . . .
+       "ae-internal-missing-underscore": {
+         "logLevel": "none",
+         "addToApiReportFile": false
+       },
+
+      "ae-incompatible-release-tags": {
+        "logLevel": "warning",
+        "addToApiReportFile": false
+      },
+
+      "ae-internal-mixed-release-tag": {
+        "logLevel": "none",
+        "addToApiReportFile": false
+      },
+
+      "ae-undocumented": {
+        "logLevel": "warning"
+      },
+
+      "ae-unresolved-inheritdoc-reference": {
+        "logLevel": "warning",
+        "addToApiReportFile": false
+      },
+
+      "ae-unresolved-inheritdoc-base": {
+        "logLevel": "warning",
+        "addToApiReportFile": false
+      }
     },
 
     /**
