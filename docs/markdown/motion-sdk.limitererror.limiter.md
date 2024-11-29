@@ -4,6 +4,8 @@
 
 ## LimiterError.limiter property
 
+The erroring limiter
+
 **Signature:**
 
 ```typescript

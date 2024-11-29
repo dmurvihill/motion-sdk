@@ -4,6 +4,8 @@
 
 ## QueueOverflowError class
 
+Too many waiting requests already
+
 **Signature:**
 
 ```typescript
@@ -87,6 +89,8 @@ string \| number
 
 </td><td>
 
+The rate limiter key that was attempted
+
 
 </td></tr>
 <tr><td>
@@ -105,6 +109,8 @@ RateLimiterQueueError
 
 
 </td><td>
+
+The overflow error from the underlying framework
 
 
 </td></tr>
@@ -141,6 +147,8 @@ RateLimiterQueue
 
 
 </td><td>
+
+The overflowing queue
 
 
 </td></tr>

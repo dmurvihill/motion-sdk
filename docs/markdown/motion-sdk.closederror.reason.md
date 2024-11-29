@@ -4,6 +4,8 @@
 
 ## ClosedError.reason property
 
+Developer-readable reason for the closure
+
 **Signature:**
 
 ```typescript

@@ -4,6 +4,8 @@
 
 ## FetchError class
 
+There was an error in making the request
+
 **Signature:**
 
 ```typescript
@@ -87,6 +89,8 @@ unknown
 
 </td><td>
 
+The error that was thrown by fetch
+
 
 </td></tr>
 <tr><td>
@@ -124,6 +128,8 @@ typeof [fetchErrorType](./motion-sdk.fetcherrortype.md)
 
 
 </td><td>
+
+The failing [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
 
 
 </td></tr>

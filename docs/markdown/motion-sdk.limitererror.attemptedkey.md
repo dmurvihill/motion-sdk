@@ -4,6 +4,8 @@
 
 ## LimiterError.attemptedKey property
 
+The rate limiter key that was attempted
+
 **Signature:**
 
 ```typescript

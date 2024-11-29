@@ -4,10 +4,12 @@
 
 ## MotionFetchError type
 
+Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+
 **Signature:**
 
 ```typescript
 export type MotionFetchError = FetchIndividualError | MultiError<FetchIndividualError>;
 ```
-**References:** [FetchIndividualError](./motion-sdk.fetchindividualerror.md)<!-- -->, [MultiError](./motion-sdk.multierror.md)
+**References:** [MultiError](./motion-sdk.multierror.md)
 

@@ -4,6 +4,8 @@
 
 ## isMultiError() function
 
+Type assertion for [MultiError](./motion-sdk.multierror.md)
+
 **Signature:**
 
 ```typescript

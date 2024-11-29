@@ -9,7 +9,10 @@ Constructs a new instance of the `LimiterError` class
 **Signature:**
 
 ```typescript
-constructor(limiter: RateLimiterAbstract, cause: unknown, attemptedKey?: (string | number) | undefined);
+constructor(
+    limiter: RateLimiterAbstract, 
+    cause: unknown, 
+    attemptedKey?: (string | number) | undefined);
 ```
 
 ## Parameters

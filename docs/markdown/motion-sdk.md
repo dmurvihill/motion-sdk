@@ -19,10 +19,23 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[ArgumentError](./motion-sdk.argumenterror.md)
+
+
+</td><td>
+
+An illegal argument was passed to a function or method
+
+
+</td></tr>
+<tr><td>
+
 [ClosedError](./motion-sdk.closederror.md)
 
 
 </td><td>
+
+The client is already closed
 
 
 </td></tr>
@@ -33,14 +46,7 @@ Description
 
 </td><td>
 
-
-</td></tr>
-<tr><td>
-
-[InvalidOptionError](./motion-sdk.invalidoptionerror.md)
-
-
-</td><td>
+There was an error in making the request
 
 
 </td></tr>
@@ -51,6 +57,8 @@ Description
 
 </td><td>
 
+An error prevented checking or updating the rate limit
+
 
 </td></tr>
 <tr><td>
@@ -59,6 +67,8 @@ Description
 
 
 </td><td>
+
+Motion returned 429 Limit Exceeded; we have overrun the rate limit
 
 
 </td></tr>
@@ -80,6 +90,8 @@ Motion API client
 
 </td><td>
 
+Multiple errors occurred
+
 
 </td></tr>
 <tr><td>
@@ -88,6 +100,8 @@ Motion API client
 
 
 </td><td>
+
+Too many waiting requests already
 
 
 </td></tr>
@@ -108,19 +122,12 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[bundleErrors(errors)](./motion-sdk.bundleerrors.md)
-
-
-</td><td>
-
-
-</td></tr>
-<tr><td>
-
 [isFetchError(o)](./motion-sdk.isfetcherror.md)
 
 
 </td><td>
+
+Type assertion for [FetchError](./motion-sdk.fetcherror.md)
 
 
 </td></tr>
@@ -131,6 +138,8 @@ Description
 
 </td><td>
 
+Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)
+
 
 </td></tr>
 <tr><td>
@@ -140,6 +149,8 @@ Description
 
 </td><td>
 
+Type assertion for [MotionError](./motion-sdk.motionerror.md)
+
 
 </td></tr>
 <tr><td>
@@ -148,6 +159,8 @@ Description
 
 
 </td><td>
+
+Type assertion for [MultiError](./motion-sdk.multierror.md)
 
 
 </td></tr>
@@ -183,6 +196,8 @@ End-of-life information on a Motion client
 
 
 </td><td>
+
+Base interface for all errors returned by `motion-sdk`
 
 
 </td></tr>
@@ -382,19 +397,12 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[FetchIndividualError](./motion-sdk.fetchindividualerror.md)
-
-
-</td><td>
-
-
-</td></tr>
-<tr><td>
-
 [MotionFetchError](./motion-sdk.motionfetcherror.md)
 
 
 </td><td>
+
+Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
 
 
 </td></tr>
@@ -405,14 +413,7 @@ Description
 
 </td><td>
 
-
-</td></tr>
-<tr><td>
-
-[UnsafeFetchIndividualError](./motion-sdk.unsafefetchindividualerror.md)
-
-
-</td><td>
+Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
 
 
 </td></tr>

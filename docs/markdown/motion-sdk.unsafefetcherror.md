@@ -4,10 +4,12 @@
 
 ## UnsafeFetchError type
 
+Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+
 **Signature:**
 
 ```typescript
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 ```
-**References:** [UnsafeFetchIndividualError](./motion-sdk.unsafefetchindividualerror.md)<!-- -->, [MultiError](./motion-sdk.multierror.md)
+**References:** [MultiError](./motion-sdk.multierror.md)
 

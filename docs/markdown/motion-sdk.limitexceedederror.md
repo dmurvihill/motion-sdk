@@ -4,6 +4,8 @@
 
 ## LimitExceededError class
 
+Motion returned 429 Limit Exceeded; we have overrun the rate limit
+
 **Signature:**
 
 ```typescript
@@ -103,6 +105,8 @@ Response
 
 
 </td><td>
+
+[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) that was returned by Motion
 
 
 </td></tr>

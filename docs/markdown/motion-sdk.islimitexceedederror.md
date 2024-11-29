@@ -4,6 +4,8 @@
 
 ## isLimitExceededError() function
 
+Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)
+
 **Signature:**
 
 ```typescript

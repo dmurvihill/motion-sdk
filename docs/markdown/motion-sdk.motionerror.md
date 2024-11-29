@@ -4,6 +4,8 @@
 
 ## MotionError interface
 
+Base interface for all errors returned by `motion-sdk`
+
 **Signature:**
 
 ```typescript

@@ -10,19 +10,32 @@ import { RateLimiterQueue } from 'rate-limiter-flexible';
 import { RateLimiterQueueError } from 'rate-limiter-flexible/lib/component/index.js';
 
 // @public
+export class ArgumentError<T> extends Error implements MotionError {
+    constructor(argumentName: string, argumentValue: T, message: string);
+    // (undocumented)
+    readonly argumentName: string;
+    // (undocumented)
+    errorType: typeof argumentErrorType;
+    // (undocumented)
+    readonly message: string;
+}
+
+// @public
 export const argumentErrorType: "ARGUMENT_ERROR";
 
-// @public (undocumented)
+// Warning: (ae-internal-missing-underscore) The name "bundleErrors" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
 export function bundleErrors<T extends MotionError>(errors: T[]): T | MultiError<T>;
 
-// @public (undocumented)
+// @public
 export class ClosedError extends Error implements MotionError {
-    constructor(reason: string, cause?: MotionError | undefined);
-    // (undocumented)
+    constructor(
+    reason: string,
+    cause?: MotionError | undefined);
     readonly cause?: MotionError | undefined;
     // (undocumented)
     readonly errorType: typeof closedErrorType;
-    // (undocumented)
     readonly reason: string;
 }
 
@@ -38,17 +51,17 @@ export interface ClosedReason {
 // @public
 export const defaultQueueSize = 20;
 
-// @public (undocumented)
+// @public
 export class FetchError extends Error implements MotionError {
-    constructor(cause: unknown, request: {
+    constructor(
+    cause: unknown,
+    request: {
         input: string | URL | globalThis.Request;
         init?: RequestInit;
     });
-    // (undocumented)
     readonly cause: unknown;
     // (undocumented)
     readonly errorType: typeof fetchErrorType;
-    // (undocumented)
     readonly request: {
         input: string | URL | globalThis.Request;
         init?: RequestInit;
@@ -58,54 +71,45 @@ export class FetchError extends Error implements MotionError {
 // @public
 export const fetchErrorType: "FETCH_ERROR";
 
-// @public (undocumented)
+// Warning: (ae-internal-missing-underscore) The name "FetchIndividualError" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
 export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | LimiterError | QueueOverflowError;
 
-// @public (undocumented)
-export class InvalidOptionError<T> extends Error implements MotionError {
-    constructor(argumentName: string, argumentValue: T, message: string);
-    // (undocumented)
-    readonly argumentName: string;
-    // (undocumented)
-    errorType: typeof argumentErrorType;
-    // (undocumented)
-    readonly message: string;
-}
-
-// @public (undocumented)
+// @public
 export function isFetchError(o: unknown): o is FetchError;
 
-// @public (undocumented)
+// @public
 export function isLimitExceededError(o: unknown): o is LimitExceededError;
 
-// @public (undocumented)
+// @public
 export function isMotionError(o: unknown): o is MotionError;
 
-// @public (undocumented)
+// @public
 export function isMultiError(o: unknown): o is MultiError<MotionError>;
 
-// @public (undocumented)
+// @public
 export class LimiterError extends Error implements MotionError {
-    constructor(limiter: RateLimiterAbstract, cause: unknown, attemptedKey?: (string | number) | undefined);
-    // (undocumented)
+    constructor(
+    limiter: RateLimiterAbstract,
+    cause: unknown,
+    attemptedKey?: (string | number) | undefined);
     readonly attemptedKey?: (string | number) | undefined;
-    // (undocumented)
     readonly cause: unknown;
     // (undocumented)
     errorType: typeof limiterErrorType;
-    // (undocumented)
     readonly limiter: RateLimiterAbstract;
 }
 
 // @public
 export const limiterErrorType: "MOTION_LIMITER_ERROR";
 
-// @public (undocumented)
+// @public
 export class LimitExceededError extends Error implements MotionError {
-    constructor(response: Response);
+    constructor(
+    response: Response);
     // (undocumented)
     errorType: typeof limitExceededErrorType;
-    // (undocumented)
     readonly response: Response;
 }
 
@@ -144,7 +148,7 @@ export default Motion;
 // @public
 export const motionBaseUrl: "https://api.usemotion.com/v1";
 
-// @public (undocumented)
+// @public
 export interface MotionError {
     // (undocumented)
     errorType: string;
@@ -152,7 +156,9 @@ export interface MotionError {
     message: string;
 }
 
-// @public (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "MotionFetchError" is marked as @public, but its signature references "FetchIndividualError" which is marked as @internal
+//
+// @public
 export type MotionFetchError = FetchIndividualError | MultiError<FetchIndividualError>;
 
 // @public
@@ -185,10 +191,10 @@ export interface MotionRateLimits {
 // @public
 export const motionRateLimits: MotionRateLimits;
 
-// @public (undocumented)
+// @public
 export class MultiError<T extends MotionError> extends Error implements MotionError {
-    constructor(errors: T[]);
-    // (undocumented)
+    constructor(
+    errors: T[]);
     readonly errors: T[];
     // (undocumented)
     readonly errorType: typeof multiErrorType;
@@ -197,16 +203,16 @@ export class MultiError<T extends MotionError> extends Error implements MotionEr
 // @public
 export const multiErrorType: "MOTION_MULTI_ERROR";
 
-// @public (undocumented)
+// @public
 export class QueueOverflowError extends Error implements MotionError {
-    constructor(queue: RateLimiterQueue, cause: RateLimiterQueueError, attemptedKey: string | number);
-    // (undocumented)
+    constructor(
+    queue: RateLimiterQueue,
+    cause: RateLimiterQueueError,
+    attemptedKey: string | number);
     readonly attemptedKey: string | number;
-    // (undocumented)
     readonly cause: RateLimiterQueueError;
     // (undocumented)
     errorType: typeof queueOverflowErrorType;
-    // (undocumented)
     readonly queue: RateLimiterQueue;
 }
 
@@ -216,11 +222,15 @@ export const queueOverflowErrorType: "MOTION_LIMITER_QUEUE_EXCEEDED";
 // @public
 export const recommendedRateLimits: MotionRateLimits;
 
-// @public (undocumented)
+// Warning: (ae-incompatible-release-tags) The symbol "UnsafeFetchError" is marked as @public, but its signature references "UnsafeFetchIndividualError" which is marked as @internal
+//
+// @public
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 
-// @public (undocumented)
-export type UnsafeFetchIndividualError = InvalidOptionError<null> | LimitExceededError | FetchError;
+// Warning: (ae-internal-missing-underscore) The name "UnsafeFetchIndividualError" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal
+export type UnsafeFetchIndividualError = ArgumentError<null> | LimitExceededError | FetchError;
 
 // (No @packageDocumentation comment for this package)
 

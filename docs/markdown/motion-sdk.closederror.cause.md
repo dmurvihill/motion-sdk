@@ -4,6 +4,8 @@
 
 ## ClosedError.cause property
 
+error that caused the closure
+
 **Signature:**
 
 ```typescript

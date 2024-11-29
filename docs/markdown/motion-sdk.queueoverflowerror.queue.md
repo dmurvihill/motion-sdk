@@ -4,6 +4,8 @@
 
 ## QueueOverflowError.queue property
 
+The overflowing queue
+
 **Signature:**
 
 ```typescript
