@@ -9,7 +9,10 @@ Constructs a new instance of the `QueueOverflowError` class
 **Signature:**
 
 ```typescript
-constructor(queue: RateLimiterQueue, cause: RateLimiterQueueError, attemptedKey: string | number);
+constructor(
+    queue: RateLimiterQueue, 
+    cause: RateLimiterQueueError, 
+    attemptedKey: string | number);
 ```
 
 ## Parameters

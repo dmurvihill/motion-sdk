@@ -4,6 +4,8 @@
 
 ## QueueOverflowError.cause property
 
+The overflow error from the underlying framework
+
 **Signature:**
 
 ```typescript

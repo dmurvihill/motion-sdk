@@ -4,6 +4,8 @@
 
 ## LimiterError class
 
+An error prevented checking or updating the rate limit
+
 **Signature:**
 
 ```typescript
@@ -87,7 +89,7 @@ Description
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ The rate limiter key that was attempted
 
 
 </td></tr>
@@ -107,6 +109,8 @@ unknown
 
 
 </td><td>
+
+The error
 
 
 </td></tr>
@@ -143,6 +147,8 @@ RateLimiterAbstract
 
 
 </td><td>
+
+The erroring limiter
 
 
 </td></tr>

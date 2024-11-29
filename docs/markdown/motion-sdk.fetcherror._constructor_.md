@@ -9,7 +9,9 @@ Constructs a new instance of the `FetchError` class
 **Signature:**
 
 ```typescript
-constructor(cause: unknown, request: {
+constructor(
+    cause: unknown, 
+    request: {
         input: string | URL | globalThis.Request;
         init?: RequestInit;
     });

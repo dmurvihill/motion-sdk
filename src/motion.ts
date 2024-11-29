@@ -9,7 +9,7 @@ import {
   ClosedError,
   FetchError,
   FetchIndividualError,
-  InvalidOptionError,
+  ArgumentError,
   isFetchError,
   isLimitExceededError,
   isMotionError,
@@ -144,14 +144,14 @@ export class Motion {
     this.userId = opts?.userId ?? process.env.MOTION_USER_ID ?? null;
     this.apiKey = opts?.apiKey ?? process.env.MOTION_API_KEY ?? null;
     if (this.userId === null) {
-      const e = new InvalidOptionError(
+      const e = new ArgumentError(
         "userId",
         opts?.userId,
         `No user ID set; expected 'userId' option in constructor, or MOTION_USER_ID environment variable`,
       );
       this.close(e.message, e);
     } else if (this.apiKey === null) {
-      const e = new InvalidOptionError(
+      const e = new ArgumentError(
         "apiKey",
         opts?.apiKey,
         `No API key set; expected 'apiKey' option in constructor, or MOTION_API_KEY environment variable`,
@@ -327,11 +327,9 @@ export class Motion {
     return bundleErrors(errors);
   }
 
-  private setHeaders(
-    headers?: HeadersInit,
-  ): HeadersInit | InvalidOptionError<null> {
+  private setHeaders(headers?: HeadersInit): HeadersInit | ArgumentError<null> {
     if (this.apiKey === null) {
-      return new InvalidOptionError("apiKey", this.apiKey, "No API key set");
+      return new ArgumentError("apiKey", this.apiKey, "No API key set");
     }
     const headersToSet = {
       "X-API-Key": this.apiKey,

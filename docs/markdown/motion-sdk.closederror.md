@@ -4,6 +4,8 @@
 
 ## ClosedError class
 
+The client is already closed
+
 **Signature:**
 
 ```typescript
@@ -87,7 +89,7 @@ Description
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ error that caused the closure
 
 
 </td></tr>
@@ -126,6 +128,8 @@ string
 
 
 </td><td>
+
+Developer-readable reason for the closure
 
 
 </td></tr>

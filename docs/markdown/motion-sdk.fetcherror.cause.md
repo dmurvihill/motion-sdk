@@ -4,6 +4,8 @@
 
 ## FetchError.cause property
 
+The error that was thrown by fetch
+
 **Signature:**
 
 ```typescript

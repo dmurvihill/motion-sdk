@@ -4,6 +4,8 @@
 
 ## LimiterError.cause property
 
+The error
+
 **Signature:**
 
 ```typescript
