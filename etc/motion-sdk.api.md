@@ -23,8 +23,6 @@ export class ArgumentError<T> extends Error implements MotionError {
 // @public
 export const argumentErrorType: "ARGUMENT_ERROR";
 
-// Warning: (ae-internal-missing-underscore) The name "bundleErrors" should be prefixed with an underscore because the declaration is marked as @internal
-//
 // @internal
 export function bundleErrors<T extends MotionError>(errors: T[]): T | MultiError<T>;
 
@@ -71,8 +69,6 @@ export class FetchError extends Error implements MotionError {
 // @public
 export const fetchErrorType: "FETCH_ERROR";
 
-// Warning: (ae-internal-missing-underscore) The name "FetchIndividualError" should be prefixed with an underscore because the declaration is marked as @internal
-//
 // @internal
 export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | LimiterError | QueueOverflowError;
 
@@ -156,8 +152,6 @@ export interface MotionError {
     message: string;
 }
 
-// Warning: (ae-incompatible-release-tags) The symbol "MotionFetchError" is marked as @public, but its signature references "FetchIndividualError" which is marked as @internal
-//
 // @public
 export type MotionFetchError = FetchIndividualError | MultiError<FetchIndividualError>;
 
@@ -222,13 +216,9 @@ export const queueOverflowErrorType: "MOTION_LIMITER_QUEUE_EXCEEDED";
 // @public
 export const recommendedRateLimits: MotionRateLimits;
 
-// Warning: (ae-incompatible-release-tags) The symbol "UnsafeFetchError" is marked as @public, but its signature references "UnsafeFetchIndividualError" which is marked as @internal
-//
 // @public
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 
-// Warning: (ae-internal-missing-underscore) The name "UnsafeFetchIndividualError" should be prefixed with an underscore because the declaration is marked as @internal
-//
 // @internal
 export type UnsafeFetchIndividualError = ArgumentError<null> | LimitExceededError | FetchError;
 
