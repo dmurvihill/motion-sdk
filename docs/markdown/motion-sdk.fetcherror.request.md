@@ -4,7 +4,7 @@
 
 ## FetchError.request property
 
-The failing [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
+The failing parameters to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 **Signature:**
 

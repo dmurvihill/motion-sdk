@@ -51,14 +51,30 @@ const queueOverflowRegex = /number of requests reached it'?s maximum/;
  * @public
  */
 export class Motion {
+  /** {@inheritDoc MotionOptions.userId} */
   readonly userId: string | null;
+
+  /** {@inheritDoc MotionOptions.apiKey} */
   private readonly apiKey: string | null;
+
+  /** {@inheritDoc MotionOptions.baseUrl} */
   readonly baseUrl: string;
+
+  /** Request queue */
   readonly requestQueue: RateLimiterQueue;
+
+  /** {@inheritDoc MotionOptions.requestLimiter} */
   readonly requestLimiter: RateLimiterAbstract;
+
+  /** {@inheritDoc MotionOptions.overrunLimiter}*/
   readonly overrunLimiter: RateLimiterAbstract;
+
+  /** Rate limiter key where requests are tracked */
   readonly requestLimiterKey: string;
+
+  /** Rate limiter key where overruns are tracked */
   readonly overrunLimiterKey: string;
+
   private _closedReason: ClosedReason | null;
 
   /** Create a Motion API client
@@ -236,14 +252,29 @@ export class Motion {
     }
   }
 
+  /** Status of the client
+   *
+   * @returns `true` if the client initialized successfully and can
+   * still be used to make requests
+   * */
   isOpen(): boolean {
     return this._closedReason === null;
   }
 
+  /** Reason the client was closed, if any */
   get closedReason(): ClosedReason | null {
     return this._closedReason;
   }
 
+  /** Terminate the client and free any associated resources
+   *
+   * @remarks
+   * After calling, it will be impossible to make requests to Motion under most
+   * circumstances. Some `unsafe_` methods will continue to work.
+   *
+   * @param reason - Developer-readable explanation for the closure
+   * @param cause - Error that precipitated the closure, if any
+   */
   close(reason: string, cause?: MotionError): undefined | ClosedError {
     if (this._closedReason !== null) {
       return new ClosedError(
@@ -271,11 +302,11 @@ export class Motion {
    * `unsafe_fetch` does not respect rate limiting or anything else about
    * the client's state. It can be called and will happily make requests
    * to the Motion API even if the limit is already exceeded and even if
-   * close() has been called. It will _not_ update the internal rate
-   * limiter.
+   * {@link Motion.close | close} has been called. It will _not_ update
+   * the internal rate limiter, even if Motion reports a rate limit overrun.
    *
    * Normally this function should be called only from
-   * {@link Motion.fetch} but is exposed to accommodate performance
+   * {@link Motion.fetch}, but it is exposed to accommodate performance
    * optimizations by advanced users. Use at your own peril.
    *
    * @param input - URL or Request object
@@ -374,17 +405,72 @@ export class Motion {
 /** Arguments to the {@link Motion} constructor
  * @public */
 export interface MotionOptions {
+  /** Base URL of the API
+   *
+   * @remarks
+   * Base URL the client should target. Useful to override in development.
+   *
+   * Motion provides a mock API at {@link motionMockBaseUrl}.
+   *
+   * @defaultValue
+   * The constructor uses the following URLs in order of precedence:
+   * 1. The URL set explicitly in the `MotionOptions` object
+   * 2. Value of {@link motionBaseUrl}
+   * */
   baseUrl?: string;
+
+  /** ID of the Motion user making the requests
+   *
+   * @defaultValue This can instead be set with an environment variable,
+   * `process.env.MOTION_USER_ID`.
+   * */
   userId?: string;
+
+  /** API key for the requests
+   *
+   * @defaultValue This can instead be set with an environment variable,
+   * `process.env.MOTION_API_KEY`.
+   * */
   apiKey?: string;
+
+  /** Rate limiter that tracks number of requests
+   *
+   * @remarks
+   * The default rate limiter will suffice for non-concurrent usage patterns.
+   * If you are using multiple {@link Motion} objects with the same user ID,
+   * make sure each client has the same limiter.
+   *
+   * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}
+   *
+   * @defaultValue {@link https://github.com/animir/node-rate-limiter-flexible/wiki/Memory | RateLimiterMemory} with the {@link recommendedRateLimits | recommended} rate limit
+   */
   requestLimiter?: RateLimiterAbstract;
+
+  /** Rate limiter that tracks how many times we've exceeded the limit recently
+   *
+   * @remarks
+   * The default rate limiter will suffice for non-concurrent usage patterns.
+   * If you are using multiple {@link Motion} objects with the same user ID,
+   * make sure each client has the same limiter and uses the same key.
+   *
+   * An "overrun" refers an instance of exceeding Motion's maximum number
+   * of requests per minute and receiving a 429 Limit Exceeded response.
+   * Too many overruns results in automatic and permanent lockout.
+   *
+   * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}
+   *
+   * @defaultValue {@link https://github.com/animir/node-rate-limiter-flexible/wiki/Memory | RateLimiterMemory} with the {@link recommendedRateLimits | recommended} rate limit
+   */
   overrunLimiter?: RateLimiterAbstract;
+
+  /** Maximum number of queued requests */
   maxQueueSize?: number;
 }
 
 /** Rate limit information about the Motion API
  *
- *  Motion has two rate limits:
+ * @remarks
+ * Motion has two rate limits:
  *
  *  - If you exceed 12 requests in a minute, Motion will return 429
  *    Limit Exceeded and disable your API access for an hour.
@@ -400,11 +486,14 @@ export interface MotionOptions {
  *  @public
  * */
 export interface MotionRateLimits {
+  /** Rate limiter parameters for requests */
   requests: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
+
+  /** Rate limiter parameters for overruns */
   overruns: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
 }
 
-/** End-of-life information on a Motion client
+/** End-of-life information on a {@link Motion} client
  *
  * @public
  */

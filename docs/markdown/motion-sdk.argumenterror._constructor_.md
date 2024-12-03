@@ -9,7 +9,10 @@ Constructs a new instance of the `ArgumentError` class
 **Signature:**
 
 ```typescript
-constructor(argumentName: string, argumentValue: T, message: string);
+constructor(
+    argumentName: string, 
+    argumentValue: T, 
+    message: string);
 ```
 
 ## Parameters

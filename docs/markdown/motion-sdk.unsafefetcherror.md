@@ -11,5 +11,5 @@ Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_
 ```typescript
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 ```
-**References:** [MultiError](./motion-sdk.multierror.md)
+**References:** [UnsafeFetchIndividualError](./motion-sdk.unsafefetchindividualerror.md)<!-- -->, [MultiError](./motion-sdk.multierror.md)
 

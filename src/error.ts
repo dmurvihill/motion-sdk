@@ -17,20 +17,47 @@ import { isObject } from "./lib.js";
  * @public
  */
 export interface MotionError {
-  errorType: string;
-  message: string;
+  /** Indicates the class of the error
+   *
+   * @remarks
+   * Each distinct type of {@link MotionError} has its own constant value
+   * of `errorType`. This is the recommended way to programmatically
+   * distinguish between, say, a {@link LimiterError} and a {@link FetchError},
+   * to take appropriate recovery steps.
+   *
+   * See {@link isMotionError} and the related `is*Error` functions for
+   * built-in type assertions.
+   * */
+  readonly errorType:
+    | typeof argumentErrorType
+    | typeof fetchErrorType
+    | typeof limiterErrorType
+    | typeof queueOverflowErrorType
+    | typeof closedErrorType
+    | typeof limitExceededErrorType
+    | typeof multiErrorType;
+
+  /** Developer-readable error message */
+  readonly message: string;
 }
 
 /** {@inheritDoc argumentErrorType}
  *
+ * See {@link isArgumentError} and the related `is*Error` functions for
+ * built-in type assertions.
+ *
  * @public
  * */
 export class ArgumentError<T> extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   errorType: typeof argumentErrorType = argumentErrorType;
 
   constructor(
+    /** Name of the invalid argument */
     readonly argumentName: string,
-    argumentValue: T,
+    /** Value of the invalid argument */
+    readonly argumentValue: T,
+    /** {@inheritDoc MotionError.message} */
     readonly message: string,
   ) {
     super(message);
@@ -42,12 +69,13 @@ export class ArgumentError<T> extends Error implements MotionError {
  * @public
  */
 export class FetchError extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   readonly errorType: typeof fetchErrorType = fetchErrorType;
 
   constructor(
-    /** The error that was thrown by fetch */
+    /** The underlying error that was thrown by {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch} */
     readonly cause: unknown,
-    /** The failing {@link https://developer.mozilla.org/en-US/docs/Web/API/Request | Request} */
+    /** The failing parameters to {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch} */
     readonly request: {
       input: string | URL | globalThis.Request;
       init?: RequestInit;
@@ -62,6 +90,7 @@ export class FetchError extends Error implements MotionError {
  * @public
  */
 export class ClosedError extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   readonly errorType: typeof closedErrorType = closedErrorType;
 
   constructor(
@@ -79,6 +108,7 @@ export class ClosedError extends Error implements MotionError {
  * @public
  */
 export class LimitExceededError extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   errorType: typeof limitExceededErrorType = limitExceededErrorType;
 
   constructor(
@@ -97,6 +127,7 @@ export class MultiError<T extends MotionError>
   extends Error
   implements MotionError
 {
+  /** {@inheritDoc MotionError.errorType} */
   readonly errorType: typeof multiErrorType = multiErrorType;
 
   constructor(
@@ -112,14 +143,23 @@ export class MultiError<T extends MotionError>
  * @public
  */
 export class LimiterError extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   errorType: typeof limiterErrorType = limiterErrorType;
 
   constructor(
-    /** The erroring limiter */
+    /** The erroring rate limiter. See {@link https://github.com/animir/node-rate-limiter-flexible/wiki | rate-limiter-abstract reference}
+     * */
     readonly limiter: RateLimiterAbstract,
-    /** The error */
+    /** The underlying error from the rate limiter */
     readonly cause: unknown,
-    /** The rate limiter key that was attempted */
+    /** The rate limiter key that was attempted
+     *
+     * @remarks
+     * An {@link https://github.com/animir/node-rate-limiter-flexible/wiki | rate-limiter-flexible}
+     * tracks the same limit independently across multiple keys. In some
+     * cases it is important to know which particular key is returning
+     * errors.
+     * */
     readonly attemptedKey?: string | number,
   ) {
     super(`Error from rate limiter: ${messageFromCause(cause)}`);
@@ -131,6 +171,7 @@ export class LimiterError extends Error implements MotionError {
  * @public
  * */
 export class QueueOverflowError extends Error implements MotionError {
+  /** {@inheritDoc MotionError.errorType} */
   errorType: typeof queueOverflowErrorType = queueOverflowErrorType;
 
   constructor(
@@ -216,7 +257,7 @@ function messageFromCause(cause: unknown) {
 
 /** Possible single errors returned by {@link Motion.unsafe_fetch}
  *
- * @internal
+ * @public
  */
 export type UnsafeFetchIndividualError =
   | ArgumentError<null>
@@ -233,7 +274,7 @@ export type UnsafeFetchError =
 
 /** Possible single errors returned by {@link Motion.fetch}
  *
- * @internal
+ * @public
  */
 export type FetchIndividualError =
   | UnsafeFetchIndividualError

@@ -4,6 +4,8 @@
 
 ## ArgumentError.argumentName property
 
+Name of the invalid argument
+
 **Signature:**
 
 ```typescript

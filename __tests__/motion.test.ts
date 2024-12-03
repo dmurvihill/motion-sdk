@@ -123,7 +123,7 @@ describe("Motion", () => {
     it("should expose closure reason", () => {
       const reason = "test reason";
       const cause: MotionError = {
-        errorType: "test_error",
+        errorType: "MOTION_CLIENT_CLOSED",
         message: "Test Error",
       };
       motion.close("test reason", cause);

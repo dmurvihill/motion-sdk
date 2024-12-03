@@ -4,6 +4,8 @@
 
 ## Motion.close() method
 
+Terminate the client and free any associated resources
+
 **Signature:**
 
 ```typescript
@@ -40,6 +42,8 @@ string
 
 </td><td>
 
+Developer-readable explanation for the closure
+
 
 </td></tr>
 <tr><td>
@@ -54,7 +58,7 @@ cause
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Error that precipitated the closure, if any
 
 
 </td></tr>
@@ -62,4 +66,8 @@ _(Optional)_
 **Returns:**
 
 undefined \| [ClosedError](./motion-sdk.closederror.md)
+
+## Remarks
+
+After calling, it will be impossible to make requests to Motion under most circumstances. Some `unsafe_` methods will continue to work.
 

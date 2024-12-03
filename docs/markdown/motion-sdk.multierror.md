@@ -15,6 +15,10 @@ export declare class MultiError<T extends MotionError> extends Error implements 
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See [isMultiError()](./motion-sdk.ismultierror.md) for a built-in way to identify [MultiError](./motion-sdk.multierror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -109,6 +113,8 @@ typeof [multiErrorType](./motion-sdk.multierrortype.md)
 
 
 </td><td>
+
+Indicates the class of the error
 
 
 </td></tr>

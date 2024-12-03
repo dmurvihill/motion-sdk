@@ -15,6 +15,10 @@ export declare class LimitExceededError extends Error implements MotionError
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See [isLimitExceededError()](./motion-sdk.islimitexceedederror.md) for a built-in way to identify [LimitExceededError](./motion-sdk.limitexceedederror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -86,6 +90,8 @@ typeof [limitExceededErrorType](./motion-sdk.limitexceedederrortype.md)
 
 
 </td><td>
+
+Indicates the class of the error
 
 
 </td></tr>

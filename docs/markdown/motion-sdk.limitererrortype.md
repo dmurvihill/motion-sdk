@@ -11,3 +11,8 @@ An error prevented checking or updating the rate limit
 ```typescript
 limiterErrorType: "MOTION_LIMITER_ERROR"
 ```
+
+## Remarks
+
+See  for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
+

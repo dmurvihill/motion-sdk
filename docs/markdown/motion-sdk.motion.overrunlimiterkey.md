@@ -4,6 +4,8 @@
 
 ## Motion.overrunLimiterKey property
 
+Rate limiter key where overruns are tracked
+
 **Signature:**
 
 ```typescript

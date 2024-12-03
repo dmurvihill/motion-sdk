@@ -4,8 +4,19 @@
 
 ## Motion.overrunLimiter property
 
+Rate limiter that tracks how many times we've exceeded the limit recently
+
 **Signature:**
 
 ```typescript
 readonly overrunLimiter: RateLimiterAbstract;
 ```
+
+## Remarks
+
+The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple [Motion](./motion-sdk.motion.md) objects with the same user ID, make sure each client has the same limiter and uses the same key.
+
+An "overrun" refers an instance of exceeding Motion's maximum number of requests per minute and receiving a 429 Limit Exceeded response. Too many overruns results in automatic and permanent lockout.
+
+See [rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples)
+

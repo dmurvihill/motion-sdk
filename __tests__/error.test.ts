@@ -1,6 +1,14 @@
 import { it, fc } from "@fast-check/jest";
 import { bundleErrors, LimiterError, type MotionError } from "../src/error.js";
-import { multiErrorType } from "../src/constant.js";
+import {
+  argumentErrorType,
+  closedErrorType,
+  fetchErrorType,
+  limiterErrorType,
+  limitExceededErrorType,
+  multiErrorType,
+  queueOverflowErrorType,
+} from "../src/constant.js";
 import { RateLimiterMemory } from "rate-limiter-flexible";
 import { Arbitrary } from "fast-check";
 
@@ -13,7 +21,17 @@ const limiterErrorParams = fc.record({
 });
 
 const motionError: Arbitrary<MotionError> = fc.record({
-  errorType: fc.string(),
+  errorType: fc.constantFrom(
+    ...[
+      closedErrorType,
+      fetchErrorType,
+      argumentErrorType,
+      limiterErrorType,
+      limitExceededErrorType,
+      multiErrorType,
+      queueOverflowErrorType,
+    ],
+  ),
   message: fc.string(),
 });
 

@@ -4,6 +4,8 @@
 
 ## MotionRateLimits.requests property
 
+Rate limiter parameters for requests
+
 **Signature:**
 
 ```typescript

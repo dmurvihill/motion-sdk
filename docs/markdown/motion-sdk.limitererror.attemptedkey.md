@@ -11,3 +11,8 @@ The rate limiter key that was attempted
 ```typescript
 readonly attemptedKey?: (string | number) | undefined;
 ```
+
+## Remarks
+
+An [rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible/wiki) tracks the same limit independently across multiple keys. In some cases it is important to know which particular key is returning errors.
+

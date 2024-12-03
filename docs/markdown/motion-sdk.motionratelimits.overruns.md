@@ -4,6 +4,8 @@
 
 ## MotionRateLimits.overruns property
 
+Rate limiter parameters for overruns
+
 **Signature:**
 
 ```typescript

@@ -42,13 +42,17 @@ Description
 
 </td><td>
 
-
-</td><td>
-
-string
+`readonly`
 
 
 </td><td>
+
+typeof [argumentErrorType](./motion-sdk.argumenterrortype.md) \| typeof [fetchErrorType](./motion-sdk.fetcherrortype.md) \| typeof [limiterErrorType](./motion-sdk.limitererrortype.md) \| typeof [queueOverflowErrorType](./motion-sdk.queueoverflowerrortype.md) \| typeof [closedErrorType](./motion-sdk.closederrortype.md) \| typeof [limitExceededErrorType](./motion-sdk.limitexceedederrortype.md) \| typeof [multiErrorType](./motion-sdk.multierrortype.md)
+
+
+</td><td>
+
+Indicates the class of the error
 
 
 </td></tr>
@@ -59,6 +63,8 @@ string
 
 </td><td>
 
+`readonly`
+
 
 </td><td>
 
@@ -66,6 +72,8 @@ string
 
 
 </td><td>
+
+Developer-readable error message
 
 
 </td></tr>

@@ -4,6 +4,8 @@
 
 ## MotionOptions.userId property
 
+ID of the Motion user making the requests
+
 **Signature:**
 
 ```typescript
