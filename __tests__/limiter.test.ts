@@ -1,7 +1,6 @@
 import { limitWith } from "../src/limiter.js";
 import { fc, it } from "@fast-check/jest";
 import { jest } from "@jest/globals";
-import { Arbitrary, DoubleConstraints, IntegerConstraints } from "fast-check";
 import {
   RateLimiterMemory,
   RateLimiterQueue,
@@ -11,14 +10,16 @@ import { Redis } from "ioredis";
 
 import { redisConfigFromEnvironment } from "./util/fixtures.js";
 import { delay } from "./util/timers.js";
-
-const maxSupportedPeriod_s = 60 * 60 * 24; // about a day
-const maxSupportedLimit = 1000;
-const maxSupportedQueueLength = 1000;
+import {
+  maxSupportedPeriod_s,
+  RateLimiterParamConstraints,
+  RateLimiterParams,
+  rateLimiterParams,
+} from "./util/generators.js";
 
 describe("limitWith", () => {
   const supportedParamRanges: RateLimiterParamConstraints = {
-    period_s: { min: 2, max: maxSupportedPeriod_s, noDefaultInfinity: true },
+    duration: { min: 2, max: maxSupportedPeriod_s, noDefaultInfinity: true },
     maxQueueLength: { min: 1 },
   };
 
@@ -36,11 +37,11 @@ describe("limitWith", () => {
       const f = jest.fn<() => Promise<number>>().mockResolvedValue(1);
       const g = limitWith(testQueue(params))(f);
       const promises = [];
-      for (let i = 0; i < params.limit; i++) {
+      for (let i = 0; i < params.points; i++) {
         promises.push(g());
       }
       await Promise.all(promises);
-      expect(f).toHaveBeenCalledTimes(params.limit);
+      expect(f).toHaveBeenCalledTimes(params.points);
     },
   );
 
@@ -50,16 +51,16 @@ describe("limitWith", () => {
       const f = jest.fn<() => Promise<number>>().mockResolvedValue(1);
       const g = limitWith(testQueue(params))(f);
       const promises = [];
-      for (let i = 0; i < params.limit; i++) {
+      for (let i = 0; i < params.points; i++) {
         promises.push(g());
       }
       await jest.advanceTimersByTimeAsync(1);
-      expect(f).toHaveBeenCalledTimes(params.limit);
+      expect(f).toHaveBeenCalledTimes(params.points);
       f.mockClear();
       const p = g();
       await jest.advanceTimersByTimeAsync(1);
       expect(f).not.toHaveBeenCalled();
-      await jest.advanceTimersByTimeAsync(params.period_s * 1000 + 100);
+      await jest.advanceTimersByTimeAsync(params.duration * 1000 + 100);
       expect(f).toHaveBeenCalled();
       await p;
       await Promise.all(promises);
@@ -88,23 +89,23 @@ describe("limitWith", () => {
     const promises = [];
     const f = jest.fn<() => Promise<void>>().mockResolvedValue(undefined);
     const params = {
-      limit: 5,
-      period_s: 1,
+      points: 5,
+      duration: 1,
       maxQueueLength: 1,
     };
     jest.useRealTimers();
     try {
       const g = limitWith(testQueue(params))(f);
-      for (let i = 0; i < params.limit; i++) {
+      for (let i = 0; i < params.points; i++) {
         promises.push(g());
       }
       await delay(0);
-      expect(f).toHaveBeenCalledTimes(params.limit);
+      expect(f).toHaveBeenCalledTimes(params.points);
       f.mockClear();
       const p = g();
       await delay(0);
       expect(f).not.toHaveBeenCalled();
-      await delay(params.period_s * 1000 + 100);
+      await delay(params.duration * 1000 + 100);
       expect(f).toHaveBeenCalled();
       await p;
     } finally {
@@ -162,47 +163,10 @@ describe("Overrun limiter", () => {
   });
 });
 
-interface RateLimiterParams {
-  readonly limit: number;
-  readonly period_s: number;
-  readonly maxQueueLength: number;
-}
-
-interface RateLimiterParamConstraints {
-  limit?: IntegerConstraints;
-  period_s?: DoubleConstraints;
-  maxQueueLength?: IntegerConstraints;
-}
-
-function rateLimiterParams(
-  constraints?: RateLimiterParamConstraints,
-): Arbitrary<RateLimiterParams> {
-  const limit = fc.integer(
-    Object.assign({ min: 1, max: maxSupportedLimit }, constraints?.limit ?? {}),
-  );
-  const period_s = fc.double(
-    Object.assign(
-      { max: maxSupportedPeriod_s, noNaN: true },
-      constraints?.period_s ?? {},
-    ),
-  );
-  const maxQueueLength = fc.integer(
-    Object.assign(
-      { min: 0, max: maxSupportedQueueLength },
-      constraints?.maxQueueLength ?? {},
-    ),
-  );
-  return fc.record({
-    limit,
-    period_s,
-    maxQueueLength,
-  });
-}
-
 function testQueue(params: RateLimiterParams) {
   const limiter = new RateLimiterMemory({
-    points: params.limit,
-    duration: params.period_s,
+    points: params.points,
+    duration: params.duration,
   });
   return new RateLimiterQueue(limiter, {
     maxQueueSize: params.maxQueueLength,

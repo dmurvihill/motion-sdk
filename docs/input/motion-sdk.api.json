@@ -1,0 +1,3476 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.47.11",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "projectFolderUrl": "http://github.com/dmurvihill/motion-sdk/tree/main",
+  "kind": "Package",
+  "canonicalReference": "motion-sdk!",
+  "docComment": "",
+  "name": "motion-sdk",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "motion-sdk!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!ArgumentError:class",
+          "docComment": "/**\n * An illegal argument was passed to a function or method\n *\n * @remarks\n *\n * See {@link isArgumentError} for a built-in way to identify {@link ArgumentError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ArgumentError<T> extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "ArgumentError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!ArgumentError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `ArgumentError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    argumentName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    argumentValue: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "argumentName",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "argumentValue",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "message",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ArgumentError#argumentName:member",
+              "docComment": "/**\n * Name of the invalid argument\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly argumentName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "argumentName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ArgumentError#argumentValue:member",
+              "docComment": "/**\n * Value of the invalid argument\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly argumentValue: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "argumentValue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ArgumentError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "argumentErrorType",
+                  "canonicalReference": "motion-sdk!argumentErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ArgumentError#message:member",
+              "docComment": "/**\n * Developer-readable error message\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "message",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!argumentErrorType:var",
+          "docComment": "/**\n * An illegal argument was passed to a function or method\n *\n * @remarks\n *\n * See {@link isArgumentError} for a built-in way to identify {@link ArgumentError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "argumentErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"ARGUMENT_ERROR\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "argumentErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!ClosedError:class",
+          "docComment": "/**\n * The client is already closed\n *\n * @remarks\n *\n * See {@link isClosedError} for a built-in way to identify {@link ClosedError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class ClosedError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "ClosedError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!ClosedError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `ClosedError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    reason: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    cause?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionError",
+                  "canonicalReference": "motion-sdk!MotionError:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "reason",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "cause",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 5
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ClosedError#cause:member",
+              "docComment": "/**\n * error that caused the closure\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly cause?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionError",
+                  "canonicalReference": "motion-sdk!MotionError:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "cause",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ClosedError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "closedErrorType",
+                  "canonicalReference": "motion-sdk!closedErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!ClosedError#reason:member",
+              "docComment": "/**\n * Developer-readable reason for the closure\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly reason: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "reason",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!closedErrorType:var",
+          "docComment": "/**\n * The client is already closed\n *\n * @remarks\n *\n * See {@link isClosedError} for a built-in way to identify {@link ClosedError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "closedErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"MOTION_CLIENT_CLOSED\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "closedErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "motion-sdk!ClosedReason:interface",
+          "docComment": "/**\n * End-of-life information on a {@link Motion} client\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface ClosedReason "
+            }
+          ],
+          "fileUrlPath": "src/motion.ts",
+          "releaseTag": "Public",
+          "name": "ClosedReason",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!ClosedReason#cause:member",
+              "docComment": "/**\n * Error that caused the client to closed, if any\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "cause?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionError",
+                  "canonicalReference": "motion-sdk!MotionError:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "cause",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!ClosedReason#reason:member",
+              "docComment": "/**\n * Brief, developer-readable explanation for the closure\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reason: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "reason",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!defaultQueueSize:var",
+          "docComment": "/**\n * Number of requests that can be queued to comply with the rate limit\n *\n * @remarks\n *\n * Override with {@link MotionOptions.maxQueueSize}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "defaultQueueSize = "
+            },
+            {
+              "kind": "Content",
+              "text": "20"
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "defaultQueueSize",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!FetchError:class",
+          "docComment": "/**\n * There was an error in making the request\n *\n * @remarks\n *\n * See {@link isFetchError} for a built-in way to identify {@link FetchError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class FetchError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "FetchError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!FetchError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `FetchError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    cause: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "unknown"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    request: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        input: string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "URL",
+                  "canonicalReference": "!URL:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "globalThis.Request",
+                  "canonicalReference": "!Request:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n        init?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RequestInit",
+                  "canonicalReference": "!RequestInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "cause",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "request",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 10
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!FetchError#cause:member",
+              "docComment": "/**\n * The underlying error that was thrown by {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly cause: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "unknown"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "cause",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!FetchError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "fetchErrorType",
+                  "canonicalReference": "motion-sdk!fetchErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!FetchError#request:member",
+              "docComment": "/**\n * The failing parameters to {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly request: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n        input: string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "URL",
+                  "canonicalReference": "!URL:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "globalThis.Request",
+                  "canonicalReference": "!Request:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n        init?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RequestInit",
+                  "canonicalReference": "!RequestInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "request",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!fetchErrorType:var",
+          "docComment": "/**\n * There was an error in making the request\n *\n * @remarks\n *\n * See {@link isFetchError} for a built-in way to identify {@link FetchError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "fetchErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"FETCH_ERROR\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "fetchErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "motion-sdk!FetchIndividualError:type",
+          "docComment": "/**\n * Possible single errors returned by {@link Motion.fetch}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type FetchIndividualError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "UnsafeFetchIndividualError",
+              "canonicalReference": "motion-sdk!UnsafeFetchIndividualError:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "ClosedError",
+              "canonicalReference": "motion-sdk!ClosedError:class"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "LimiterError",
+              "canonicalReference": "motion-sdk!LimiterError:class"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "QueueOverflowError",
+              "canonicalReference": "motion-sdk!QueueOverflowError:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "name": "FetchIndividualError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          }
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "motion-sdk!isFetchError:function(1)",
+          "docComment": "/**\n * Type assertion for {@link FetchError}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function isFetchError(o: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "o",
+              "canonicalReference": "motion-sdk!~o"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "FetchError",
+              "canonicalReference": "motion-sdk!FetchError:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "o",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isFetchError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "motion-sdk!isLimitExceededError:function(1)",
+          "docComment": "/**\n * Type assertion for {@link LimitExceededError}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function isLimitExceededError(o: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "o",
+              "canonicalReference": "motion-sdk!~o"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "LimitExceededError",
+              "canonicalReference": "motion-sdk!LimitExceededError:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "o",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isLimitExceededError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "motion-sdk!isMotionError:function(1)",
+          "docComment": "/**\n * Type assertion for {@link MotionError}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function isMotionError(o: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "o",
+              "canonicalReference": "motion-sdk!~o"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "o",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isMotionError"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "motion-sdk!isMultiError:function(1)",
+          "docComment": "/**\n * Type assertion for {@link MultiError}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare function isMultiError(o: "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "o",
+              "canonicalReference": "motion-sdk!~o"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "MultiError",
+              "canonicalReference": "motion-sdk!MultiError:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "o",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isMultiError"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!LimiterError:class",
+          "docComment": "/**\n * An error prevented checking or updating the rate limit\n *\n * @remarks\n *\n * See {@link isLimiterError} for a built-in way to identify {@link LimiterError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class LimiterError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "LimiterError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!LimiterError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `LimiterError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    limiter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    cause: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "unknown"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    attemptedKey?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(string | number) | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "limiter",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "cause",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "attemptedKey",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimiterError#attemptedKey:member",
+              "docComment": "/**\n * The rate limiter key that was attempted\n *\n * @remarks\n *\n * An {@link https://github.com/animir/node-rate-limiter-flexible/wiki | rate-limiter-flexible} tracks the same limit independently across multiple keys. In some cases it is important to know which particular key is returning errors.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly attemptedKey?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(string | number) | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "attemptedKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimiterError#cause:member",
+              "docComment": "/**\n * The underlying error from the rate limiter\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly cause: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "unknown"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "cause",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimiterError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "limiterErrorType",
+                  "canonicalReference": "motion-sdk!limiterErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimiterError#limiter:member",
+              "docComment": "/**\n * The erroring rate limiter. See {@link https://github.com/animir/node-rate-limiter-flexible/wiki | rate-limiter-abstract reference}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly limiter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "limiter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!limiterErrorType:var",
+          "docComment": "/**\n * An error prevented checking or updating the rate limit\n *\n * @remarks\n *\n * See {@link isLimiterError} for a built-in way to identify {@link LimiterError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "limiterErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"MOTION_LIMITER_ERROR\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "limiterErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!LimitExceededError:class",
+          "docComment": "/**\n * Motion returned 429 Limit Exceeded; we have overrun the rate limit\n *\n * @remarks\n *\n * See {@link isLimitExceededError} for a built-in way to identify {@link LimitExceededError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class LimitExceededError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "LimitExceededError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!LimitExceededError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `LimitExceededError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    response: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Response",
+                  "canonicalReference": "!Response:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "response",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimitExceededError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "limitExceededErrorType",
+                  "canonicalReference": "motion-sdk!limitExceededErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!LimitExceededError#response:member",
+              "docComment": "/**\n * {@link https://developer.mozilla.org/en-US/docs/Web/API/Response | Response} that was returned by Motion\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly response: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Response",
+                  "canonicalReference": "!Response:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "response",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!limitExceededErrorType:var",
+          "docComment": "/**\n * Motion returned 429 Limit Exceeded; we have overrun the rate limit\n *\n * @remarks\n *\n * See {@link isLimitExceededError} for a built-in way to identify {@link LimitExceededError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "limitExceededErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"MOTION_API_RATE_LIMIT_EXCEEDED\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "limitExceededErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!Motion:class",
+          "docComment": "/**\n * Motion API client\n *\n * @remarks\n *\n * Simple wrapper around the usemotion.com API. Just provide a user ID and API key, and then start making requests.\n *\n * Warning: Motion {@link https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information | enforces} its rate limit strictly. Excessive overruns of the rate limit can result in losing your API privileges and having to get them back through customer support.\n *\n * This client will not exceed the rate limit so long as only one instance makes requests to the Motion API for any one user and no calls are made directly to any of the `unsafe_` methods. If you require more advanced usage, you can pass a custom rate limiter.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class Motion "
+            }
+          ],
+          "fileUrlPath": "src/motion.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Motion",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!Motion:constructor(1)",
+              "docComment": "/**\n * Create a Motion API client\n *\n * @remarks\n *\n * Initializes a Motion API client with the provided user ID and API key. Consult the {@link https://help.usemotion.com/integrations/integrations-101/api-docs | Motion API docs} for how to get an API key.\n *\n * If there may be multiple `Motion` clients sharing the same user, you must pass a custom request rate limiter and a custom overrun rate limiter that share the same backing store as the other `Motion` clients.\n *\n * You may adjust the maximum number of queued requests; the default is {@link defaultQueueSize}.\n *\n * `motion-sdk` does not throw. If the constructor is called with invalid arguments or if another error occurs, the client will be closed immediately. The error will be set in {@link Motion.closedReason | closedReason}.\n *\n * @param opts - Object with client parameters\n *\n * @example\n *\n * Basic usage:\n * ```typescript\n * const motion = new Motion({\n *   userId: 'my-user-id',\n *   apiKey: 'my-api-key',\n * });\n * ```\n *\n * @example\n *\n * Or, you can set the environment variables `MOTION_USER_ID` and `MOTION_API_KEY`. Then:\n * ```typescript\n * const motion = new Motion();\n * ```\n *\n * @example\n *\n * To set custom rate limiters:\n * ```typescript\n * // 1 request per 5 seconds\n * const requestLimiter = new RateLimiterMemory({\n *   points: 1,\n *   duration: 5, // seconds\n * });\n *\n * // 2 overruns per day\n * const overrunLimiter = new RateLimiterMemory({\n *   points: 2,\n *   duration: 60 * 60 * 24,\n * });\n *\n * const motion = new Motion({\n *   requestLimiter,\n *   overrunLimiter,\n *   maxQueueSize: 0, // Disable queue\n * });\n *\n * await motion.fetch(\"/users/me\");\n * ```\n *\n * The requestLimiter and overrunLimiter must be instances of the {@link https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterAbstract.js | RateLimiterAbstract} class from {@link https://www.npmjs.com/package/rate-limiter-flexible | rate-limiter-flexible}.\n *\n * As of this writing, `rate-limiter-flexible` provides rate limiters backed by Redis, Prisma, DynamoDB, process Memory, Cluster or PM2, Memcached, MongoDB, MySQL, and PostgreSQL. Refer to their documentation for more detailed help.\n *\n * The default limiter is {@link https://github.com/animir/node-rate-limiter-flexible/blob/master/lib/RateLimiterMemory.js | RateLimiterMemory} with the limits from {@link recommendedRateLimits}. The maximum queue size is given by {@link defaultQueueSize}.\n *\n * @public\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(opts?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionOptions",
+                  "canonicalReference": "motion-sdk!MotionOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "opts",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#baseUrl:member",
+              "docComment": "/**\n * Base URL of the API\n *\n * @remarks\n *\n * Base URL the client should target. Useful to override in development.\n *\n * Motion provides a mock API at {@link motionMockBaseUrl}.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly baseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "baseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "motion-sdk!Motion#close:member(1)",
+              "docComment": "/**\n * Terminate the client and free any associated resources\n *\n * @remarks\n *\n * After calling, it will be impossible to make requests to Motion under most circumstances. Some `unsafe_` methods will continue to work.\n *\n * @param reason - Developer-readable explanation for the closure\n *\n * @param cause - Error that precipitated the closure, if any\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "close(reason: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", cause?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionError",
+                  "canonicalReference": "motion-sdk!MotionError:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "undefined | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ClosedError",
+                  "canonicalReference": "motion-sdk!ClosedError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 7
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "reason",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "cause",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "close"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#closedReason:member",
+              "docComment": "/**\n * Reason the client was closed, if any\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get closedReason(): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ClosedReason",
+                  "canonicalReference": "motion-sdk!ClosedReason:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "closedReason",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "motion-sdk!Motion#fetch:member(1)",
+              "docComment": "/**\n * Safe entry point to the HTTP layer\n *\n * @remarks\n *\n * This function makes an HTTP request to the Motion API. The request and return values are the same as the platform {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch()}, except some logic is added for authentication and session management. If a string is passed as the request URL, the API's base URL will be prepended.\n *\n * This method enforces a client-side rate limit so as not to exceed Motion's API rate limits. If there have been too many recent requests, the request will be queued up to the client's maximum queue size. An error will be returned if the queue is overflowing or if there is an issue with the rate limit.\n *\n * In the event the request limiter is misconfigured and Motion returns a 429 Limit Exceeded response, `fetch` assumes the client has entered an unsafe state. The client will close immediately and make no further requests. The overrun will be recorded with the overrun limiter.\n *\n * @param input - URL or Request object\n *\n * @param init - Request parameters\n *\n * @returns {@link https://developer.mozilla.org/en-US/docs/Web/API/Response | Response} or a {@link MotionFetchError}\n *\n * @example\n *\n * A basic example:\n * ```typescript\n * const response = await motion.fetch(\"/users/me\");\n * if (!isMotionError(response) && response.ok) {\n *   const json = await response.json();\n *   console.log(JSON.stringify(json));\n *   // {\"id\":\"elp69uRwOplFSiM3llAGhixqmPTP\",\"name\":\"Bill Lumbergh\",\"email\":\"blumbergh@initech.com\"}\n * }\n * ```\n *\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "fetch(input: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "URL",
+                  "canonicalReference": "!URL:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "globalThis.Request",
+                  "canonicalReference": "!Request:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", init?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RequestInit",
+                  "canonicalReference": "!RequestInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Response",
+                  "canonicalReference": "!Response:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "MotionFetchError",
+                  "canonicalReference": "motion-sdk!MotionFetchError:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 14
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "input",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 5
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "init",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 6,
+                    "endIndex": 7
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "fetch"
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "motion-sdk!Motion#isOpen:member(1)",
+              "docComment": "/**\n * Status of the client\n *\n * @returns `true` if the client initialized successfully and can still be used to make requests\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isOpen(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "isOpen"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#overrunLimiter:member",
+              "docComment": "/**\n * Rate limiter that tracks how many times we've exceeded the limit recently\n *\n * @remarks\n *\n * The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple {@link Motion} objects with the same user ID, make sure each client has the same limiter and uses the same key.\n *\n * An \"overrun\" refers an instance of exceeding Motion's maximum number of requests per minute and receiving a 429 Limit Exceeded response. Too many overruns results in automatic and permanent lockout.\n *\n * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly overrunLimiter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "overrunLimiter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#overrunLimiterKey:member",
+              "docComment": "/**\n * Rate limiter key where overruns are tracked\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly overrunLimiterKey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "overrunLimiterKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#requestLimiter:member",
+              "docComment": "/**\n * Rate limiter that tracks number of requests\n *\n * @remarks\n *\n * The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple {@link Motion} objects with the same user ID, make sure each client has the same limiter.\n *\n * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly requestLimiter: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "requestLimiter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#requestLimiterKey:member",
+              "docComment": "/**\n * Rate limiter key where requests are tracked\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly requestLimiterKey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "requestLimiterKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#requestQueue:member",
+              "docComment": "/**\n * Request queue\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly requestQueue: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterQueue",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterQueue:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "requestQueue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "motion-sdk!Motion#unsafe_fetch:member(1)",
+              "docComment": "/**\n * Low-level interface to the Motion API\n *\n * @remarks\n *\n * This function makes a call to the Motion API. The request and return values are the same as the platform {@link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API | fetch()}, except some logic is added for authentication and session management. If a string is passed as the request URL, the API's base URL will be prepended.\n *\n * `unsafe_fetch` does not respect rate limiting or anything else about the client's state. It can be called and will happily make requests to the Motion API even if the limit is already exceeded and even if {@link Motion.close | close} has been called. It will _not_ update the internal rate limiter, even if Motion reports a rate limit overrun.\n *\n * Normally this function should be called only from {@link Motion.fetch}, but it is exposed to accommodate performance optimizations by advanced users. Use at your own peril.\n *\n * @param input - URL or Request object\n *\n * @param init - Request parameters\n *\n * @returns {@link https://developer.mozilla.org/en-US/docs/Web/API/Response | Response} or an {@link UnsafeFetchError}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "unsafe_fetch(input: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "URL",
+                  "canonicalReference": "!URL:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "globalThis.Request",
+                  "canonicalReference": "!Request:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", init?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RequestInit",
+                  "canonicalReference": "!RequestInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Response",
+                  "canonicalReference": "!Response:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "UnsafeFetchError",
+                  "canonicalReference": "motion-sdk!UnsafeFetchError:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 14
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "input",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 5
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "init",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 6,
+                    "endIndex": 7
+                  },
+                  "isOptional": true
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "unsafe_fetch"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!Motion#userId:member",
+              "docComment": "/**\n * ID of the Motion user making the requests\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly userId: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "userId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!motionBaseUrl:var",
+          "docComment": "/**\n * Location of the live API\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "motionBaseUrl: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"https://api.usemotion.com/v1\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "motionBaseUrl",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "motion-sdk!MotionError:interface",
+          "docComment": "/**\n * Base interface for all errors returned by `motion-sdk`\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MotionError "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "name": "MotionError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "argumentErrorType",
+                  "canonicalReference": "motion-sdk!argumentErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "fetchErrorType",
+                  "canonicalReference": "motion-sdk!fetchErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "limiterErrorType",
+                  "canonicalReference": "motion-sdk!limiterErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "queueOverflowErrorType",
+                  "canonicalReference": "motion-sdk!queueOverflowErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "closedErrorType",
+                  "canonicalReference": "motion-sdk!closedErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "limitExceededErrorType",
+                  "canonicalReference": "motion-sdk!limitExceededErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "multiErrorType",
+                  "canonicalReference": "motion-sdk!multiErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 15
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionError#message:member",
+              "docComment": "/**\n * Developer-readable error message\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "message",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "motion-sdk!MotionFetchError:type",
+          "docComment": "/**\n * Possible errors returned by {@link Motion.fetch}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type MotionFetchError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "FetchIndividualError",
+              "canonicalReference": "motion-sdk!FetchIndividualError:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "MultiError",
+              "canonicalReference": "motion-sdk!MultiError:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FetchIndividualError",
+              "canonicalReference": "motion-sdk!FetchIndividualError:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "name": "MotionFetchError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!motionMockBaseUrl:var",
+          "docComment": "/**\n * Location of the mock API\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "motionMockBaseUrl: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"https://stoplight.io/mocks/motion/motion-rest-api/33447\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "motionMockBaseUrl",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "motion-sdk!MotionOptions:interface",
+          "docComment": "/**\n * Arguments to the {@link Motion} constructor\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MotionOptions "
+            }
+          ],
+          "fileUrlPath": "src/motion.ts",
+          "releaseTag": "Public",
+          "name": "MotionOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#apiKey:member",
+              "docComment": "/**\n * API key for the requests\n *\n * @defaultValue\n *\n * This can instead be set with an environment variable, `process.env.MOTION_API_KEY`.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "apiKey?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "apiKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#baseUrl:member",
+              "docComment": "/**\n * Base URL of the API\n *\n * @remarks\n *\n * Base URL the client should target. Useful to override in development.\n *\n * Motion provides a mock API at {@link motionMockBaseUrl}.\n *\n * @defaultValue\n *\n * The constructor uses the following URLs in order of precedence: 1. The URL set explicitly in the `MotionOptions` object 2. Value of {@link motionBaseUrl}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "baseUrl?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "baseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#maxQueueSize:member",
+              "docComment": "/**\n * Maximum number of queued requests\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "maxQueueSize?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "maxQueueSize",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#overrunLimiter:member",
+              "docComment": "/**\n * Rate limiter that tracks how many times we've exceeded the limit recently\n *\n * @remarks\n *\n * The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple {@link Motion} objects with the same user ID, make sure each client has the same limiter and uses the same key.\n *\n * An \"overrun\" refers an instance of exceeding Motion's maximum number of requests per minute and receiving a 429 Limit Exceeded response. Too many overruns results in automatic and permanent lockout.\n *\n * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}\n *\n * @defaultValue\n *\n * {@link https://github.com/animir/node-rate-limiter-flexible/wiki/Memory | RateLimiterMemory} with the {@link recommendedRateLimits | recommended} rate limit\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "overrunLimiter?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "overrunLimiter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#requestLimiter:member",
+              "docComment": "/**\n * Rate limiter that tracks number of requests\n *\n * @remarks\n *\n * The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple {@link Motion} objects with the same user ID, make sure each client has the same limiter.\n *\n * See {@link https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples | rate-limiter-flexible}\n *\n * @defaultValue\n *\n * {@link https://github.com/animir/node-rate-limiter-flexible/wiki/Memory | RateLimiterMemory} with the {@link recommendedRateLimits | recommended} rate limit\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "requestLimiter?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterAbstract",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterAbstract:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "requestLimiter",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionOptions#userId:member",
+              "docComment": "/**\n * ID of the Motion user making the requests\n *\n * @defaultValue\n *\n * This can instead be set with an environment variable, `process.env.MOTION_USER_ID`.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "userId?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "userId",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "motion-sdk!MotionRateLimits:interface",
+          "docComment": "/**\n * Rate limit information about the Motion API\n *\n * @remarks\n *\n * Motion has two rate limits:\n *\n * - If you exceed 12 requests in a minute, Motion will return 429 Limit Exceeded and disable your API access for an hour. `motion-sdk` calls that an 'overrun'. - If you have three overruns in a day, Motion will disable your API access until you contact support and ask them to restore it.\n *\n * `motion-sdk` is an _unofficial_ client and its authors are not affiliated with Motion. Always consult the {@link https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information | official API reference} for up-to-date rate limit information.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export interface MotionRateLimits "
+            }
+          ],
+          "fileUrlPath": "src/motion.ts",
+          "releaseTag": "Public",
+          "name": "MotionRateLimits",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionRateLimits#overruns:member",
+              "docComment": "/**\n * Rate limiter parameters for overruns\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "overruns: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Required",
+                  "canonicalReference": "!Required:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Pick",
+                  "canonicalReference": "!Pick:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IRateLimiterOptions",
+                  "canonicalReference": "rate-limiter-flexible!IRateLimiterOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \"points\" | \"duration\">>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "overruns",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "motion-sdk!MotionRateLimits#requests:member",
+              "docComment": "/**\n * Rate limiter parameters for requests\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "requests: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Required",
+                  "canonicalReference": "!Required:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Pick",
+                  "canonicalReference": "!Pick:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IRateLimiterOptions",
+                  "canonicalReference": "rate-limiter-flexible!IRateLimiterOptions:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \"points\" | \"duration\">>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "requests",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            }
+          ],
+          "extendsTokenRanges": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!motionRateLimits:var",
+          "docComment": "/**\n * Official rate limits used by Motion\n *\n * NOTE: For additional safety, consider using {@link recommendedRateLimits} instead.\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "motionRateLimits: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionRateLimits",
+              "canonicalReference": "motion-sdk!MotionRateLimits:interface"
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "motionRateLimits",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!MultiError:class",
+          "docComment": "/**\n * Multiple errors occurred\n *\n * @remarks\n *\n * See {@link isMultiError} for a built-in way to identify {@link MultiError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class MultiError<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "> extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "MultiError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!MultiError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `MultiError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    errors: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "errors",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!MultiError#errors:member",
+              "docComment": "/**\n * The underlying errors\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly errors: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errors",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!MultiError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "multiErrorType",
+                  "canonicalReference": "motion-sdk!multiErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 5,
+              "endIndex": 6
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!multiErrorType:var",
+          "docComment": "/**\n * Multiple errors occurred\n *\n * @remarks\n *\n * See {@link isMultiError} for a built-in way to identify {@link MultiError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "multiErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"MOTION_MULTI_ERROR\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "multiErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "motion-sdk!QueueOverflowError:class",
+          "docComment": "/**\n * Too many waiting requests already\n *\n * @remarks\n *\n * See {@link isQueueOverflowError} for a built-in way to identify {@link QueueOverflowError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export declare class QueueOverflowError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " implements "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionError",
+              "canonicalReference": "motion-sdk!MotionError:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "QueueOverflowError",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "motion-sdk!QueueOverflowError:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `QueueOverflowError` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(\n    queue: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterQueue",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterQueue:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    cause: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterQueueError",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterQueueError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", \n    attemptedKey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "queue",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "cause",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "attemptedKey",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 5,
+                    "endIndex": 6
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!QueueOverflowError#attemptedKey:member",
+              "docComment": "/**\n * The rate limiter key that was attempted\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly attemptedKey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "attemptedKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!QueueOverflowError#cause:member",
+              "docComment": "/**\n * The overflow error from the underlying framework\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly cause: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterQueueError",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterQueueError:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "cause",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!QueueOverflowError#errorType:member",
+              "docComment": "/**\n * Indicates the class of the error\n *\n * @remarks\n *\n * Each distinct type of {@link MotionError} has its own constant value of `errorType`. This is the recommended way to programmatically distinguish between, say, a {@link LimiterError} and a {@link FetchError}, to take appropriate recovery steps.\n *\n * See {@link isMotionError} and the related `is*Error` functions for built-in type assertions.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "errorType: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "typeof "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "queueOverflowErrorType",
+                  "canonicalReference": "motion-sdk!queueOverflowErrorType:var"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "errorType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "motion-sdk!QueueOverflowError#queue:member",
+              "docComment": "/**\n * The overflowing queue\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "readonly queue: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RateLimiterQueue",
+                  "canonicalReference": "rate-limiter-flexible!RateLimiterQueue:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "queue",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [
+            {
+              "startIndex": 3,
+              "endIndex": 4
+            }
+          ]
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!queueOverflowErrorType:var",
+          "docComment": "/**\n * Too many waiting requests already\n *\n * @remarks\n *\n * See {@link isQueueOverflowError} for a built-in way to identify {@link QueueOverflowError} objects\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "queueOverflowErrorType: "
+            },
+            {
+              "kind": "Content",
+              "text": "\"MOTION_LIMITER_QUEUE_EXCEEDED\""
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "queueOverflowErrorType",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "motion-sdk!recommendedRateLimits:var",
+          "docComment": "/**\n * Internal rate limits with a small headroom against the official limits\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "recommendedRateLimits: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MotionRateLimits",
+              "canonicalReference": "motion-sdk!MotionRateLimits:interface"
+            }
+          ],
+          "fileUrlPath": "src/constant.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "recommendedRateLimits",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "motion-sdk!UnsafeFetchError:type",
+          "docComment": "/**\n * Possible errors returned by {@link Motion.unsafe_fetch}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type UnsafeFetchError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "UnsafeFetchIndividualError",
+              "canonicalReference": "motion-sdk!UnsafeFetchIndividualError:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "MultiError",
+              "canonicalReference": "motion-sdk!MultiError:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "UnsafeFetchIndividualError",
+              "canonicalReference": "motion-sdk!UnsafeFetchIndividualError:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "name": "UnsafeFetchError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 7
+          }
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "motion-sdk!UnsafeFetchIndividualError:type",
+          "docComment": "/**\n * Possible single errors returned by {@link Motion.unsafe_fetch}\n *\n * @public\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "export type UnsafeFetchIndividualError = "
+            },
+            {
+              "kind": "Reference",
+              "text": "ArgumentError",
+              "canonicalReference": "motion-sdk!ArgumentError:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<null> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "LimitExceededError",
+              "canonicalReference": "motion-sdk!LimitExceededError:class"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "FetchError",
+              "canonicalReference": "motion-sdk!FetchError:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "src/error.ts",
+          "releaseTag": "Public",
+          "name": "UnsafeFetchIndividualError",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          }
+        }
+      ]
+    }
+  ]
+}

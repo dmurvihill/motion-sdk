@@ -115,12 +115,24 @@ export function isFetchError(o: unknown): o is FetchError {
   return isMotionError(o) && o.errorType === fetchErrorType;
 }
 
+export function isLimiterError(o: unknown): o is LimiterError {
+  return isMotionError(o) && o.errorType === limiterErrorType;
+}
+
+export function isQueueOverflowError(o: unknown): o is QueueOverflowError {
+  return isMotionError(o) && o.errorType === queueOverflowErrorType;
+}
+
 export function isLimitExceededError(o: unknown): o is LimitExceededError {
   return isMotionError(o) && o.errorType === limitExceededErrorType;
 }
 
 export function isMultiError(o: unknown): o is MultiError<MotionError> {
   return isMotionError(o) && o.errorType === multiErrorType;
+}
+
+export function isClosedError(o: unknown): o is ClosedError {
+  return isMotionError(o) && o.errorType === closedErrorType;
 }
 
 function messageFromCause(cause: unknown) {
