@@ -4,6 +4,8 @@
 
 ## Motion.isOpen() method
 
+Status of the client
+
 **Signature:**
 
 ```typescript
@@ -12,4 +14,6 @@ isOpen(): boolean;
 **Returns:**
 
 boolean
+
+`true` if the client initialized successfully and can still be used to make requests
 

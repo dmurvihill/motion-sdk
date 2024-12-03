@@ -4,7 +4,7 @@
 
 ## FetchError.cause property
 
-The error that was thrown by fetch
+The underlying error that was thrown by [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 **Signature:**
 

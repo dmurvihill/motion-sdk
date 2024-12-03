@@ -4,8 +4,10 @@
 
 ## MotionError.message property
 
+Developer-readable error message
+
 **Signature:**
 
 ```typescript
-message: string;
+readonly message: string;
 ```

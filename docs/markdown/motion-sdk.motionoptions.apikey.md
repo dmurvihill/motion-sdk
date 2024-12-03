@@ -4,6 +4,8 @@
 
 ## MotionOptions.apiKey property
 
+API key for the requests
+
 **Signature:**
 
 ```typescript

@@ -50,7 +50,7 @@ string
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ API key for the requests
 
 
 </td></tr>
@@ -69,7 +69,7 @@ string
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Base URL of the API
 
 
 </td></tr>
@@ -88,7 +88,7 @@ number
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Maximum number of queued requests
 
 
 </td></tr>
@@ -107,7 +107,7 @@ RateLimiterAbstract
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Rate limiter that tracks how many times we've exceeded the limit recently
 
 
 </td></tr>
@@ -126,7 +126,7 @@ RateLimiterAbstract
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ Rate limiter that tracks number of requests
 
 
 </td></tr>
@@ -145,7 +145,7 @@ string
 
 </td><td>
 
-_(Optional)_
+_(Optional)_ ID of the Motion user making the requests
 
 
 </td></tr>

@@ -4,6 +4,8 @@
 
 ## Motion.requestQueue property
 
+Request queue
+
 **Signature:**
 
 ```typescript

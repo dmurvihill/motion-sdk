@@ -15,6 +15,10 @@ export declare class LimiterError extends Error implements MotionError
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See  for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -110,7 +114,7 @@ unknown
 
 </td><td>
 
-The error
+The underlying error from the rate limiter
 
 
 </td></tr>
@@ -128,6 +132,8 @@ typeof [limiterErrorType](./motion-sdk.limitererrortype.md)
 
 
 </td><td>
+
+Indicates the class of the error
 
 
 </td></tr>
@@ -148,7 +154,7 @@ RateLimiterAbstract
 
 </td><td>
 
-The erroring limiter
+The erroring rate limiter. See [rate-limiter-abstract reference](https://github.com/animir/node-rate-limiter-flexible/wiki)
 
 
 </td></tr>

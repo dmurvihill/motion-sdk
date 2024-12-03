@@ -94,6 +94,8 @@ string
 
 </td><td>
 
+Base URL of the API
+
 
 </td></tr>
 <tr><td>
@@ -112,6 +114,8 @@ string
 
 
 </td><td>
+
+Reason the client was closed, if any
 
 
 </td></tr>
@@ -132,6 +136,8 @@ RateLimiterAbstract
 
 </td><td>
 
+Rate limiter that tracks how many times we've exceeded the limit recently
+
 
 </td></tr>
 <tr><td>
@@ -150,6 +156,8 @@ string
 
 
 </td><td>
+
+Rate limiter key where overruns are tracked
 
 
 </td></tr>
@@ -170,6 +178,8 @@ RateLimiterAbstract
 
 </td><td>
 
+Rate limiter that tracks number of requests
+
 
 </td></tr>
 <tr><td>
@@ -188,6 +198,8 @@ string
 
 
 </td><td>
+
+Rate limiter key where requests are tracked
 
 
 </td></tr>
@@ -208,6 +220,8 @@ RateLimiterQueue
 
 </td><td>
 
+Request queue
+
 
 </td></tr>
 <tr><td>
@@ -226,6 +240,8 @@ string \| null
 
 
 </td><td>
+
+ID of the Motion user making the requests
 
 
 </td></tr>
@@ -259,6 +275,8 @@ Description
 
 </td><td>
 
+Terminate the client and free any associated resources
+
 
 </td></tr>
 <tr><td>
@@ -284,6 +302,8 @@ Safe entry point to the HTTP layer
 
 
 </td><td>
+
+Status of the client
 
 
 </td></tr>

@@ -6,10 +6,13 @@
 
 Number of requests that can be queued to comply with the rate limit
 
-Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
-
 **Signature:**
 
 ```typescript
 defaultQueueSize = 20
 ```
+
+## Remarks
+
+Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
+

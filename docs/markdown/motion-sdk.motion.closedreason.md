@@ -4,6 +4,8 @@
 
 ## Motion.closedReason property
 
+Reason the client was closed, if any
+
 **Signature:**
 
 ```typescript

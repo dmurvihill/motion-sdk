@@ -4,6 +4,8 @@
 
 ## MotionOptions.maxQueueSize property
 
+Maximum number of queued requests
+
 **Signature:**
 
 ```typescript

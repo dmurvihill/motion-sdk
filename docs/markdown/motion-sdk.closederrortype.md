@@ -11,3 +11,8 @@ The client is already closed
 ```typescript
 closedErrorType: "MOTION_CLIENT_CLOSED"
 ```
+
+## Remarks
+
+See  for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+

@@ -4,7 +4,7 @@
 
 ## ClosedReason interface
 
-End-of-life information on a Motion client
+End-of-life information on a [Motion](./motion-sdk.motion.md) client
 
 **Signature:**
 

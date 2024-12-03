@@ -4,8 +4,17 @@
 
 ## MotionOptions.baseUrl property
 
+Base URL of the API
+
 **Signature:**
 
 ```typescript
 baseUrl?: string;
 ```
+
+## Remarks
+
+Base URL the client should target. Useful to override in development.
+
+Motion provides a mock API at [motionMockBaseUrl](./motion-sdk.motionmockbaseurl.md)<!-- -->.
+
