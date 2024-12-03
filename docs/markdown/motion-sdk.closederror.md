@@ -15,6 +15,10 @@ export declare class ClosedError extends Error implements MotionError
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See  for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -109,6 +113,8 @@ typeof [closedErrorType](./motion-sdk.closederrortype.md)
 
 
 </td><td>
+
+Indicates the class of the error
 
 
 </td></tr>

@@ -17,11 +17,17 @@ export const motionMockBaseUrl =
 
 /** An illegal argument was passed to a function or method
  *
+ * @remarks
+ * See {@link isArgumentError} for a built-in way to identify {@link ArgumentError} objects
+ *
  * @public
  */
 export const argumentErrorType = "ARGUMENT_ERROR" as const;
 
 /** There was an error in making the request
+ *
+ * @remarks
+ * See {@link isFetchError} for a built-in way to identify {@link FetchError} objects
  *
  * @public
  */
@@ -29,11 +35,17 @@ export const fetchErrorType = "FETCH_ERROR" as const;
 
 /** An error prevented checking or updating the rate limit
  *
+ * @remarks
+ * See {@link isLimiterError} for a built-in way to identify {@link LimiterError} objects
+ *
  * @public
  * */
 export const limiterErrorType = "MOTION_LIMITER_ERROR" as const;
 
 /** Too many waiting requests already
+ *
+ * @remarks
+ * See {@link isQueueOverflowError} for a built-in way to identify {@link QueueOverflowError} objects
  *
  * @public
  * */
@@ -41,11 +53,17 @@ export const queueOverflowErrorType = "MOTION_LIMITER_QUEUE_EXCEEDED" as const;
 
 /** The client is already closed
  *
+ * @remarks
+ * See {@link isClosedError} for a built-in way to identify {@link ClosedError} objects
+ *
  * @public
  * */
 export const closedErrorType = "MOTION_CLIENT_CLOSED" as const;
 
 /** Motion returned 429 Limit Exceeded; we have overrun the rate limit
+ *
+ * @remarks
+ * See {@link isLimitExceededError} for a built-in way to identify {@link LimitExceededError} objects
  *
  * @public
  * */
@@ -53,12 +71,16 @@ export const limitExceededErrorType = "MOTION_API_RATE_LIMIT_EXCEEDED" as const;
 
 /** Multiple errors occurred
  *
+ * @remarks
+ * See {@link isMultiError} for a built-in way to identify {@link MultiError} objects
+ *
  * @public
  * */
 export const multiErrorType = "MOTION_MULTI_ERROR" as const;
 
 /** Number of requests that can be queued to comply with the rate limit
  *
+ * @remarks
  * Override with {@link MotionOptions.maxQueueSize}
  *
  * @public

@@ -11,3 +11,8 @@ There was an error in making the request
 ```typescript
 fetchErrorType: "FETCH_ERROR"
 ```
+
+## Remarks
+
+See [isFetchError()](./motion-sdk.isfetcherror.md) for a built-in way to identify [FetchError](./motion-sdk.fetcherror.md) objects
+

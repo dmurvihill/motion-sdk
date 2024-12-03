@@ -15,6 +15,10 @@ export declare class FetchError extends Error implements MotionError
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See [isFetchError()](./motion-sdk.isfetcherror.md) for a built-in way to identify [FetchError](./motion-sdk.fetcherror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -89,7 +93,7 @@ unknown
 
 </td><td>
 
-The error that was thrown by fetch
+The underlying error that was thrown by [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 
 </td></tr>
@@ -110,6 +114,8 @@ typeof [fetchErrorType](./motion-sdk.fetcherrortype.md)
 
 </td><td>
 
+Indicates the class of the error
+
 
 </td></tr>
 <tr><td>
@@ -129,7 +135,7 @@ typeof [fetchErrorType](./motion-sdk.fetcherrortype.md)
 
 </td><td>
 
-The failing [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request)
+The failing parameters to [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 
 </td></tr>

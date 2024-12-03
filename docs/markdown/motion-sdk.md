@@ -186,7 +186,7 @@ Description
 
 </td><td>
 
-End-of-life information on a Motion client
+End-of-life information on a [Motion](./motion-sdk.motion.md) client
 
 
 </td></tr>
@@ -220,12 +220,6 @@ Arguments to the [Motion](./motion-sdk.motion.md) constructor
 </td><td>
 
 Rate limit information about the Motion API
-
-Motion has two rate limits:
-
-- If you exceed 12 requests in a minute, Motion will return 429 Limit Exceeded and disable your API access for an hour. `motion-sdk` calls that an 'overrun'. - If you have three overruns in a day, Motion will disable your API access until you contact support and ask them to restore it.
-
-`motion-sdk` is an \_unofficial\_ client and its authors are not affiliated with Motion. Always consult the [official API reference](https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api#rate-limit-information) for up-to-date rate limit information.
 
 
 </td></tr>
@@ -274,8 +268,6 @@ The client is already closed
 </td><td>
 
 Number of requests that can be queued to comply with the rate limit
-
-Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
 
 
 </td></tr>
@@ -397,6 +389,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[FetchIndividualError](./motion-sdk.fetchindividualerror.md)
+
+
+</td><td>
+
+Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+
+
+</td></tr>
+<tr><td>
+
 [MotionFetchError](./motion-sdk.motionfetcherror.md)
 
 
@@ -414,6 +417,17 @@ Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
 </td><td>
 
 Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+
+
+</td></tr>
+<tr><td>
+
+[UnsafeFetchIndividualError](./motion-sdk.unsafefetchindividualerror.md)
+
+
+</td><td>
+
+Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
 
 
 </td></tr>

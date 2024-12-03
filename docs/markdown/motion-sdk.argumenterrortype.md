@@ -11,3 +11,8 @@ An illegal argument was passed to a function or method
 ```typescript
 argumentErrorType: "ARGUMENT_ERROR"
 ```
+
+## Remarks
+
+See  for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects
+

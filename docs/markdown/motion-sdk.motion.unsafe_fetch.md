@@ -73,7 +73,7 @@ Promise&lt;Response \| [UnsafeFetchError](./motion-sdk.unsafefetcherror.md)<!-- 
 
 This function makes a call to the Motion API. The request and return values are the same as the platform [fetch()](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)<!-- -->, except some logic is added for authentication and session management. If a string is passed as the request URL, the API's base URL will be prepended.
 
-`unsafe_fetch` does not respect rate limiting or anything else about the client's state. It can be called and will happily make requests to the Motion API even if the limit is already exceeded and even if close() has been called. It will \_not\_ update the internal rate limiter.
+`unsafe_fetch` does not respect rate limiting or anything else about the client's state. It can be called and will happily make requests to the Motion API even if the limit is already exceeded and even if [close](./motion-sdk.motion.close.md) has been called. It will \_not\_ update the internal rate limiter, even if Motion reports a rate limit overrun.
 
-Normally this function should be called only from [Motion.fetch()](./motion-sdk.motion.fetch.md) but is exposed to accommodate performance optimizations by advanced users. Use at your own peril.
+Normally this function should be called only from [Motion.fetch()](./motion-sdk.motion.fetch.md)<!-- -->, but it is exposed to accommodate performance optimizations by advanced users. Use at your own peril.
 

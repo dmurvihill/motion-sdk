@@ -15,6 +15,10 @@ export declare class ArgumentError<T> extends Error implements MotionError
 
 **Implements:** [MotionError](./motion-sdk.motionerror.md)
 
+## Remarks
+
+See  for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects
+
 ## Constructors
 
 <table><thead><tr><th>
@@ -89,6 +93,29 @@ string
 
 </td><td>
 
+Name of the invalid argument
+
+
+</td></tr>
+<tr><td>
+
+[argumentValue](./motion-sdk.argumenterror.argumentvalue.md)
+
+
+</td><td>
+
+`readonly`
+
+
+</td><td>
+
+T
+
+
+</td><td>
+
+Value of the invalid argument
+
 
 </td></tr>
 <tr><td>
@@ -105,6 +132,8 @@ typeof [argumentErrorType](./motion-sdk.argumenterrortype.md)
 
 
 </td><td>
+
+Indicates the class of the error
 
 
 </td></tr>
@@ -124,6 +153,8 @@ string
 
 
 </td><td>
+
+Developer-readable error message
 
 
 </td></tr>

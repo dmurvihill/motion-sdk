@@ -4,8 +4,17 @@
 
 ## FetchError.errorType property
 
+Indicates the class of the error
+
 **Signature:**
 
 ```typescript
 readonly errorType: typeof fetchErrorType;
 ```
+
+## Remarks
+
+Each distinct type of [MotionError](./motion-sdk.motionerror.md) has its own constant value of `errorType`<!-- -->. This is the recommended way to programmatically distinguish between, say, a [LimiterError](./motion-sdk.limitererror.md) and a [FetchError](./motion-sdk.fetcherror.md)<!-- -->, to take appropriate recovery steps.
+
+See [isMotionError()](./motion-sdk.ismotionerror.md) and the related `is*Error` functions for built-in type assertions.
+

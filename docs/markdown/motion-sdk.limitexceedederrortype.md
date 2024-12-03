@@ -11,3 +11,8 @@ Motion returned 429 Limit Exceeded; we have overrun the rate limit
 ```typescript
 limitExceededErrorType: "MOTION_API_RATE_LIMIT_EXCEEDED"
 ```
+
+## Remarks
+
+See [isLimitExceededError()](./motion-sdk.islimitexceedederror.md) for a built-in way to identify [LimitExceededError](./motion-sdk.limitexceedederror.md) objects
+

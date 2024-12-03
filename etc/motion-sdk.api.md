@@ -11,12 +11,13 @@ import { RateLimiterQueueError } from 'rate-limiter-flexible/lib/component/index
 
 // @public
 export class ArgumentError<T> extends Error implements MotionError {
-    constructor(argumentName: string, argumentValue: T, message: string);
-    // (undocumented)
+    constructor(
+    argumentName: string,
+    argumentValue: T,
+    message: string);
     readonly argumentName: string;
-    // (undocumented)
+    readonly argumentValue: T;
     errorType: typeof argumentErrorType;
-    // (undocumented)
     readonly message: string;
 }
 
@@ -32,7 +33,6 @@ export class ClosedError extends Error implements MotionError {
     reason: string,
     cause?: MotionError | undefined);
     readonly cause?: MotionError | undefined;
-    // (undocumented)
     readonly errorType: typeof closedErrorType;
     readonly reason: string;
 }
@@ -58,7 +58,6 @@ export class FetchError extends Error implements MotionError {
         init?: RequestInit;
     });
     readonly cause: unknown;
-    // (undocumented)
     readonly errorType: typeof fetchErrorType;
     readonly request: {
         input: string | URL | globalThis.Request;
@@ -69,7 +68,7 @@ export class FetchError extends Error implements MotionError {
 // @public
 export const fetchErrorType: "FETCH_ERROR";
 
-// @internal
+// @public
 export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | LimiterError | QueueOverflowError;
 
 // @public
@@ -92,7 +91,6 @@ export class LimiterError extends Error implements MotionError {
     attemptedKey?: (string | number) | undefined);
     readonly attemptedKey?: (string | number) | undefined;
     readonly cause: unknown;
-    // (undocumented)
     errorType: typeof limiterErrorType;
     readonly limiter: RateLimiterAbstract;
 }
@@ -104,7 +102,6 @@ export const limiterErrorType: "MOTION_LIMITER_ERROR";
 export class LimitExceededError extends Error implements MotionError {
     constructor(
     response: Response);
-    // (undocumented)
     errorType: typeof limitExceededErrorType;
     readonly response: Response;
 }
@@ -115,27 +112,17 @@ export const limitExceededErrorType: "MOTION_API_RATE_LIMIT_EXCEEDED";
 // @public
 class Motion {
     constructor(opts?: MotionOptions);
-    // (undocumented)
     readonly baseUrl: string;
-    // (undocumented)
     close(reason: string, cause?: MotionError): undefined | ClosedError;
-    // (undocumented)
     get closedReason(): ClosedReason | null;
     fetch(input: string | URL | globalThis.Request, init?: RequestInit): Promise<Response | MotionFetchError>;
-    // (undocumented)
     isOpen(): boolean;
-    // (undocumented)
     readonly overrunLimiter: RateLimiterAbstract;
-    // (undocumented)
     readonly overrunLimiterKey: string;
-    // (undocumented)
     readonly requestLimiter: RateLimiterAbstract;
-    // (undocumented)
     readonly requestLimiterKey: string;
-    // (undocumented)
     readonly requestQueue: RateLimiterQueue;
     unsafe_fetch(input: string | URL | globalThis.Request, init?: RequestInit): Promise<Response | UnsafeFetchError>;
-    // (undocumented)
     readonly userId: string | null;
 }
 export { Motion }
@@ -146,10 +133,8 @@ export const motionBaseUrl: "https://api.usemotion.com/v1";
 
 // @public
 export interface MotionError {
-    // (undocumented)
-    errorType: string;
-    // (undocumented)
-    message: string;
+    readonly errorType: typeof argumentErrorType | typeof fetchErrorType | typeof limiterErrorType | typeof queueOverflowErrorType | typeof closedErrorType | typeof limitExceededErrorType | typeof multiErrorType;
+    readonly message: string;
 }
 
 // @public
@@ -160,25 +145,17 @@ export const motionMockBaseUrl: "https://stoplight.io/mocks/motion/motion-rest-a
 
 // @public
 export interface MotionOptions {
-    // (undocumented)
     apiKey?: string;
-    // (undocumented)
     baseUrl?: string;
-    // (undocumented)
     maxQueueSize?: number;
-    // (undocumented)
     overrunLimiter?: RateLimiterAbstract;
-    // (undocumented)
     requestLimiter?: RateLimiterAbstract;
-    // (undocumented)
     userId?: string;
 }
 
 // @public
 export interface MotionRateLimits {
-    // (undocumented)
     overruns: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
-    // (undocumented)
     requests: Required<Pick<IRateLimiterOptions, "points" | "duration">>;
 }
 
@@ -190,7 +167,6 @@ export class MultiError<T extends MotionError> extends Error implements MotionEr
     constructor(
     errors: T[]);
     readonly errors: T[];
-    // (undocumented)
     readonly errorType: typeof multiErrorType;
 }
 
@@ -205,7 +181,6 @@ export class QueueOverflowError extends Error implements MotionError {
     attemptedKey: string | number);
     readonly attemptedKey: string | number;
     readonly cause: RateLimiterQueueError;
-    // (undocumented)
     errorType: typeof queueOverflowErrorType;
     readonly queue: RateLimiterQueue;
 }
@@ -219,7 +194,7 @@ export const recommendedRateLimits: MotionRateLimits;
 // @public
 export type UnsafeFetchError = UnsafeFetchIndividualError | MultiError<UnsafeFetchIndividualError>;
 
-// @internal
+// @public
 export type UnsafeFetchIndividualError = ArgumentError<null> | LimitExceededError | FetchError;
 
 // (No @packageDocumentation comment for this package)

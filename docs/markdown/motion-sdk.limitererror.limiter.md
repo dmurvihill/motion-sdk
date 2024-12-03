@@ -4,7 +4,7 @@
 
 ## LimiterError.limiter property
 
-The erroring limiter
+The erroring rate limiter. See [rate-limiter-abstract reference](https://github.com/animir/node-rate-limiter-flexible/wiki)
 
 **Signature:**
 

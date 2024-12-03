@@ -4,6 +4,8 @@
 
 ## ArgumentError.message property
 
+Developer-readable error message
+
 **Signature:**
 
 ```typescript
