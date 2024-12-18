@@ -13,7 +13,7 @@
     "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
     "format": "prettier --write --list-different .",
     "lint": "eslint",
-    "docs": "npm run build && api-extractor run --local && api-documenter markdown -i docs/input -o docs/markdown",
+    "docs": "npm run build && api-extractor run --local && api-documenter generate -i docs/input -o docs/markdown",
     "pre-commit": "npm run format && npm run build && npm run lint && npm run docs && npm run test && npm run test:live"
   },
   "author": "Dolan Murvihill",
