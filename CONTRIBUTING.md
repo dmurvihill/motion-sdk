@@ -5,7 +5,8 @@ with love and care.
 
 Bug reports are welcome and handled on an as-available basis. Pull
 requests are even better. When contributing, please honor the guarantees
-at the top of the [README](./README.md).
+at the top of the [README](./README.md), and be sure to update the
+[Changelog](./CHANGELOG.md).
 
 Setting up is three steps:
 - [Node Setup](#node-setup)
