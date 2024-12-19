@@ -43,9 +43,6 @@ export interface MotionError {
 
 /** {@inheritDoc argumentErrorType}
  *
- * See {@link isArgumentError} and the related `is*Error` functions for
- * built-in type assertions.
- *
  * @public
  * */
 export class ArgumentError<T> extends Error implements MotionError {
@@ -210,12 +207,28 @@ export function isMotionError(o: unknown): o is MotionError {
   return isObject(o) && "errorType" in o;
 }
 
+/** Type assertion for {@link ArgumentError}
+ *
+ * @public
+ */
+export function isArgumentError(o: unknown): o is ArgumentError<unknown> {
+  return isMotionError(o) && o.errorType === argumentErrorType;
+}
+
 /** Type assertion for {@link FetchError}
  *
  * @public
  */
 export function isFetchError(o: unknown): o is FetchError {
   return isMotionError(o) && o.errorType === fetchErrorType;
+}
+
+/** Type assertion for {@link ClosedError}
+ *
+ * @public
+ */
+export function isClosedError(o: unknown): o is ClosedError {
+  return isMotionError(o) && o.errorType === closedErrorType;
 }
 
 /** Type assertion for {@link LimitExceededError}
@@ -232,6 +245,22 @@ export function isLimitExceededError(o: unknown): o is LimitExceededError {
  */
 export function isMultiError(o: unknown): o is MultiError<MotionError> {
   return isMotionError(o) && o.errorType === multiErrorType;
+}
+
+/** Type assertion for {@link LimiterError}
+ *
+ * @public
+ */
+export function isLimiterError(o: unknown): o is LimiterError {
+  return isMotionError(o) && o.errorType === limiterErrorType;
+}
+
+/** Type assertion for {@link QueueOverflowError}
+ *
+ * @public
+ */
+export function isQueueOverflowError(o: unknown): o is QueueOverflowError {
+  return isMotionError(o) && o.errorType === queueOverflowErrorType;
 }
 
 /** Summarize an error based on its cause
