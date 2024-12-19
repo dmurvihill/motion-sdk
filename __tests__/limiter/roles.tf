@@ -1,14 +1,14 @@
 locals {
   base_url = "https//api.usemotion.com/v1"
   mock_base_url = "https//stoplight.io/mocks/motion/motion-rest-api/33447"
-  privs = [
+  test_runner_privs = [
     "+@read",
     "+@write",
     "+@transaction",
     "+eval",
     "+evalsha"
   ]
-  keys = [
+  test_runner_keys = [
     "~limiter:${local.base_url}:*",
     "~limiter:${local.mock_base_url}:*",
     "~limiter:limiter-tests:*",
@@ -17,7 +17,7 @@ locals {
 }
 resource "rediscloud_acl_rule" "test_runner" {
   name = "test-runner"
-  rule = "${join(" ", local.privs)} ${join(" ", local.keys)}"
+  rule = "${join(" ", local.test_runner_privs)} ${join(" ", local.test_runner_keys)}"
 }
 
 locals {
