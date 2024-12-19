@@ -4,7 +4,7 @@
 
 ## closedErrorType variable
 
-The client is already closed
+The client is already closed.
 
 **Signature:**
 
@@ -14,5 +14,5 @@ closedErrorType: "MOTION_CLIENT_CLOSED"
 
 ## Remarks
 
-See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects.
 

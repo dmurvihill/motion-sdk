@@ -4,7 +4,7 @@
 
 ## MotionOptions interface
 
-Arguments to the [Motion](./motion-sdk.motion.md) constructor
+Arguments to the [Motion](./motion-sdk.motion.md) constructor.
 
 **Signature:**
 
@@ -50,7 +50,7 @@ string
 
 </td><td>
 
-_(Optional)_ API key for the requests
+_(Optional)_ API key for the requests.
 
 
 </td></tr>
@@ -69,7 +69,7 @@ string
 
 </td><td>
 
-_(Optional)_ Base URL of the API
+_(Optional)_ Base URL of the API.
 
 
 </td></tr>
@@ -88,7 +88,7 @@ number
 
 </td><td>
 
-_(Optional)_ Maximum number of queued requests
+_(Optional)_ Maximum number of queued requests.
 
 
 </td></tr>
@@ -107,7 +107,7 @@ RateLimiterAbstract
 
 </td><td>
 
-_(Optional)_ Rate limiter that tracks how many times we've exceeded the limit recently
+_(Optional)_ Rate limiter that tracks how many times we've exceeded the limit recently.
 
 
 </td></tr>
@@ -126,7 +126,7 @@ RateLimiterAbstract
 
 </td><td>
 
-_(Optional)_ Rate limiter that tracks number of requests
+_(Optional)_ Rate limiter that tracks number of requests.
 
 
 </td></tr>
@@ -145,7 +145,7 @@ string
 
 </td><td>
 
-_(Optional)_ ID of the Motion user making the requests
+_(Optional)_ ID of the Motion user making the requests.
 
 
 </td></tr>

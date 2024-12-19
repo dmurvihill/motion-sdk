@@ -4,7 +4,7 @@
 
 ## MultiError class
 
-Multiple errors occurred
+Multiple errors occurred.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class MultiError<T extends MotionError> extends Error implements 
 
 ## Remarks
 
-See [isMultiError()](./motion-sdk.ismultierror.md) for a built-in way to identify [MultiError](./motion-sdk.multierror.md) objects
+See [isMultiError()](./motion-sdk.ismultierror.md) for a built-in way to identify [MultiError](./motion-sdk.multierror.md) objects.
 
 ## Constructors
 
@@ -93,7 +93,7 @@ T\[\]
 
 </td><td>
 
-The underlying errors
+The underlying errors.
 
 
 </td></tr>
@@ -114,7 +114,7 @@ typeof [multiErrorType](./motion-sdk.multierrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>

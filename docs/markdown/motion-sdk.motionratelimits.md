@@ -4,7 +4,7 @@
 
 ## motionRateLimits variable
 
-Official rate limits used by Motion
+Official rate limits used by Motion.
 
 NOTE: For additional safety, consider using [recommendedRateLimits](./motion-sdk.recommendedratelimits.md) instead.
 

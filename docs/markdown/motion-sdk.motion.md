@@ -4,7 +4,7 @@
 
 ## Motion class
 
-Motion API client
+Motion API client.
 
 **Signature:**
 
@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-Create a Motion API client
+Create a Motion API client.
 
 
 </td></tr>
@@ -94,7 +94,7 @@ string
 
 </td><td>
 
-Base URL of the API
+Base URL of the API.
 
 
 </td></tr>
@@ -115,7 +115,7 @@ Base URL of the API
 
 </td><td>
 
-Reason the client was closed, if any
+Reason the client was closed, if any.
 
 
 </td></tr>
@@ -136,7 +136,7 @@ RateLimiterAbstract
 
 </td><td>
 
-Rate limiter that tracks how many times we've exceeded the limit recently
+Rate limiter that tracks how many times we've exceeded the limit recently.
 
 
 </td></tr>
@@ -157,7 +157,7 @@ string
 
 </td><td>
 
-Rate limiter key where overruns are tracked
+Rate limiter key where overruns are tracked.
 
 
 </td></tr>
@@ -178,7 +178,7 @@ RateLimiterAbstract
 
 </td><td>
 
-Rate limiter that tracks number of requests
+Rate limiter that tracks number of requests.
 
 
 </td></tr>
@@ -199,7 +199,7 @@ string
 
 </td><td>
 
-Rate limiter key where requests are tracked
+Rate limiter key where requests are tracked.
 
 
 </td></tr>
@@ -220,7 +220,7 @@ RateLimiterQueue
 
 </td><td>
 
-Request queue
+Request queue.
 
 
 </td></tr>
@@ -241,7 +241,7 @@ string \| null
 
 </td><td>
 
-ID of the Motion user making the requests
+ID of the Motion user making the requests.
 
 
 </td></tr>
@@ -275,7 +275,7 @@ Description
 
 </td><td>
 
-Terminate the client and free any associated resources
+Terminate the client and free any associated resources.
 
 
 </td></tr>
@@ -289,7 +289,7 @@ Terminate the client and free any associated resources
 
 </td><td>
 
-Safe entry point to the HTTP layer
+Safe entry point to the HTTP layer.
 
 
 </td></tr>
@@ -303,7 +303,7 @@ Safe entry point to the HTTP layer
 
 </td><td>
 
-Status of the client
+Status of the client.
 
 
 </td></tr>
@@ -317,7 +317,7 @@ Status of the client
 
 </td><td>
 
-Low-level interface to the Motion API
+Low-level interface to the Motion API.
 
 
 </td></tr>

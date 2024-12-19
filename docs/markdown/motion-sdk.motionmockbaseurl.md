@@ -4,7 +4,7 @@
 
 ## motionMockBaseUrl variable
 
-Location of the mock API
+Location of the mock API.
 
 **Signature:**
 

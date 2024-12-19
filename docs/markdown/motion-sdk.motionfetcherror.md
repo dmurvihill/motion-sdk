@@ -4,7 +4,7 @@
 
 ## MotionFetchError type
 
-Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)<!-- -->.
 
 **Signature:**
 

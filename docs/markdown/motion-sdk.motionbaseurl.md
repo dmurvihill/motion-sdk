@@ -4,7 +4,7 @@
 
 ## motionBaseUrl variable
 
-Location of the live API
+Location of the live API.
 
 **Signature:**
 

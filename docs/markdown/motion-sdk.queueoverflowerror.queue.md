@@ -4,7 +4,7 @@
 
 ## QueueOverflowError.queue property
 
-The overflowing queue
+The overflowing queue.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## QueueOverflowError class
 
-Too many waiting requests already
+Too many waiting requests already.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class QueueOverflowError extends Error implements MotionError
 
 ## Remarks
 
-See [isQueueOverflowError()](./motion-sdk.isqueueoverflowerror.md) for a built-in way to identify [QueueOverflowError](./motion-sdk.queueoverflowerror.md) objects
+See [isQueueOverflowError()](./motion-sdk.isqueueoverflowerror.md) for a built-in way to identify [QueueOverflowError](./motion-sdk.queueoverflowerror.md) objects.
 
 ## Constructors
 
@@ -93,7 +93,7 @@ string \| number
 
 </td><td>
 
-The rate limiter key that was attempted
+The rate limiter key that was attempted.
 
 
 </td></tr>
@@ -114,7 +114,7 @@ RateLimiterQueueError
 
 </td><td>
 
-The overflow error from the underlying framework
+The overflow error from the underlying framework.
 
 
 </td></tr>
@@ -133,7 +133,7 @@ typeof [queueOverflowErrorType](./motion-sdk.queueoverflowerrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -154,7 +154,7 @@ RateLimiterQueue
 
 </td><td>
 
-The overflowing queue
+The overflowing queue.
 
 
 </td></tr>

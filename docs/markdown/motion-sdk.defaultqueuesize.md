@@ -4,7 +4,7 @@
 
 ## defaultQueueSize variable
 
-Number of requests that can be queued to comply with the rate limit
+Number of requests that can be queued to comply with the rate limit.
 
 **Signature:**
 
@@ -14,5 +14,5 @@ defaultQueueSize = 20
 
 ## Remarks
 
-Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)
+Override with [MotionOptions.maxQueueSize](./motion-sdk.motionoptions.maxqueuesize.md)<!-- -->.
 

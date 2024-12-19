@@ -4,7 +4,7 @@
 
 ## MotionOptions.apiKey property
 
-API key for the requests
+API key for the requests.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## ClosedError.cause property
 
-error that caused the closure
+Error that caused the closure.
 
 **Signature:**
 

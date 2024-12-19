@@ -4,7 +4,7 @@
 
 ## UnsafeFetchError type
 
-Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)<!-- -->.
 
 **Signature:**
 

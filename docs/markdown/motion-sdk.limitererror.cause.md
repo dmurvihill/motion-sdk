@@ -4,7 +4,7 @@
 
 ## LimiterError.cause property
 
-The underlying error from the rate limiter
+The underlying error from the rate limiter.
 
 **Signature:**
 

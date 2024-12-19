@@ -4,7 +4,7 @@
 
 ## isQueueOverflowError() function
 
-Type assertion for [QueueOverflowError](./motion-sdk.queueoverflowerror.md)
+Type assertion for [QueueOverflowError](./motion-sdk.queueoverflowerror.md)<!-- -->.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## ClosedReason.cause property
 
-Error that caused the client to closed, if any
+Error that caused the client to closed, if any.
 
 **Signature:**
 

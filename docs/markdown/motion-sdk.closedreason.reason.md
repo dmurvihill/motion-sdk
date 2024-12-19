@@ -4,7 +4,7 @@
 
 ## ClosedReason.reason property
 
-Brief, developer-readable explanation for the closure
+Brief, developer-readable explanation for the closure.
 
 **Signature:**
 

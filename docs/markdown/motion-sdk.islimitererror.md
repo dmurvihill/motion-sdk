@@ -4,7 +4,7 @@
 
 ## isLimiterError() function
 
-Type assertion for [LimiterError](./motion-sdk.limitererror.md)
+Type assertion for [LimiterError](./motion-sdk.limitererror.md)<!-- -->.
 
 **Signature:**
 

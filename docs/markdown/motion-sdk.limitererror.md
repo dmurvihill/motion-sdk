@@ -4,7 +4,7 @@
 
 ## LimiterError class
 
-An error prevented checking or updating the rate limit
+An error prevented checking or updating the rate limit.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class LimiterError extends Error implements MotionError
 
 ## Remarks
 
-See [isLimiterError()](./motion-sdk.islimitererror.md) for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
+See [isLimiterError()](./motion-sdk.islimitererror.md) for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects.
 
 ## Constructors
 
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-_(Optional)_ The rate limiter key that was attempted
+_(Optional)_ The rate limiter key that was attempted.
 
 
 </td></tr>
@@ -114,7 +114,7 @@ unknown
 
 </td><td>
 
-The underlying error from the rate limiter
+The underlying error from the rate limiter.
 
 
 </td></tr>
@@ -133,7 +133,7 @@ typeof [limiterErrorType](./motion-sdk.limitererrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -154,7 +154,7 @@ RateLimiterAbstract
 
 </td><td>
 
-The erroring rate limiter. See [rate-limiter-abstract reference](https://github.com/animir/node-rate-limiter-flexible/wiki)
+The erroring rate limiter. See [rate-limiter-abstract reference](https://github.com/animir/node-rate-limiter-flexible/wiki)<!-- -->.
 
 
 </td></tr>

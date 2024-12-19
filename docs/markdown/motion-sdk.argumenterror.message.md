@@ -4,7 +4,7 @@
 
 ## ArgumentError.message property
 
-Developer-readable error message
+Developer-readable error message.
 
 **Signature:**
 
