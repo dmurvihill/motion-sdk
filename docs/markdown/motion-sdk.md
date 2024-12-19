@@ -122,12 +122,45 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[isArgumentError(o)](./motion-sdk.isargumenterror.md)
+
+
+</td><td>
+
+Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)
+
+
+</td></tr>
+<tr><td>
+
+[isClosedError(o)](./motion-sdk.isclosederror.md)
+
+
+</td><td>
+
+Type assertion for [ClosedError](./motion-sdk.closederror.md)
+
+
+</td></tr>
+<tr><td>
+
 [isFetchError(o)](./motion-sdk.isfetcherror.md)
 
 
 </td><td>
 
 Type assertion for [FetchError](./motion-sdk.fetcherror.md)
+
+
+</td></tr>
+<tr><td>
+
+[isLimiterError(o)](./motion-sdk.islimitererror.md)
+
+
+</td><td>
+
+Type assertion for [LimiterError](./motion-sdk.limitererror.md)
 
 
 </td></tr>
@@ -161,6 +194,17 @@ Type assertion for [MotionError](./motion-sdk.motionerror.md)
 </td><td>
 
 Type assertion for [MultiError](./motion-sdk.multierror.md)
+
+
+</td></tr>
+<tr><td>
+
+[isQueueOverflowError(o)](./motion-sdk.isqueueoverflowerror.md)
+
+
+</td><td>
+
+Type assertion for [QueueOverflowError](./motion-sdk.queueoverflowerror.md)
 
 
 </td></tr>

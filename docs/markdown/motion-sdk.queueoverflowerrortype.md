@@ -14,5 +14,5 @@ queueOverflowErrorType: "MOTION_LIMITER_QUEUE_EXCEEDED"
 
 ## Remarks
 
-See  for a built-in way to identify [QueueOverflowError](./motion-sdk.queueoverflowerror.md) objects
+See [isQueueOverflowError()](./motion-sdk.isqueueoverflowerror.md) for a built-in way to identify [QueueOverflowError](./motion-sdk.queueoverflowerror.md) objects
 

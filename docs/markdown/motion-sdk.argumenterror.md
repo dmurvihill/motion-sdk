@@ -17,7 +17,7 @@ export declare class ArgumentError<T> extends Error implements MotionError
 
 ## Remarks
 
-See  for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects
+See [isArgumentError()](./motion-sdk.isargumenterror.md) for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects
 
 ## Constructors
 

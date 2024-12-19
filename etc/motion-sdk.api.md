@@ -72,7 +72,16 @@ export const fetchErrorType: "FETCH_ERROR";
 export type FetchIndividualError = UnsafeFetchIndividualError | ClosedError | LimiterError | QueueOverflowError;
 
 // @public
+export function isArgumentError(o: unknown): o is ArgumentError<unknown>;
+
+// @public
+export function isClosedError(o: unknown): o is ClosedError;
+
+// @public
 export function isFetchError(o: unknown): o is FetchError;
+
+// @public
+export function isLimiterError(o: unknown): o is LimiterError;
 
 // @public
 export function isLimitExceededError(o: unknown): o is LimitExceededError;
@@ -82,6 +91,9 @@ export function isMotionError(o: unknown): o is MotionError;
 
 // @public
 export function isMultiError(o: unknown): o is MultiError<MotionError>;
+
+// @public
+export function isQueueOverflowError(o: unknown): o is QueueOverflowError;
 
 // @public
 export class LimiterError extends Error implements MotionError {

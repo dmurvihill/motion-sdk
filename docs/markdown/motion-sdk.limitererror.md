@@ -17,7 +17,7 @@ export declare class LimiterError extends Error implements MotionError
 
 ## Remarks
 
-See  for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
+See [isLimiterError()](./motion-sdk.islimitererror.md) for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
 
 ## Constructors
 

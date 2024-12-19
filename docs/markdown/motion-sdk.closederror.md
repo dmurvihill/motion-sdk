@@ -17,7 +17,7 @@ export declare class ClosedError extends Error implements MotionError
 
 ## Remarks
 
-See  for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
 
 ## Constructors
 

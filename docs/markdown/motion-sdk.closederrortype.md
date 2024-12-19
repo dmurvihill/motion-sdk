@@ -14,5 +14,5 @@ closedErrorType: "MOTION_CLIENT_CLOSED"
 
 ## Remarks
 
-See  for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
 
