@@ -51,7 +51,9 @@ will be calling the Motion API from different `Motion` objects, see [Rate Limiti
 
 # API reference
 
-Methods for each Motion endpoint are still being implemented. For now, you should use [Motion.fetch](docs%2Fmarkdown%2Fmotion-sdk.motion.fetch.md).
+Methods for each Motion endpoint are still being implemented. For now,
+you should use [Motion.fetch](docs%2Fmarkdown%2Fmotion-sdk.motion.fetch.md), and consult the [official REST API reference](https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api)
+for available endpoints.
 
 `Motion.fetch` has built-in rate limiting to avoid hitting the server's
 rate limits. To bypass (at your own risk), use [Motion.unsafe_fetch](docs%2Fmarkdown%2Fmotion-sdk.motion.unsafe_fetch.md).
@@ -60,7 +62,8 @@ A full API reference is available at [docs/markdown/](docs/markdown/motion-sdk.m
 
 ## Exceptions
 
-`motion-sdk` doesn't throw errors (and you shouldn't either).
+`motion-sdk` doesn't throw errors (and you shouldn't either). Instead,
+use [type narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html) for error flow control.
 
 If an error occurs during any call to `Motion`, a [MotionError](docs%2Fmarkdown%2Fmotion-sdk.motionerror.md) will be
 returned. The simplest way to check for an error is with [isMotionError](docs%2Fmarkdown%2Fmotion-sdk.ismotionerror.md),
@@ -72,8 +75,8 @@ error type ([isArgumentError](docs%2Fmarkdown%2Fmotion-sdk.isargumenterror.md),
 [isFetchError](docs%2Fmarkdown%2Fmotion-sdk.isfetcherror.md), etc.). All
 of them use the `errorType` key to distinguish the error type.
 
-Errors that originate from `motion-sdk`'s dependencies are caught,
-wrapped in an appropriate `MotionError`, and returned.
+Errors that originate from `motion-sdk`'s dependencies are caught and
+wrapped in an appropriate `MotionError`, which is returned.
 
 ## Rate Limiting
 
@@ -83,15 +86,15 @@ Motion has two rate limits:
 2. If you get locked out three times in a day, your API access
    is disabled permanently. You have to email support to get it back.
 
-_(note: `motion-sdk` is an unofficial package and we are not affiliated
+_(Note: `motion-sdk` is an unofficial package and we are not affiliated
 with Motion. Motion's rate limits may change without notice. Consult the
 [official API docs](https://docs.usemotion.com/docs/motion-rest-api/44e37c461ba67-motion-rest-api)
 to verify the rate limits before using this package.)_
 
-`motion-sdk` will stay under the API rate limit as long as there is but
-a single `Motion` instance associated the user. Any requests that would
-exceed the rate limit will be queued up to a maximum queue length (which
-is configurable in the [constructor](docs%2Fmarkdown%2Fmotion-sdk.motion._constructor_.md)).
+`motion-sdk` will automatically stay under the API rate limit so long as
+there is at most one `Motion` instance associated with the same user in
+the same day. Any requests that would exceed the rate limit will be queued
+up to a maximum queue length (which is configurable in the [constructor](docs%2Fmarkdown%2Fmotion-sdk.motion._constructor_.md)).
 If you are making API requests from multiple sources, you must configure
 a custom rate limiter.
 
@@ -103,8 +106,8 @@ is used. To support multiple clients for the same user account, you will
 have to supply the `Motion` constructor with two `RateLimiterAbstract`
 instances (one for each rate limit).
 
-This example creates a `Motion` object limited by a
-[`RateLimiterRedis`](https://github.com/animir/node-rate-limiter-flexible/wiki/Redis) instance:
+This example creates a `Motion` object limited by
+[`RateLimiterRedis`](https://github.com/animir/node-rate-limiter-flexible/wiki/Redis):
 
 ```js
 import { Motion, recommendedRateLimits } from "../src/index.js";
@@ -130,6 +133,11 @@ const motion = new Motion({
   overrunLimiter,
 });
 ```
+
+[`recommendedRateLimits`](docs/markdown/motion-sdk.recommendedratelimits.md)
+leaves a small headroom in case edge-case bugs cause more requests than
+expected. If you want slightly greater throughput and like to live dangerously,
+you can use [`motionRateLimits`](docs/markdown/motion-sdk.motionratelimits.md).
 
 `rate-limiter-flexible` provides a number of convenient rate limiter
 implementations. This project uses `RateLimiterRedis` to synchronize

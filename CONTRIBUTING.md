@@ -8,7 +8,7 @@ requests are even better. When contributing, please honor the guarantees
 at the top of the [README](./README.md), and be sure to update the
 [Changelog](./CHANGELOG.md).
 
-Setting up is three steps:
+Setup is three steps:
 - [Node Setup](#node-setup)
 - [Redis Setup](#redis-setup) (required for the integration tests)
 - [Development](#development)
@@ -29,14 +29,14 @@ Edit `.env` to add your credentials for Redis and Motion.
 
 ## Redis Setup
 
-Because the integration tests share the same Motion account across several
+Because the integration tests share the same Motion user across several
 environments, they use [Redis](https://redis.io/) to coordinate
 themselves to stay beneath the rate limit. Even when running locally,
 Redis is needed to remember the rate limiter state between test runs. To
 run the test suite, you must configure it to use an appropriate Redis instance.
 
 If you wish to use an existing Redis instance, you can find the required
-privileges and keys for the test runner listed at the top of [__tests__/limiter/roles.tf](__tests__/limiter/roles.tf).
+privileges and keys for the test runner at the top of [__tests__/limiter/roles.tf](__tests__/limiter/roles.tf).
 
 If you need a new Redis instance, you can use [Redis Cloud](https://redis.io/cloud/). The free tier
 easily meets the test suite's needs.
@@ -93,10 +93,11 @@ tofu apply redis_cluster.tfplan
 Retrieve the passwords from the [Data Access Control](https://app.redislabs.com/#/data-access-control/users)
 page in the Redis Cloud console. Store them in your password manager.
 
-Add the test runner's credentials to `.env` file in the project root directory (see [Node Setup](#node-setup)).
-The values for `REDIS_HOST` and `REDIS_PORT` are available from the [Databases](https://app.redislabs.com/#/databases) tab.
-Click on the integration test database and look for the "Public endpoint"
-field.
+Add the test runner's credentials to the `.env` file in the project root
+directory (see [Node Setup](#node-setup)). The values for `REDIS_HOST`
+and `REDIS_PORT` are available from the [Databases](https://app.redislabs.com/#/databases)
+tab. Click on the integration test database and look for the "Public
+endpoint" field.
 
 ### Verify the integration tests are working with Redis
 
@@ -127,3 +128,7 @@ npm test:node18
 npm test:live:node18
 npm run pre-commit:node18
 ```
+
+Node 18 prints some warnings to the console about `--experimental-vm-modules`.
+This config is needed for Jest to support ESM, and the warning can only
+be suppressed in Node 20 or later.

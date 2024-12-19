@@ -9,8 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `Motion` API client with `fetch`, `unsafe_fetch`, 
-- Initial error types `MotionError`, `ArgumentError`, `ClosedError`, `FetchError`, `LimiterError`, `LimitExceededError`, `MultiError`, and `QueueOverflowError`, with type guard functions.
-- Constants for built-in rate limits and live and mock Motion API URLs.
+- `Motion` API client with `fetch`, `unsafe_fetch`, configurable Motion
+  credentials, and configurable rate limiter.
+- Initial error types `MotionError`, `ArgumentError`, `ClosedError`,
+  `FetchError`, `LimiterError`, `LimitExceededError`, `MultiError`, and
+  `QueueOverflowError`, with corresponding type guard functions.
+- Constants for built-in rate limits
+- Constants for live and mock Motion API URLs.
 
 [unreleased]: https://github.com/dmurvihill/motion-sdk/tree/main/
