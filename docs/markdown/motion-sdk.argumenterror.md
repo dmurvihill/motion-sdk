@@ -4,7 +4,7 @@
 
 ## ArgumentError class
 
-An illegal argument was passed to a function or method
+An illegal argument was passed to a function or method.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class ArgumentError<T> extends Error implements MotionError
 
 ## Remarks
 
-See [isArgumentError()](./motion-sdk.isargumenterror.md) for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects
+See [isArgumentError()](./motion-sdk.isargumenterror.md) for a built-in way to identify [ArgumentError](./motion-sdk.argumenterror.md) objects.
 
 ## Constructors
 
@@ -93,7 +93,7 @@ string
 
 </td><td>
 
-Name of the invalid argument
+Name of the invalid argument.
 
 
 </td></tr>
@@ -114,7 +114,7 @@ T
 
 </td><td>
 
-Value of the invalid argument
+Value of the invalid argument.
 
 
 </td></tr>
@@ -133,7 +133,7 @@ typeof [argumentErrorType](./motion-sdk.argumenterrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -154,7 +154,7 @@ string
 
 </td><td>
 
-Developer-readable error message
+Developer-readable error message.
 
 
 </td></tr>

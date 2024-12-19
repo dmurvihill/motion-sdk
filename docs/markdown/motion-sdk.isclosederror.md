@@ -4,7 +4,7 @@
 
 ## isClosedError() function
 
-Type assertion for [ClosedError](./motion-sdk.closederror.md)
+Type assertion for [ClosedError](./motion-sdk.closederror.md)<!-- -->.
 
 **Signature:**
 

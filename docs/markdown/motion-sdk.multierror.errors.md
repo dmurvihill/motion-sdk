@@ -4,7 +4,7 @@
 
 ## MultiError.errors property
 
-The underlying errors
+The underlying errors.
 
 **Signature:**
 

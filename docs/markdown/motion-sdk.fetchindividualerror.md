@@ -4,7 +4,7 @@
 
 ## FetchIndividualError type
 
-Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)<!-- -->.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## MultiError.errorType property
 
-Indicates the class of the error
+Indicates the class of the error.
 
 **Signature:**
 

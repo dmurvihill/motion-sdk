@@ -24,7 +24,7 @@ Description
 
 </td><td>
 
-An illegal argument was passed to a function or method
+An illegal argument was passed to a function or method.
 
 
 </td></tr>
@@ -35,7 +35,7 @@ An illegal argument was passed to a function or method
 
 </td><td>
 
-The client is already closed
+The client is already closed.
 
 
 </td></tr>
@@ -46,7 +46,7 @@ The client is already closed
 
 </td><td>
 
-There was an error in making the request
+There was an error in making the request.
 
 
 </td></tr>
@@ -57,7 +57,7 @@ There was an error in making the request
 
 </td><td>
 
-An error prevented checking or updating the rate limit
+An error prevented checking or updating the rate limit.
 
 
 </td></tr>
@@ -68,7 +68,7 @@ An error prevented checking or updating the rate limit
 
 </td><td>
 
-Motion returned 429 Limit Exceeded; we have overrun the rate limit
+Motion returned 429 Limit Exceeded. We have overrun the rate limit.
 
 
 </td></tr>
@@ -79,7 +79,7 @@ Motion returned 429 Limit Exceeded; we have overrun the rate limit
 
 </td><td>
 
-Motion API client
+Motion API client.
 
 
 </td></tr>
@@ -90,7 +90,7 @@ Motion API client
 
 </td><td>
 
-Multiple errors occurred
+Multiple errors occurred.
 
 
 </td></tr>
@@ -101,7 +101,7 @@ Multiple errors occurred
 
 </td><td>
 
-Too many waiting requests already
+Too many waiting requests already.
 
 
 </td></tr>
@@ -127,7 +127,7 @@ Description
 
 </td><td>
 
-Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)
+Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)<!-- -->.
 
 
 </td></tr>
@@ -138,7 +138,7 @@ Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)
 
 </td><td>
 
-Type assertion for [ClosedError](./motion-sdk.closederror.md)
+Type assertion for [ClosedError](./motion-sdk.closederror.md)<!-- -->.
 
 
 </td></tr>
@@ -149,7 +149,7 @@ Type assertion for [ClosedError](./motion-sdk.closederror.md)
 
 </td><td>
 
-Type assertion for [FetchError](./motion-sdk.fetcherror.md)
+Type assertion for [FetchError](./motion-sdk.fetcherror.md)<!-- -->.
 
 
 </td></tr>
@@ -160,7 +160,7 @@ Type assertion for [FetchError](./motion-sdk.fetcherror.md)
 
 </td><td>
 
-Type assertion for [LimiterError](./motion-sdk.limitererror.md)
+Type assertion for [LimiterError](./motion-sdk.limitererror.md)<!-- -->.
 
 
 </td></tr>
@@ -171,7 +171,7 @@ Type assertion for [LimiterError](./motion-sdk.limitererror.md)
 
 </td><td>
 
-Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)
+Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)<!-- -->.
 
 
 </td></tr>
@@ -182,7 +182,7 @@ Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)
 
 </td><td>
 
-Type assertion for [MotionError](./motion-sdk.motionerror.md)
+Type assertion for [MotionError](./motion-sdk.motionerror.md)<!-- -->.
 
 
 </td></tr>
@@ -193,7 +193,7 @@ Type assertion for [MotionError](./motion-sdk.motionerror.md)
 
 </td><td>
 
-Type assertion for [MultiError](./motion-sdk.multierror.md)
+Type assertion for [MultiError](./motion-sdk.multierror.md)<!-- -->.
 
 
 </td></tr>
@@ -204,7 +204,7 @@ Type assertion for [MultiError](./motion-sdk.multierror.md)
 
 </td><td>
 
-Type assertion for [QueueOverflowError](./motion-sdk.queueoverflowerror.md)
+Type assertion for [QueueOverflowError](./motion-sdk.queueoverflowerror.md)<!-- -->.
 
 
 </td></tr>
@@ -230,7 +230,7 @@ Description
 
 </td><td>
 
-End-of-life information on a [Motion](./motion-sdk.motion.md) client
+End-of-life information on a [Motion](./motion-sdk.motion.md) client.
 
 
 </td></tr>
@@ -241,7 +241,7 @@ End-of-life information on a [Motion](./motion-sdk.motion.md) client
 
 </td><td>
 
-Base interface for all errors returned by `motion-sdk`
+Base interface for all errors returned by `motion-sdk`<!-- -->.
 
 
 </td></tr>
@@ -252,7 +252,7 @@ Base interface for all errors returned by `motion-sdk`
 
 </td><td>
 
-Arguments to the [Motion](./motion-sdk.motion.md) constructor
+Arguments to the [Motion](./motion-sdk.motion.md) constructor.
 
 
 </td></tr>
@@ -263,7 +263,7 @@ Arguments to the [Motion](./motion-sdk.motion.md) constructor
 
 </td><td>
 
-Rate limit information about the Motion API
+Rate limit information about the Motion API.
 
 
 </td></tr>
@@ -289,7 +289,7 @@ Description
 
 </td><td>
 
-An illegal argument was passed to a function or method
+An illegal argument was passed to a function or method.
 
 
 </td></tr>
@@ -300,7 +300,7 @@ An illegal argument was passed to a function or method
 
 </td><td>
 
-The client is already closed
+The client is already closed.
 
 
 </td></tr>
@@ -311,7 +311,7 @@ The client is already closed
 
 </td><td>
 
-Number of requests that can be queued to comply with the rate limit
+Number of requests that can be queued to comply with the rate limit.
 
 
 </td></tr>
@@ -322,7 +322,7 @@ Number of requests that can be queued to comply with the rate limit
 
 </td><td>
 
-There was an error in making the request
+There was an error in making the request.
 
 
 </td></tr>
@@ -333,7 +333,7 @@ There was an error in making the request
 
 </td><td>
 
-An error prevented checking or updating the rate limit
+An error prevented checking or updating the rate limit.
 
 
 </td></tr>
@@ -344,7 +344,7 @@ An error prevented checking or updating the rate limit
 
 </td><td>
 
-Motion returned 429 Limit Exceeded; we have overrun the rate limit
+Motion returned 429 Limit Exceeded. We have overrun the rate limit.
 
 
 </td></tr>
@@ -355,7 +355,7 @@ Motion returned 429 Limit Exceeded; we have overrun the rate limit
 
 </td><td>
 
-Location of the live API
+Location of the live API.
 
 
 </td></tr>
@@ -366,7 +366,7 @@ Location of the live API
 
 </td><td>
 
-Location of the mock API
+Location of the mock API.
 
 
 </td></tr>
@@ -377,7 +377,7 @@ Location of the mock API
 
 </td><td>
 
-Official rate limits used by Motion
+Official rate limits used by Motion.
 
 NOTE: For additional safety, consider using [recommendedRateLimits](./motion-sdk.recommendedratelimits.md) instead.
 
@@ -390,7 +390,7 @@ NOTE: For additional safety, consider using [recommendedRateLimits](./motion-sdk
 
 </td><td>
 
-Multiple errors occurred
+Multiple errors occurred.
 
 
 </td></tr>
@@ -401,7 +401,7 @@ Multiple errors occurred
 
 </td><td>
 
-Too many waiting requests already
+Too many waiting requests already.
 
 
 </td></tr>
@@ -412,7 +412,7 @@ Too many waiting requests already
 
 </td><td>
 
-Internal rate limits with a small headroom against the official limits
+Internal rate limits with a small headroom against the official limits.
 
 
 </td></tr>
@@ -438,7 +438,7 @@ Description
 
 </td><td>
 
-Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)<!-- -->.
 
 
 </td></tr>
@@ -449,7 +449,7 @@ Possible single errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md
 
 </td><td>
 
-Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
+Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)<!-- -->.
 
 
 </td></tr>
@@ -460,7 +460,7 @@ Possible errors returned by [Motion.fetch()](./motion-sdk.motion.fetch.md)
 
 </td><td>
 
-Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)<!-- -->.
 
 
 </td></tr>
@@ -471,7 +471,7 @@ Possible errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_
 
 </td><td>
 
-Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)<!-- -->.
 
 
 </td></tr>

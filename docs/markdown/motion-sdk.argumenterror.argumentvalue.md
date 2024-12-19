@@ -4,7 +4,7 @@
 
 ## ArgumentError.argumentValue property
 
-Value of the invalid argument
+Value of the invalid argument.
 
 **Signature:**
 

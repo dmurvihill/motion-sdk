@@ -4,7 +4,7 @@
 
 ## Motion.(constructor)
 
-Create a Motion API client
+Create a Motion API client.
 
 **Signature:**
 

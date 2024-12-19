@@ -4,7 +4,7 @@
 
 ## isMultiError() function
 
-Type assertion for [MultiError](./motion-sdk.multierror.md)
+Type assertion for [MultiError](./motion-sdk.multierror.md)<!-- -->.
 
 **Signature:**
 

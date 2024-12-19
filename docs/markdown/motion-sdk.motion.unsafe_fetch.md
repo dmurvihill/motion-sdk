@@ -4,7 +4,7 @@
 
 ## Motion.unsafe\_fetch() method
 
-Low-level interface to the Motion API
+Low-level interface to the Motion API.
 
 **Signature:**
 
@@ -42,7 +42,7 @@ string \| URL \| globalThis.Request
 
 </td><td>
 
-URL or Request object
+URL or Request object.
 
 
 </td></tr>
@@ -58,7 +58,7 @@ RequestInit
 
 </td><td>
 
-_(Optional)_ Request parameters
+_(Optional)_ Request parameters.
 
 
 </td></tr>

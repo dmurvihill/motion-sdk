@@ -4,7 +4,7 @@
 
 ## isArgumentError() function
 
-Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)
+Type assertion for [ArgumentError](./motion-sdk.argumenterror.md)<!-- -->.
 
 **Signature:**
 

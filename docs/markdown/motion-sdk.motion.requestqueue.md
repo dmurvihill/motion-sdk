@@ -4,7 +4,7 @@
 
 ## Motion.requestQueue property
 
-Request queue
+Request queue.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## Motion.close() method
 
-Terminate the client and free any associated resources
+Terminate the client and free any associated resources.
 
 **Signature:**
 
@@ -42,7 +42,7 @@ string
 
 </td><td>
 
-Developer-readable explanation for the closure
+Developer-readable explanation for the closure.
 
 
 </td></tr>
@@ -58,7 +58,7 @@ cause
 
 </td><td>
 
-_(Optional)_ Error that precipitated the closure, if any
+_(Optional)_ Error that precipitated the closure, if any.
 
 
 </td></tr>

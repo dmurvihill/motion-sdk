@@ -4,7 +4,7 @@
 
 ## MotionOptions.maxQueueSize property
 
-Maximum number of queued requests
+Maximum number of queued requests.
 
 **Signature:**
 

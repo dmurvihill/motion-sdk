@@ -4,7 +4,7 @@
 
 ## Motion.fetch() method
 
-Safe entry point to the HTTP layer
+Safe entry point to the HTTP layer.
 
 **Signature:**
 

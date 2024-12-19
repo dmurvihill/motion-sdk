@@ -4,7 +4,7 @@
 
 ## LimitExceededError.response property
 
-[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) that was returned by Motion
+[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) that was returned by Motion.
 
 **Signature:**
 

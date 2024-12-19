@@ -4,7 +4,7 @@
 
 ## LimiterError.attemptedKey property
 
-The rate limiter key that was attempted
+The rate limiter key that was attempted.
 
 **Signature:**
 

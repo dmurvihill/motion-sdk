@@ -4,7 +4,7 @@
 
 ## Motion.requestLimiterKey property
 
-Rate limiter key where requests are tracked
+Rate limiter key where requests are tracked.
 
 **Signature:**
 

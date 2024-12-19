@@ -4,7 +4,7 @@
 
 ## Motion.isOpen() method
 
-Status of the client
+Status of the client.
 
 **Signature:**
 
@@ -15,5 +15,5 @@ isOpen(): boolean;
 
 boolean
 
-`true` if the client initialized successfully and can still be used to make requests
+`true` if the client initialized successfully and can still be used to make requests.
 

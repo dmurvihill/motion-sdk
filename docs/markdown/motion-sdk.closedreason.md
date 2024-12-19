@@ -4,7 +4,7 @@
 
 ## ClosedReason interface
 
-End-of-life information on a [Motion](./motion-sdk.motion.md) client
+End-of-life information on a [Motion](./motion-sdk.motion.md) client.
 
 **Signature:**
 
@@ -50,7 +50,7 @@ Description
 
 </td><td>
 
-_(Optional)_ Error that caused the client to closed, if any
+_(Optional)_ Error that caused the client to closed, if any.
 
 
 </td></tr>
@@ -69,7 +69,7 @@ string
 
 </td><td>
 
-Brief, developer-readable explanation for the closure
+Brief, developer-readable explanation for the closure.
 
 
 </td></tr>

@@ -4,7 +4,7 @@
 
 ## UnsafeFetchIndividualError type
 
-Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)
+Possible single errors returned by [Motion.unsafe\_fetch()](./motion-sdk.motion.unsafe_fetch.md)<!-- -->.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## ClosedError class
 
-The client is already closed
+The client is already closed.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class ClosedError extends Error implements MotionError
 
 ## Remarks
 
-See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects
+See [isClosedError()](./motion-sdk.isclosederror.md) for a built-in way to identify [ClosedError](./motion-sdk.closederror.md) objects.
 
 ## Constructors
 
@@ -93,7 +93,7 @@ Description
 
 </td><td>
 
-_(Optional)_ error that caused the closure
+_(Optional)_ Error that caused the closure.
 
 
 </td></tr>
@@ -114,7 +114,7 @@ typeof [closedErrorType](./motion-sdk.closederrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -135,7 +135,7 @@ string
 
 </td><td>
 
-Developer-readable reason for the closure
+Developer-readable reason for the closure.
 
 
 </td></tr>

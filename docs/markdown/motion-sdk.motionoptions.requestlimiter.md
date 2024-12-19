@@ -4,7 +4,7 @@
 
 ## MotionOptions.requestLimiter property
 
-Rate limiter that tracks number of requests
+Rate limiter that tracks number of requests.
 
 **Signature:**
 
@@ -16,5 +16,5 @@ requestLimiter?: RateLimiterAbstract;
 
 The default rate limiter will suffice for non-concurrent usage patterns. If you are using multiple [Motion](./motion-sdk.motion.md) objects with the same user ID, make sure each client has the same limiter.
 
-See [rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples)
+See [rate-limiter-flexible](https://github.com/animir/node-rate-limiter-flexible?tab=readme-ov-file#docs-and-examples)<!-- -->.
 

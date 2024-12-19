@@ -4,7 +4,7 @@
 
 ## limiterErrorType variable
 
-An error prevented checking or updating the rate limit
+An error prevented checking or updating the rate limit.
 
 **Signature:**
 
@@ -14,5 +14,5 @@ limiterErrorType: "MOTION_LIMITER_ERROR"
 
 ## Remarks
 
-See [isLimiterError()](./motion-sdk.islimitererror.md) for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects
+See [isLimiterError()](./motion-sdk.islimitererror.md) for a built-in way to identify [LimiterError](./motion-sdk.limitererror.md) objects.
 

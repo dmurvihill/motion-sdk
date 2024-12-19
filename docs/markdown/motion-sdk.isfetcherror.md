@@ -4,7 +4,7 @@
 
 ## isFetchError() function
 
-Type assertion for [FetchError](./motion-sdk.fetcherror.md)
+Type assertion for [FetchError](./motion-sdk.fetcherror.md)<!-- -->.
 
 **Signature:**
 

@@ -4,7 +4,7 @@
 
 ## ClosedError.reason property
 
-Developer-readable reason for the closure
+Developer-readable reason for the closure.
 
 **Signature:**
 

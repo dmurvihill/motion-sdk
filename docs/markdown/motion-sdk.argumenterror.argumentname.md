@@ -4,7 +4,7 @@
 
 ## ArgumentError.argumentName property
 
-Name of the invalid argument
+Name of the invalid argument.
 
 **Signature:**
 

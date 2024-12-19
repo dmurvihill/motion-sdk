@@ -4,7 +4,7 @@
 
 ## isLimitExceededError() function
 
-Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)
+Type assertion for [LimitExceededError](./motion-sdk.limitexceedederror.md)<!-- -->.
 
 **Signature:**
 

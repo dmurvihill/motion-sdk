@@ -4,7 +4,7 @@
 
 ## multiErrorType variable
 
-Multiple errors occurred
+Multiple errors occurred.
 
 **Signature:**
 
@@ -14,5 +14,5 @@ multiErrorType: "MOTION_MULTI_ERROR"
 
 ## Remarks
 
-See [isMultiError()](./motion-sdk.ismultierror.md) for a built-in way to identify [MultiError](./motion-sdk.multierror.md) objects
+See [isMultiError()](./motion-sdk.ismultierror.md) for a built-in way to identify [MultiError](./motion-sdk.multierror.md) objects.
 

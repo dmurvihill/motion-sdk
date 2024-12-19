@@ -4,7 +4,7 @@
 
 ## LimitExceededError class
 
-Motion returned 429 Limit Exceeded; we have overrun the rate limit
+Motion returned 429 Limit Exceeded. We have overrun the rate limit.
 
 **Signature:**
 
@@ -17,7 +17,7 @@ export declare class LimitExceededError extends Error implements MotionError
 
 ## Remarks
 
-See [isLimitExceededError()](./motion-sdk.islimitexceedederror.md) for a built-in way to identify [LimitExceededError](./motion-sdk.limitexceedederror.md) objects
+See [isLimitExceededError()](./motion-sdk.islimitexceedederror.md) for a built-in way to identify [LimitExceededError](./motion-sdk.limitexceedederror.md) objects.
 
 ## Constructors
 
@@ -91,7 +91,7 @@ typeof [limitExceededErrorType](./motion-sdk.limitexceedederrortype.md)
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -112,7 +112,7 @@ Response
 
 </td><td>
 
-[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) that was returned by Motion
+[Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) that was returned by Motion.
 
 
 </td></tr>

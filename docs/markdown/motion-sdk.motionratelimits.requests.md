@@ -4,7 +4,7 @@
 
 ## MotionRateLimits.requests property
 
-Rate limiter parameters for requests
+Rate limiter parameters for requests.
 
 **Signature:**
 

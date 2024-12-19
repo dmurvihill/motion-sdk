@@ -4,7 +4,7 @@
 
 ## MotionOptions.baseUrl property
 
-Base URL of the API
+Base URL of the API.
 
 **Signature:**
 

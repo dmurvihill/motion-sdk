@@ -4,7 +4,7 @@
 
 ## MotionError interface
 
-Base interface for all errors returned by `motion-sdk`
+Base interface for all errors returned by `motion-sdk`<!-- -->.
 
 **Signature:**
 
@@ -52,7 +52,7 @@ typeof [argumentErrorType](./motion-sdk.argumenterrortype.md) \| typeof [fetchEr
 
 </td><td>
 
-Indicates the class of the error
+Indicates the class of the error.
 
 
 </td></tr>
@@ -73,7 +73,7 @@ string
 
 </td><td>
 
-Developer-readable error message
+Developer-readable error message.
 
 
 </td></tr>
