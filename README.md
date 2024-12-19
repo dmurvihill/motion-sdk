@@ -134,3 +134,7 @@ const motion = new Motion({
 `rate-limiter-flexible` provides a number of convenient rate limiter
 implementations. This project uses `RateLimiterRedis` to synchronize
 its CI pipeline.
+
+## Contributing
+
+See [CONTRIBUTING](CONTRIBUTING.md).
