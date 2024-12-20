@@ -61,6 +61,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
       - run: npm run build
-      - run: api-extractor run
-      - run: api-documenter markdown -i docs/input -o docs/ci-generated
+      - run: npx api-extractor run
+      - run: npx api-documenter generate -i docs/input -o docs/ci-generated
       - run: diff --recursive --brief docs/markdown docs/ci-generated
