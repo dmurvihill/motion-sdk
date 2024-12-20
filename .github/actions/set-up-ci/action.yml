@@ -14,5 +14,11 @@ runs:
         check-latest: true
         cache: "npm"
         cache-dependency-path: "package-lock.json"
-    - run: npm ci
-      shell: bash
+    - if: ${{ inputs.node-version != '23' }}
+      run: npm ci
+      shell: "bash"
+    - if: ${{ inputs.node-version == '23' }}
+      # release-it does not yet support Node 23, so we have to set --engine-strict=false and eat the warning.
+      # See: https://github.com/release-it/release-it/issues/1173
+      run: npm ci --engine-strict=false
+      shell: "bash"
