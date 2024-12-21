@@ -8,11 +8,12 @@ requests are even better. When contributing, please honor the guarantees
 at the top of the [README](./README.md), and be sure to update the
 [Changelog](./CHANGELOG.md).
 
-Setup is three steps:
+Contributing is four steps:
 
 - [Node Setup](#node-setup)
 - [Redis Setup](#redis-setup) (required for the integration tests)
 - [Development](#development)
+- [Contributor License Agreement](#contributor-license-agreement)
 
 ## Node Setup
 
@@ -143,3 +144,10 @@ npm run pre-commit:node18
 Node 18 prints some warnings to the console about `--experimental-vm-modules`.
 This config is needed for Jest to support ESM, and the warning can only
 be suppressed in Node 20 or later.
+
+# Contributor License Agreement
+
+You will be asked to sign a [Contributor License Agreement](https://gist.github.com/dmurvihill/081d5f0fec0e455913ca80b34229db15),
+which helps me support the project by offering commercial licenses. Please
+reach out if you are making an exceptional contribution and wish to negotiate
+a royalty.
