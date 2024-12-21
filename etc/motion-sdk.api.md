@@ -97,8 +97,8 @@ export class LimiterError extends Error implements MotionError {
     constructor(
     limiter: RateLimiterAbstract,
     cause: unknown,
-    attemptedKey?: (string | number) | undefined);
-    readonly attemptedKey?: (string | number) | undefined;
+    attemptedKey?: string | number | undefined);
+    readonly attemptedKey?: string | number | undefined;
     readonly cause: unknown;
     errorType: typeof limiterErrorType;
     readonly limiter: RateLimiterAbstract;

@@ -12,7 +12,7 @@ Constructs a new instance of the `LimiterError` class
 constructor(
     limiter: RateLimiterAbstract, 
     cause: unknown, 
-    attemptedKey?: (string | number) | undefined);
+    attemptedKey?: string | number | undefined);
 ```
 
 ## Parameters
@@ -68,7 +68,7 @@ attemptedKey
 
 </td><td>
 
-(string \| number) \| undefined
+string \| number \| undefined
 
 
 </td><td>

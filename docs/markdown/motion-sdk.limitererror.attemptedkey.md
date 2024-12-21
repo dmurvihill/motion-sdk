@@ -9,7 +9,7 @@ The rate limiter key that was attempted.
 **Signature:**
 
 ```typescript
-readonly attemptedKey?: (string | number) | undefined;
+readonly attemptedKey?: string | number | undefined;
 ```
 
 ## Remarks
