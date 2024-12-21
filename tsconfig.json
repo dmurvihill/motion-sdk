@@ -7,7 +7,8 @@
     "strict": true,
     "declaration": true,
     "declarationMap": true,
-    "allowImportingTsExtensions": true
+    "allowImportingTsExtensions": true,
+    "stripInternal": true
   },
   "exclude": ["dist", "coverage"]
 }
