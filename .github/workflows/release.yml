@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      level:
+        description: "Bump level"
+        required: true
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      pre-release:
+        description: "Pre-release level"
+        required: false
+        type: choice
+        options:
+          - alpha
+          - beta
+          - rc
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/set-up-ci
+      - run: npm release -- --dry-run --increment ${{ github.event.inputs.level }} ${{ github.events.inputs.pre-release && format("--preRelease {0}", github.events.inputs.pre-release) || "" }}
