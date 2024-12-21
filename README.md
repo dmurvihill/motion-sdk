@@ -49,6 +49,13 @@ The user ID and API key can instead be passed as parameters to the
 :warning: :warning: Motion has very strict rate limits. If the same Motion user
 will be calling the Motion API from different `Motion` objects, see [Rate Limiting](#rate-limiting), below. :warning: :warning:
 
+# Licensing
+
+`motion-sdk` is offered under the [SSPL](https://en.wikipedia.org/wiki/Server_Side_Public_License).
+A waiver of section 13 is available free of charge for users with less
+than a million U.S. dollars in annual revenue, otherwise for a reasonable
+fee. Contact me for details.
+
 # API reference
 
 Methods for each Motion endpoint are still being implemented. For now,
