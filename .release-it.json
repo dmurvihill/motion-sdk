@@ -6,9 +6,9 @@
   "hooks": {
     "after:bump": [
       "prettier --check .",
-      "npm run lint --max-warnings 0",
+      "npm run lint --max-warnings=0",
       "npm test",
-      "npm test:live",
+      "npm run test:live",
       "npm run build",
       "api-extractor run",
       "api-documenter generate -i docs/input -o docs/markdown"
