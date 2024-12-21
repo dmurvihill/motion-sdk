@@ -88,7 +88,7 @@ Description
 
 </td><td>
 
-(string \| number) \| undefined
+string \| number \| undefined
 
 
 </td><td>
