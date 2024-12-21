@@ -24,9 +24,6 @@ export class ArgumentError<T> extends Error implements MotionError {
 // @public
 export const argumentErrorType: "ARGUMENT_ERROR";
 
-// @internal
-export function bundleErrors<T extends MotionError>(errors: T[]): T | MultiError<T>;
-
 // @public
 export class ClosedError extends Error implements MotionError {
     constructor(
