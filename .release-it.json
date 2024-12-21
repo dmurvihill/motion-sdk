@@ -13,5 +13,11 @@
       "api-extractor run",
       "api-documenter generate -i docs/input -o docs/markdown"
     ]
+  },
+  "plugins": {
+    "@release-it/keep-a-changelog": {
+      "addUnreleased": true,
+      "keepUnreleased": true
+    }
   }
 }
