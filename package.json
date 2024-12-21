@@ -12,10 +12,10 @@
     "format": "prettier --write --list-different .",
     "lint": "eslint",
     "docs": "npm run build && api-extractor run --local && api-documenter generate -i docs/input -o docs/markdown",
-    "pre-commit": "npm run format && npm run build && npm run lint && npm run docs && npm run test && npm run test:live",
+    "pre-commit": "npm ci && npm run format && npm run build && npm run lint && npm run docs && npm run test && npm run test:live",
     "test:node18": "node --experimental-vm-modules node_modules/.bin/jest",
     "test:live:node18": "MOTION_TEST_TARGET=\"https://api.usemotion.com/v1\" node --experimental-vm-modules node_modules/.bin/jest",
-    "pre-commit:node18": "npm run format && npm run build && npm run lint && npm run docs && npm run test:node18 && npm run test:live:node18"
+    "pre-commit:node18": "npm ci && npm run format && npm run build && npm run lint && npm run docs && npm run test:node18 && npm run test:live:node18"
   },
   "author": "Dolan Murvihill",
   "license": "SSPL-1.0",
