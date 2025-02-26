@@ -12,4 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/set-up-ci
-      - run: npm audit --audit-level=low
+        # set audit level to High to ignore blocked updates till Node 18 is eol on 1 June 2025.
+        # See: https://github.com/dmurvihill/motion-sdk/issues/37
+      - run: npm audit --audit-level=$(if [ "$(date +%s)" -lt "1748736000" ]; then printf "high"; else printf "low"; fi)
