@@ -1,3 +1,8 @@
+# ARCHIVED REPO
+I no longer use Motion, no longer have a Motion API key, and can no longer test changes to this repo.
+
+If you use Motion and would like to take over maintenance, please file an issue.
+
 # Motion-SDK
 
 Unofficial JavaScript SDK for [Motion](https://www.usemotion.com/).
